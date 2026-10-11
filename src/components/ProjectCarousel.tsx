@@ -5,14 +5,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CaseStudy, Cta } from "@content/types";
 import { BrowserFrame, SampleLayout } from "./BrowserFrame";
-
-// Same system, visible variety: the strip color follows the kind of organization.
-const accent: Record<CaseStudy["category"], string> = {
-  food: "var(--color-brick)",
-  youth: "var(--color-catawba)",
-  animals: "var(--color-evergreen)",
-  community: "var(--color-moss)",
-};
+import { categoryAccent as accent } from "@/lib/categories";
 
 const statusLabel: Record<CaseStudy["status"], string> = {
   sample: "Sample",
