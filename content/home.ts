@@ -1,4 +1,4 @@
-import type { Feature, RoadmapItem, Step } from "./types";
+import type { RoadmapItem, Step } from "./types";
 import { ORG_NAME, site } from "./site";
 
 const founder = site.founder;
@@ -7,13 +7,6 @@ export const hero = {
   title: "Free websites for the nonprofits of Union County and Charlotte.",
   body: `Food pantries, rescues, youth programs and church outreach groups do the work. We build the site that shows it: readable on a phone, registered in your name, with no fee and no agency markup. ${ORG_NAME} is a volunteer studio run by a high school student in Union County, and we are taking on our first projects.`,
 };
-
-/** Only things that are true today, and none are performance counts. The place count comes from the service-area list. */
-export const facts = [
-  { value: "$0", label: "Fee for design, build, launch or training" },
-  { value: "6\u201310", label: "Weeks from scope call to launch, typically" },
-  { value: String(site.serviceArea.unionCounty.length + site.serviceArea.charlotte.length), label: "Towns and neighborhoods we can visit in person" },
-];
 
 export const whoWeHelp = {
   title: "Who we help",
@@ -54,28 +47,10 @@ export const howItWorks = {
 export const whatYouGet = {
   title: "What we build into every site",
   body: "A small site that does the few jobs a small organization needs.",
-  features: [
-    {
-      title: "A site that works on phones",
-      body: "Most pages are designed for a small screen first, then scaled up.",
-    },
-    {
-      title: "Donation and volunteer forms",
-      body: "Clear ways for people to give, sign up and get in touch, wired to your inbox or the donation page you already use.",
-    },
-    {
-      title: "Basic SEO",
-      body: "Real page titles, descriptions and structure, so a search like \"food pantry Waxhaw\" has something accurate to find.",
-    },
-    {
-      title: "Hosting guidance",
-      body: "We recommend low-cost or free hosting, set it up with you, and put the accounts in your name.",
-    },
-    {
-      title: "Training",
-      body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
-    },
-  ] satisfies Feature[],
+  lead: {
+    title: "A site that works on phones",
+    body: "Most pages are designed for a small screen first, then scaled up.",
+  },
 };
 
 export const whyFree = {
