@@ -1,4 +1,4 @@
-import type { TeamMember, Value } from "./types";
+import type { TeamMember, TimelineEntry, Value } from "./types";
 import { ORG_NAME } from "./site";
 
 export const intro = {
@@ -18,6 +18,41 @@ export const story = {
     "A website is often the first thing a donor or new volunteer checks. When it looks neglected, people hesitate, even when the organization is excellent. Most of these groups cannot afford an agency, and many have nobody on staff who builds websites.",
     `Meanwhile, plenty of students want to build real things and have nowhere to practice on real projects. ${ORG_NAME} connects the two.`,
   ],
+};
+
+/**
+ * Fill in `when` and set `status: "done"` as each date is confirmed. Only true events belong here.
+ * Entries marked "tbd" or "upcoming" are shown on the site as such.
+ */
+export const timeline = {
+  title: "How we got here",
+  body: "A short history, with the dates filled in as they are confirmed.",
+  entries: [
+    {
+      when: "TBD",
+      title: "The idea",
+      body: "Nandha Saravanan, a high school student in Union County, noticed how many local nonprofits had websites that were missing, out of date or hard to use on a phone.",
+      status: "tbd",
+    },
+    {
+      when: "TBD",
+      title: "Applications open",
+      body: "The website goes live and the first nonprofit application form starts accepting submissions.",
+      status: "tbd",
+    },
+    {
+      when: "Not yet",
+      title: "First project begins",
+      body: "The first nonprofit is matched with a small student team.",
+      status: "upcoming",
+    },
+    {
+      when: "Not yet",
+      title: "First site launches",
+      body: "The first nonprofit goes live on a site it owns. It will appear on the Our Work page.",
+      status: "upcoming",
+    },
+  ] satisfies TimelineEntry[],
 };
 
 export const model = {

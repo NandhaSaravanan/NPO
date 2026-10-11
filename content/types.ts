@@ -4,6 +4,14 @@ export interface Step { title: string; body: string; /** Typical time this step 
 export interface Feature { title: string; body: string }
 export interface FaqItem { question: string; answer: string }
 export interface Role { title: string; summary: string; skills: string[] }
+export interface TimelineEntry {
+  /** A real date, or "TBD" until it is known. Never guess. */
+  when: string;
+  title: string;
+  body: string;
+  /** "tbd" = it happened but the date is not filled in; "upcoming" = it has not happened yet. */
+  status: "done" | "tbd" | "upcoming";
+}
 export interface Value { title: string; body: string }
 export interface RoadmapItem {
   phase: string;
@@ -23,6 +31,11 @@ export interface CaseStudy {
   /** Short descriptor of the organization, e.g. "Food pantry, Monroe NC" */
   orgType: string;
   summary: string;
+  /**
+   * Sets the card's accent strip. Four colors on purpose: food = brick, youth = Catawba, animals = evergreen,
+   * community = moss (church outreach, neighborhood associations and volunteer groups share it).
+   */
+  category: "food" | "youth" | "animals" | "community";
   /** "sample" cards are labeled as examples, not real clients. */
   status: "sample" | "in-progress" | "live";
   /** Tags such as "Website" or "Donation page". */
