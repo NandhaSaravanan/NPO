@@ -16,7 +16,7 @@ export default function CreditsPage() {
         title="Photo credits"
         body="The photographs here are stock images from Unsplash, standing in until we have our own. Thanks to the photographers."
       />
-      <section className="section">
+      <section className="section texture">
         <div className="container-page max-w-3xl">
           <ul className="border-t-2 border-pine">
             {Object.values(photos).map((p) => (

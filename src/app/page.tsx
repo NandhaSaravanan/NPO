@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@content/site";
 import { hero, facts, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } from "@content/home";
-import { ServiceArea } from "@/components/ServiceArea";
+import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { SectionHeading } from "@/components/Section";
 import { Steps } from "@/components/Steps";
 import { WhatYouGet } from "@/components/WhatYouGet";
@@ -13,7 +13,7 @@ import { photos } from "@content/photos";
 export default function Home() {
   return (
     <>
-      <section>
+      <section className="texture">
         <div className="container-page pt-16 pb-12 md:pt-24 md:pb-16">
           <div>
             <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl">{hero.title}</h1>
@@ -37,30 +37,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="who">
+      <section className="section texture bg-paper" aria-labelledby="who">
         <div className="container-page">
           <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
           <p className="mt-6 max-w-2xl text-lg">{whoWeHelp.kinds}</p>
-          <h3 className="mt-12 mb-6 text-2xl">{whoWeHelp.areaTitle}</h3>
-          <ServiceArea />
-          <p className="mt-8 max-w-2xl text-muted">{whoWeHelp.areaNote}</p>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="how">
+      <ServiceAreaBand title={whoWeHelp.areaTitle} note={whoWeHelp.areaNote} />
+
+      <section className="section texture" aria-labelledby="how">
         <div className="container-page">
           <SectionHeading id="how" title={howItWorks.title} body={howItWorks.body} />
           <Steps steps={howItWorks.steps} />
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="get">
+      <section className="section texture bg-paper" aria-labelledby="get">
         <div className="container-page">
           <WhatYouGet title={whatYouGet.title} body={whatYouGet.body} features={whatYouGet.features} />
         </div>
       </section>
 
-      <section className="section" aria-labelledby="free">
+      <section className="section texture" aria-labelledby="free">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr] md:items-start">
           <div>
             <h2 id="free" className="text-3xl md:text-4xl">{whyFree.title}</h2>
@@ -71,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="roadmap">
+      <section className="section texture bg-paper" aria-labelledby="roadmap">
         <div className="container-page">
           <SectionHeading id="roadmap" title="What comes next" body="Websites first. We will add more only once those are done well." />
           <Roadmap items={roadmap} />

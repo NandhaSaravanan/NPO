@@ -23,7 +23,7 @@ export const photos = {
     photographer: "Ryan M",
     photographerUrl: "https://unsplash.com/@rymc02?utm_source=lumen&utm_medium=referral",
     sourceUrl: "https://unsplash.com/photos/cJp16tjKAWk?utm_source=lumen&utm_medium=referral",
-    usedOn: "Home page, below the headline",
+    usedOn: "Home page, below the headline; behind the closing call-to-action band",
   },
   charlotteWestSide: {
     src: "/photos/charlotte-west-side.jpg",
@@ -33,6 +33,6 @@ export const photos = {
     photographer: "Daniel Weiss",
     photographerUrl: "https://unsplash.com/@dweiss002?utm_source=lumen&utm_medium=referral",
     sourceUrl: "https://unsplash.com/photos/x0P-6BRp5jc?utm_source=lumen&utm_medium=referral",
-    usedOn: "About page, next to the mission",
+    usedOn: "About page, next to the mission; behind the service-area section on the home and For Nonprofits pages",
   },
 } satisfies Record<string, Photo>;

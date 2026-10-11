@@ -21,14 +21,17 @@ export const eligibility = {
   criteria: [
     {
       title: "Local",
+      group: "Your organization",
       body: "Based in or mainly serving a town or neighborhood on our service list below, or within about 30 miles of Union County.",
     },
     {
       title: "Mission-driven",
+      group: "Your organization",
       body: "A registered 501(c)(3), or an established community, faith-based or volunteer organization doing public good.",
     },
     {
       title: "Ready to participate",
+      group: "Your team",
       body: "Someone on your team can talk with us, share content and photos, and review drafts on a reasonable schedule.",
     },
   ] satisfies Feature[],
@@ -77,10 +80,10 @@ export const needs = {
   title: "What we need from you",
   body: "The more of this you can share early, the faster your site goes live.",
   items: [
-    { title: "Content", body: "Your mission, programs, how to get involved, and any text you already use on flyers or social media. Rough notes are fine." },
-    { title: "Photos", body: "Pictures of your work, events and people. Please make sure you have permission to share anyone who appears in them." },
-    { title: "Logo and brand", body: "Your logo and colors if you have them. If not, we will help you pick something simple." },
-    { title: "A point person", body: "One contact who can answer questions and approve decisions, plus access to any existing domain or accounts." },
+    { title: "Content", group: "Send us", body: "Your mission, programs, how to get involved, and any text you already use on flyers or social media. Rough notes are fine." },
+    { title: "Photos", group: "Send us", body: "Pictures of your work, events and people. Please make sure you have permission to share anyone who appears in them." },
+    { title: "Logo and brand", group: "Send us", body: "Your logo and colors if you have them. If not, we will help you pick something simple." },
+    { title: "A point person", group: "Name one person", body: "One contact who can answer questions and approve decisions, plus access to any existing domain or accounts." },
   ],
 };
 

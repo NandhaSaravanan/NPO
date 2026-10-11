@@ -3,9 +3,9 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { intro, difference, eligibility, process, timeline, needs, faq, applyIntro, applicationForm } from "@content/nonprofits";
 import { PageHeader, SectionHeading } from "@/components/Section";
-import { RuledList } from "@/components/RuledList";
+import { GroupedList } from "@/components/GroupedList";
 import { Steps } from "@/components/Steps";
-import { ServiceArea } from "@/components/ServiceArea";
+import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { Faq } from "@/components/Faq";
 import { Form } from "@/components/Form";
 
@@ -22,7 +22,7 @@ export default function NonprofitsPage() {
         <Link href="#apply" className="btn btn-primary">Apply now</Link>
       </PageHeader>
 
-      <section className="section" aria-labelledby="different">
+      <section className="section texture" aria-labelledby="different">
         <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
           <SectionHeading id="different" title={difference.title} body={difference.body} />
           <ul className="space-y-8">
@@ -36,24 +36,23 @@ export default function NonprofitsPage() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="eligible">
+      <section className="section texture bg-paper" aria-labelledby="eligible">
         <div className="container-page">
           <SectionHeading id="eligible" title={eligibility.title} body={eligibility.body} />
-          <RuledList items={eligibility.criteria} className="mt-10" />
-          <h3 className="mt-14 mb-6 text-2xl">{eligibility.areaTitle}</h3>
-          <ServiceArea />
-          <p className="mt-8 max-w-2xl text-muted">{eligibility.note}</p>
+          <GroupedList items={eligibility.criteria} className="mt-8" />
         </div>
       </section>
 
-      <section className="section" aria-labelledby="process">
+      <ServiceAreaBand title={eligibility.areaTitle} note={eligibility.note} />
+
+      <section className="section texture" aria-labelledby="process">
         <div className="container-page">
           <SectionHeading id="process" title={process.title} />
           <Steps steps={process.steps} />
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="timeline">
+      <section className="section texture bg-paper" aria-labelledby="timeline">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-20">
           <SectionHeading id="timeline" title={timeline.title} body={timeline.body} />
           <dl className="border-t-2 border-pine">
@@ -67,21 +66,21 @@ export default function NonprofitsPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="needs">
+      <section className="section texture" aria-labelledby="needs">
         <div className="container-page">
           <SectionHeading id="needs" title={needs.title} body={needs.body} />
-          <RuledList items={needs.items} className="mt-10" />
+          <GroupedList items={needs.items} className="mt-8" />
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="faq">
+      <section className="section texture bg-paper" aria-labelledby="faq">
         <div className="container-page max-w-4xl">
           <SectionHeading id="faq" title="Frequently asked questions" />
           <div className="mt-8"><Faq items={faq} /></div>
         </div>
       </section>
 
-      <section id="apply" className="section" aria-labelledby="apply-title">
+      <section id="apply" className="section texture" aria-labelledby="apply-title">
         <div className="container-page max-w-3xl">
           <SectionHeading id="apply-title" title={applyIntro.title} body={applyIntro.body} />
           <div className="mt-8"><Form form={applicationForm} /></div>

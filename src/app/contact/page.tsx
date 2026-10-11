@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader title={intro.title} body={intro.body} />
-      <section className="section" aria-label="Contact form">
+      <section className="section texture" aria-label="Contact form">
         <div className="container-page grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <Form form={contactForm} />
           <aside className="space-y-8 lg:pt-2">
