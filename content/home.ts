@@ -95,6 +95,7 @@ export const roadmap: RoadmapItem[] = [
     status: "now",
     title: "Free websites for local nonprofits",
     body: "Available today. This is what we do, and we do it well.",
+    detail: "We design and build the site, launch it, move the domain and hosting into your name, and train someone on your team to keep it current. Typically six to ten weeks, with no fee.",
   },
   {
     phase: "2",

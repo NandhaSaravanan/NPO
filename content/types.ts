@@ -18,6 +18,8 @@ export interface RoadmapItem {
   status: "now" | "next" | "later";
   title: string;
   body: string;
+  /** Extra detail, shown only on the item that is available now. */
+  detail?: string;
 }
 export interface TeamMember {
   name: string;
