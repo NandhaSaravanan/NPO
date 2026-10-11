@@ -2,7 +2,17 @@ import type { FaqItem, Feature, FormDef, Step } from "./types";
 
 export const intro = {
   title: "A free website for your nonprofit",
-  body: "If your organization serves our community and your web presence is missing, outdated or broken on mobile, we can help. Here is how to know if we are a fit and what to expect.",
+  body: "If your pantry, rescue, ministry or youth program has a site that is missing, out of date or broken on a phone, we can rebuild it. Here is how to tell if we are a fit, and what the next six to ten weeks look like.",
+};
+
+export const difference = {
+  title: "We build websites. We are not a directory.",
+  body: "Directories and fundraising platforms list your organization alongside many others, and that can help. This is a different kind of help: a site of your own, built around your programs and your voice.",
+  points: [
+    { title: "It lives at your address", body: "Your domain, your hosting, your logins. If you ever move on from us, nothing breaks." },
+    { title: "Your donors come to you", body: "Gifts go through the donation service you already use or choose. We do not collect money, take a cut or hold your supporters' details." },
+    { title: "Keep your other listings", body: "A listing somewhere else can point to your site. Your site gives people the full story when they click." },
+  ],
 };
 
 export const eligibility = {
@@ -11,7 +21,7 @@ export const eligibility = {
   criteria: [
     {
       title: "Local",
-      body: "Based in or primarily serving Union County or the Charlotte area, within about 30 miles.",
+      body: "Based in or mainly serving a town or neighborhood on our service list below, or within about 30 miles of Union County.",
       icon: "compass",
     },
     {
@@ -26,6 +36,7 @@ export const eligibility = {
     },
   ] satisfies Feature[],
   note: "Not sure you qualify? Apply anyway or send us a note. We would rather talk than guess.",
+  areaTitle: "Where we can show up in person",
 };
 
 export const process = {
@@ -34,22 +45,22 @@ export const process = {
     {
       title: "Apply",
       body: "Fill out the form below. We read every application and reply within a week.",
-      icon: "pen",
+      when: "Reply within a week",
     },
     {
       title: "Scope call",
-      body: "A 30 minute call to agree on pages, features, content and a timeline.",
-      icon: "chat",
+      body: "A call to agree on pages, features, content and a timeline.",
+      when: "30 minutes",
     },
     {
       title: "Build",
       body: "We design and build your site, share a preview link, and revise based on your feedback.",
-      icon: "code",
+      when: "4 to 6 weeks",
     },
     {
       title: "Launch and handoff",
       body: "We go live, move all accounts into your name, and train your team to maintain the site.",
-      icon: "check",
+      when: "About a week",
     },
   ] satisfies Step[],
 };
@@ -80,6 +91,10 @@ export const faq: FaqItem[] = [
   {
     question: "Is it really free?",
     answer: "Yes. There is no fee for design, build, launch or training. The only costs you may have are ones you control, such as a custom domain name (usually around $12 to $20 a year). We will tell you exactly what, if anything, is needed before you commit.",
+  },
+  {
+    question: "Are you a directory or a fundraising platform?",
+    answer: "No. We build your organization's own website and hand it over. We do not list organizations, collect donations or take a share of what your supporters give.",
   },
   {
     question: "Who will build my site?",

@@ -40,7 +40,7 @@ src/app/globals.css Design tokens: accent color, neutrals, fonts
 Open the file in `content/`, change the text, save. TypeScript will flag a missing or misspelled field.
 
 - **Org name:** change `ORG_NAME` at the top of [`content/site.ts`](content/site.ts). It flows into the header, footer, page titles, metadata, structured data, and form emails.
-- **Contact email:** `email` in `content/site.ts`. This is also the `mailto:` fallback for every form. It is currently the placeholder `hello@lumen.example`, so replace it before launch.
+- **Contact email:** `email` in `content/site.ts`. This is also the `mailto:` fallback for every form. It is currently `nandhasaravanan2000@gmail.com`.
 - **Domain:** set `NEXT_PUBLIC_SITE_URL` in Vercel (used for the sitemap, canonical URLs and Open Graph).
 - **Team:** edit `team` in `content/about.ts`. Entries with `placeholder: true` render as dashed "Your name here" cards.
 - **Colors and fonts:** the accent color is defined once, as `--color-accent-*` in `src/app/globals.css`. Fonts are set in `src/app/layout.tsx`.

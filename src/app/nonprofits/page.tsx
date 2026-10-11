@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
-import { intro, eligibility, process, timeline, needs, faq, applyIntro, applicationForm } from "@content/nonprofits";
+import { intro, difference, eligibility, process, timeline, needs, faq, applyIntro, applicationForm } from "@content/nonprofits";
 import { PageHeader, SectionHeading } from "@/components/Section";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { Steps } from "@/components/Steps";
+import { ServiceArea } from "@/components/ServiceArea";
 import { Faq } from "@/components/Faq";
 import { Form } from "@/components/Form";
 import { Reveal } from "@/components/Reveal";
@@ -22,10 +23,28 @@ export default function NonprofitsPage() {
         <Link href="#apply" className="btn btn-primary">Apply now</Link>
       </PageHeader>
 
-      <section className="section" aria-labelledby="eligible">
+      <section className="section" aria-labelledby="different">
+        <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <SectionHeading id="different" title={difference.title} body={difference.body} />
+          <ul className="space-y-6">
+            {difference.points.map((p, i) => (
+              <li key={p.title}>
+                <Reveal delay={i * 80} className="border-l-4 border-accent-400 pl-5">
+                  <h3 className="text-xl font-semibold">{p.title}</h3>
+                  <p className="mt-1 text-muted">{p.body}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section bg-accent-50" aria-labelledby="eligible">
         <div className="container-page">
           <SectionHeading id="eligible" title={eligibility.title} body={eligibility.body} />
           <FeatureGrid items={eligibility.criteria} />
+          <h3 className="mt-14 mb-6 text-2xl font-semibold">{eligibility.areaTitle}</h3>
+          <ServiceArea />
           <p className="mt-8 max-w-2xl text-muted">{eligibility.note}</p>
         </div>
       </section>

@@ -5,7 +5,7 @@ export type IconName =
 
 export interface Cta { label: string; href: string }
 
-export interface Step { title: string; body: string; icon: IconName }
+export interface Step { title: string; body: string; /** Typical time this step takes. */ when: string }
 export interface Feature { title: string; body: string; icon: IconName }
 export interface FaqItem { question: string; answer: string }
 export interface Role { title: string; summary: string; skills: string[]; icon: IconName }

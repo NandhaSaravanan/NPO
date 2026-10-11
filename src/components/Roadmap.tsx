@@ -13,7 +13,7 @@ export function Roadmap({ items }: { items: RoadmapItem[] }) {
       {items.map((item, i) => (
         <li key={item.title}>
           <Reveal delay={i * 80} className={`card h-full p-6 ${item.status === "now" ? "ring-2 ring-accent-400" : ""}`}>
-            <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${badge[item.status].cls}`}>
+            <span className={`inline-block rounded-full px-3 py-1 text-sm font-bold ${badge[item.status].cls}`}>
               {badge[item.status].label}
             </span>
             <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>

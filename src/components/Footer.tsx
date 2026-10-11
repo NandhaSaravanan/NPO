@@ -13,7 +13,7 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-muted">{site.description}</p>
         </div>
         <nav aria-label="Footer">
-          <h2 className="font-body text-sm font-bold uppercase tracking-widest text-muted">Explore</h2>
+          <h2 className="font-body text-base font-bold text-muted">Explore</h2>
           <ul className="mt-4 space-y-2">
             {site.nav.map((item) => (
               <li key={item.href}>
@@ -26,7 +26,7 @@ export function Footer() {
           </ul>
         </nav>
         <div>
-          <h2 className="font-body text-sm font-bold uppercase tracking-widest text-muted">Contact</h2>
+          <h2 className="font-body text-base font-bold text-muted">Contact</h2>
           <p className="mt-4">
             <a href={`mailto:${site.email}`} className="font-semibold underline decoration-accent-500 underline-offset-4 hover:decoration-2">
               {site.email}
@@ -37,7 +37,7 @@ export function Footer() {
       </div>
       <div className="border-t border-line">
         <p className="container-page py-5 text-sm text-muted">
-          © {new Date().getFullYear()} {site.name}. Built by students, for our community.
+          © {new Date().getFullYear()} {site.name}. A volunteer studio in Union County, NC.
         </p>
       </div>
     </footer>
