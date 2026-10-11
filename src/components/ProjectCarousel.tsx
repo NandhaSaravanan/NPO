@@ -43,7 +43,7 @@ function CardBody({ c }: { c: CaseStudy }) {
             <li key={t} className="rounded-ui border border-line px-2 py-0.5 font-display text-sm font-bold text-muted">{t}</li>
           ))}
         </ul>
-        <h3 className="mt-4 text-2xl">{c.title}</h3>
+        <h3 className="mt-4 text-lg">{c.title}</h3>
         <p className="mt-1 font-display font-bold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
         <p className="mt-3 text-muted">{c.summary}</p>
         {c.results && (
@@ -152,7 +152,7 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
         <li className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
           <div className="flex w-full flex-col justify-between rounded-ui border-2 border-dashed border-pine p-6">
             <div>
-              <h3 className="text-2xl">{next.title}</h3>
+              <h3 className="text-lg">{next.title}</h3>
               <p className="mt-3 text-muted">{next.body}</p>
             </div>
             <Link href={next.cta.href} className="btn btn-primary mt-8 self-start" draggable={false}>{next.cta.label}</Link>

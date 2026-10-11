@@ -63,7 +63,7 @@ export function Form({ form }: { form: FormDef }) {
             <path d="m5 12.5 4.5 4.5L19 7.5" />
           </svg>
         </span>
-        <h3 className="mt-4 text-2xl font-semibold">{form.successTitle}</h3>
+        <h3 className="mt-4 text-xl">{form.successTitle}</h3>
         <p className="mt-2 text-muted">{form.successBody}</p>
       </div>
     );

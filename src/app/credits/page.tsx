@@ -21,7 +21,7 @@ export default function CreditsPage() {
           <ul className="border-t-2 border-pine">
             {Object.values(photos).map((p) => (
               <li key={p.src} className="border-b border-line py-5">
-                <p className="font-display text-lg font-bold">
+                <p className="font-display text-base font-bold">
                   <a href={p.sourceUrl} className="link">Photo</a> by{" "}
                   <a href={p.photographerUrl} className="link">{p.photographer}</a>
                 </p>

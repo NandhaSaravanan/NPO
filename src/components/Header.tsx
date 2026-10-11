@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { site } from "@content/site";
 import { Logo } from "./Logo";
 
-const navLink = "nav-link whitespace-nowrap px-3 py-2 font-display text-[1rem] font-bold";
+const navLink = "nav-link whitespace-nowrap px-3 py-2 font-display text-sm font-bold";
 
 export function Header() {
   const pathname = usePathname();
@@ -37,7 +37,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href={site.primaryCta.href} className="btn btn-primary ml-3 !min-h-10 !px-5 !py-2">
+          <Link href={site.primaryCta.href} className="btn btn-primary ml-3 !min-h-10 !px-5 !py-2 !text-sm">
             {site.primaryCta.label}
           </Link>
         </nav>

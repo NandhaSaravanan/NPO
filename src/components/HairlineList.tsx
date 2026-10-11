@@ -27,11 +27,11 @@ export function HairlineList({ items, className = "" }: { items: ListItem[]; cla
       {blocks.map((block, i) =>
         block.label ? (
           <section key={`${block.label}-${i}`} aria-label={block.label} className="grid gap-x-10 border-b border-line md:grid-cols-[minmax(0,15rem)_1fr]">
-            <h3 className="pt-5 font-display text-lg font-bold text-catawba md:pb-5">{block.label}</h3>
+            <h3 className="pt-5 font-display text-base font-bold text-catawba md:pb-5">{block.label}</h3>
             <ul>
               {block.items.map((item) => (
                 <li key={item.title ?? item.body} className="border-b border-line py-5 last:border-b-0">
-                  {item.title && <p className="font-display text-xl font-bold leading-tight">{item.title}</p>}
+                  {item.title && <p className="font-display text-lg font-bold leading-tight">{item.title}</p>}
                   {item.meta && <p className="font-display font-bold text-catawba">{item.meta}</p>}
                   <p className="mt-1 max-w-prose text-muted">{item.body}</p>
                   {item.note && <p className="mt-2 font-display font-bold text-catawba">{item.note}</p>}
@@ -52,7 +52,7 @@ function FlatRow({ item }: { item: ListItem }) {
     <div className={`grid gap-x-10 gap-y-1 border-b border-line py-5 ${item.title ? "md:grid-cols-[minmax(0,15rem)_1fr]" : ""}`}>
       {item.title && (
         <div>
-          <p className="font-display text-xl font-bold leading-tight">{item.title}</p>
+          <p className="font-display text-lg font-bold leading-tight">{item.title}</p>
           {item.meta && <p className="font-display font-bold text-catawba">{item.meta}</p>}
         </div>
       )}
