@@ -1,17 +1,21 @@
 import { site } from "@content/site";
+import { ServiceMap } from "./ServiceMap";
 
 /**
- * Two stretches of one line: the Union County towns, then the Charlotte
- * neighborhoods. A schematic of who we can visit, not a map, so the order
- * and spacing carry no geographic meaning.
+ * Where we can show up. Larger screens get an interactive schematic; phones get a plain list.
+ * Either way it is a schematic, not a map, so order and spacing carry no geographic meaning.
  */
 export function ServiceArea() {
   const { unionCounty, charlotte } = site.serviceArea;
   return (
-    <div className="grid gap-x-16 gap-y-10 md:grid-cols-2">
-      <Stretch name="Union County" places={unionCounty} />
-      <Stretch name="Charlotte" places={charlotte} />
-    </div>
+    <>
+      {/* Phones get the plain list: nothing here depends on hover. */}
+      <div className="grid gap-x-16 gap-y-10 md:hidden">
+        <Stretch name="Union County" places={unionCounty} />
+        <Stretch name="Charlotte" places={charlotte} />
+      </div>
+      <ServiceMap className="hidden w-full md:block" />
+    </>
   );
 }
 

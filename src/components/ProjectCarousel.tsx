@@ -4,6 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CaseStudy, Cta } from "@content/types";
+import { BrowserFrame, SampleLayout } from "./BrowserFrame";
+
+// Same system, visible variety: the strip color follows the kind of organization.
+const accent: Record<CaseStudy["category"], string> = {
+  food: "var(--color-brick)",
+  youth: "var(--color-catawba)",
+  animals: "var(--color-evergreen)",
+  community: "var(--color-moss)",
+};
 
 const statusLabel: Record<CaseStudy["status"], string> = {
   sample: "Sample",
@@ -11,7 +20,7 @@ const statusLabel: Record<CaseStudy["status"], string> = {
   live: "Live",
 };
 const statusStyle: Record<CaseStudy["status"], string> = {
-  sample: "border-brick text-brick",
+  sample: "border-pine text-pine",
   "in-progress": "border-catawba text-catawba",
   live: "border-pine bg-pine text-paper",
 };
@@ -19,13 +28,19 @@ const statusStyle: Record<CaseStudy["status"], string> = {
 function CardBody({ c }: { c: CaseStudy }) {
   return (
     <>
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-mist">
-        {c.image ? (
-          <Image src={c.image.src} alt={c.image.alt} fill sizes="(min-width: 640px) 26rem, 85vw" className="object-cover object-top" draggable={false} />
-        ) : (
-          <p className="flex h-full items-center justify-center px-8 text-center font-display font-bold text-muted">
-            Screenshot of the finished site goes here
-          </p>
+      <div className="h-1.5 w-full" style={{ background: "var(--card-accent)" }} aria-hidden="true" />
+      <div className="px-5 pt-5">
+        <BrowserFrame>
+          {c.image ? (
+            <div className="relative aspect-[16/10] w-full">
+              <Image src={c.image.src} alt={c.image.alt} fill sizes="(min-width: 640px) 26rem, 85vw" className="object-cover object-top" draggable={false} />
+            </div>
+          ) : (
+            <SampleLayout />
+          )}
+        </BrowserFrame>
+        {c.status === "sample" && !c.image && (
+          <p className="mt-2 text-sm text-muted">Sample layout, not a real client</p>
         )}
       </div>
       <div className="flex flex-1 flex-col p-5">
@@ -36,7 +51,7 @@ function CardBody({ c }: { c: CaseStudy }) {
           ))}
         </ul>
         <h3 className="mt-4 text-2xl">{c.title}</h3>
-        <p className="mt-1 font-display font-bold text-catawba">{c.orgType}</p>
+        <p className="mt-1 font-display font-bold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
         <p className="mt-3 text-muted">{c.summary}</p>
         {c.results && (
           <ul className="mt-3 list-disc space-y-1 pl-5 text-muted">
@@ -130,12 +145,12 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
         {items.map((c) => (
           <li key={c.slug} className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
             {c.url ? (
-              <a href={c.url} target="_blank" rel="noopener noreferrer" className="project-card flex w-full flex-col overflow-hidden" draggable={false}>
+              <a href={c.url} target="_blank" rel="noopener noreferrer" className="project-card flex w-full flex-col overflow-hidden" style={{ "--card-accent": accent[c.category] } as React.CSSProperties} draggable={false}>
                 <CardBody c={c} />
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             ) : (
-              <article className="project-card flex w-full flex-col overflow-hidden">
+              <article className="project-card flex w-full flex-col overflow-hidden" style={{ "--card-accent": accent[c.category] } as React.CSSProperties}>
                 <CardBody c={c} />
               </article>
             )}
