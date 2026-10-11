@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { RoadmapItem } from "@content/types";
+import { site } from "@content/site";
 
 const label: Record<RoadmapItem["status"], string> = {
   now: "Available now",
@@ -6,29 +8,41 @@ const label: Record<RoadmapItem["status"], string> = {
   later: "Coming later",
 };
 
-/** A staircase: the nearer the phase, the larger it is set and the further left it sits. */
-export function Roadmap({ items }: { items: RoadmapItem[] }) {
+/**
+ * One real thing stated plainly and prominently, with the two future ideas as a quiet aside.
+ * They are deliberately not matching boxes: only the first exists.
+ */
+export function Roadmap({
+  items,
+  asideTitle,
+  asideBody,
+}: {
+  items: RoadmapItem[];
+  asideTitle: string;
+  asideBody: string;
+}) {
+  const [now, ...later] = items;
   return (
-    <ol className="mt-10 space-y-6">
-      {items.map((item) => {
-        if (item.status === "now") {
-          return (
-            <li key={item.title} className="bg-pine p-7 text-paper md:p-12">
-              <p className="font-display font-bold text-[#f1b8d0]">{label.now}</p>
-              <h3 className="mt-2 max-w-2xl text-3xl md:text-5xl">{item.title}</h3>
-              <p className="mt-4 max-w-xl text-lg text-mist">{item.body}</p>
+    <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:items-end lg:gap-20">
+      <div className="bg-pine p-8 text-paper md:p-14">
+        <p className="font-display font-bold text-[#f1b8d0]">{label[now.status]}</p>
+        <h2 id="roadmap" className="mt-3 text-4xl md:text-6xl">{now.title}</h2>
+        <p className="mt-6 max-w-xl text-xl">{now.detail}</p>
+        <Link href={site.primaryCta.href} className="btn btn-primary mt-8">{site.primaryCta.label}</Link>
+      </div>
+      <aside aria-labelledby="headed">
+        <h3 id="headed" className="text-xl">{asideTitle}</h3>
+        <p className="mt-2 text-muted">{asideBody}</p>
+        <ul className="mt-6 space-y-5 border-l-2 border-line pl-5">
+          {later.map((item) => (
+            <li key={item.title}>
+              <p className="font-display text-sm font-bold text-muted">{label[item.status]}</p>
+              <p className="font-display text-lg font-bold leading-snug">{item.title}</p>
+              <p className="mt-1 text-muted">{item.body.replace(/^Coming (next|later)\. /, "")}</p>
             </li>
-          );
-        }
-        const next = item.status === "next";
-        return (
-          <li key={item.title} className={`border-l-4 pl-6 ${next ? "border-catawba md:ml-16" : "border-line md:ml-32"}`}>
-            <p className={`font-display font-bold ${next ? "text-catawba" : "text-muted"}`}>{label[item.status]}</p>
-            <h3 className={`mt-1 ${next ? "text-2xl md:text-3xl" : "text-xl text-muted md:text-2xl"}`}>{item.title}</h3>
-            <p className="mt-2 max-w-xl text-muted">{item.body}</p>
-          </li>
-        );
-      })}
-    </ol>
+          ))}
+        </ul>
+      </aside>
+    </div>
   );
 }

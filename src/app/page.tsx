@@ -72,8 +72,7 @@ export default function Home() {
 
       <section className="section texture bg-paper" aria-labelledby="roadmap">
         <div className="container-page">
-          <SectionHeading id="roadmap" title="What comes next" body="Websites first. We will add more only once those are done well." />
-          <Roadmap items={roadmap} />
+          <Roadmap items={roadmap} asideTitle="What comes next" asideBody="Websites first. We will add more only once those are done well." />
         </div>
       </section>
 

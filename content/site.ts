@@ -14,6 +14,7 @@ export const site = {
   email: "nandhasaravanan2000@gmail.com",
   region: "Union County and Charlotte, North Carolina",
   /** Where we can show up in person. Shown on the home and For Nonprofits pages. */
+  serviceStatement: "Serving nonprofits across Charlotte and Union County.",
   serviceArea: {
     unionCounty: ["Monroe", "Waxhaw", "Indian Trail", "Weddington"],
     charlotte: ["South End", "NoDa", "Plaza Midwood", "Dilworth", "University City"],
