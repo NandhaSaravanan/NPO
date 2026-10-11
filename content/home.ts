@@ -1,69 +1,66 @@
 import type { Feature, RoadmapItem, Step } from "./types";
-import { ORG_NAME } from "./site";
+import { ORG_NAME, site } from "./site";
+
+const founder = site.founder;
 
 export const hero = {
-  eyebrow: "Union County and Charlotte area",
-  title: "A real website for the nonprofit doing real good.",
-  body: "Local food pantries, youth programs, animal rescues and community groups should not lose donors and volunteers to a broken site. We build them a professional one, free.",
+  title: "Free websites for the nonprofits of Union County and Charlotte.",
+  body: `Food pantries, rescues, youth programs and church outreach groups do the work. We build the site that shows it: readable on a phone, registered in your name, with no fee and no agency markup. ${ORG_NAME} is a volunteer studio run by a high school student in Union County, and we are taking on our first projects.`,
 };
 
 export const whoWeHelp = {
   title: "Who we help",
-  body: "Small, local organizations with big impact and no web budget.",
-  groups: [
-    "Food pantries",
-    "Youth programs",
-    "Animal rescues",
-    "Community groups",
-    "Church outreach ministries",
-    "Neighborhood associations",
-  ],
+  body: "Groups whose money goes to groceries, vet bills and field trips, not web design.",
+  kinds:
+    "Food pantries, youth programs, animal rescues, church outreach ministries, neighborhood associations and volunteer groups.",
+  areaTitle: "Where we can show up in person",
+  areaNote: "Not on the list but close by? Apply anyway and tell us where you are.",
 };
 
 export const howItWorks = {
   title: "How it works",
-  body: "Four steps, one small team, and a site you own at the end.",
+  body: "From your application to a live site you own, usually six to ten weeks.",
   steps: [
     {
       title: "Apply",
-      body: "Tell us about your organization and what your site needs to do. It takes about ten minutes.",
-      icon: "pen",
+      body: "Tell us about your organization and what the site needs to do. It takes about ten minutes.",
+      when: "We reply within a week",
     },
     {
       title: "Scope call",
       body: "A short call to agree on pages, priorities and a launch date, so nothing surprises you later.",
-      icon: "chat",
+      when: "30 minutes",
     },
     {
       title: "Build",
-      body: "A small student team designs and builds your site. You review it along the way and give feedback.",
-      icon: "code",
+      body: "A small student team designs and builds your site. You see a preview link and send feedback as we go.",
+      when: "4 to 6 weeks",
     },
     {
       title: "Launch and handoff",
-      body: "We publish it, move the accounts into your name, and train you to keep it up to date.",
-      icon: "check",
+      body: "We publish it, move the domain and hosting into your name, and train someone on your team to update it.",
+      when: "About a week",
     },
   ] satisfies Step[],
 };
 
 export const whatYouGet = {
-  title: "What you get",
-  body: "Everything a small organization needs to be found, trusted and supported online.",
+  title: "What we build into every site",
+  body: "A small site that does the few jobs a small organization needs.",
   features: [
     {
       title: "A site that works on phones",
-      body: "Most visitors will arrive on a phone. Every page is designed for small screens first.",
+      body: "Most pages are designed for a small screen first, then scaled up.",
       icon: "layout",
     },
     {
       title: "Donation and volunteer forms",
-      body: "Clear ways for people to give, sign up and get in touch, wired to your inbox or your existing donation page.",
+      body: "Clear ways for people to give, sign up and get in touch, wired to your inbox or the donation page you already use.",
       icon: "heart",
     },
     {
       title: "Basic SEO",
-      body: "Proper page titles, descriptions and structure so people searching for your cause can find you.",
+      body: "Real page titles, descriptions and structure, so a search like \"food pantry Waxhaw\" has something accurate to find.",
       icon: "search",
     },
     {
@@ -73,7 +70,7 @@ export const whatYouGet = {
     },
     {
       title: "Training",
-      body: "A hands-on session and a plain-English guide so someone on your team can update the site without us.",
+      body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
       icon: "graduation",
     },
   ] satisfies Feature[],
@@ -82,8 +79,8 @@ export const whatYouGet = {
 export const whyFree = {
   title: "Why free?",
   body: [
-    `Small nonprofits put every dollar into the people they serve, and agency quotes start where their budgets end. ${ORG_NAME} is run by students who want real client experience and want to help the community they live in.`,
-    "That is the whole trade. You get a good website. Our volunteers get a portfolio and the satisfaction of shipping something that matters. No hidden fees, no upsells, no strings.",
+    `There is no office, no payroll and no agency markup here, so there is nothing to cover. ${ORG_NAME} is a volunteer studio run by ${founder}, a high school student in Union County who is building a portfolio on real projects. The students on your team are doing the same.`,
+    "So the trade is simple. You get a working site, and we get something real to put our names on. We are not a funded startup, and we are not asking you for donations. The only cost you might see is a domain name, usually $12 to $20 a year, and we will tell you before you commit.",
   ],
 };
 
@@ -109,6 +106,6 @@ export const roadmap: RoadmapItem[] = [
 ];
 
 export const closing = {
-  title: "Ready to get started?",
-  body: "Whether you run an organization that needs a site or you are a student who wants to build one, we would love to hear from you.",
+  title: "Apply, or join the team",
+  body: "If you run a Union County or Charlotte nonprofit with a site that is not working, apply and we will reply within a week. If you are a student who wants real projects for your portfolio, sign up to volunteer.",
 };

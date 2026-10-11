@@ -74,10 +74,8 @@
     .section { padding-block: 6rem; }
   }
   .eyebrow {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
     color: var(--color-accent-700);
   }
   .btn {

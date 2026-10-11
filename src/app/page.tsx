@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@content/site";
 import { hero, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } from "@content/home";
-import { HeroArt } from "@/components/Illustrations";
+import { ServiceArea } from "@/components/ServiceArea";
 import { SectionHeading } from "@/components/Section";
 import { Steps } from "@/components/Steps";
 import { FeatureGrid } from "@/components/FeatureGrid";
@@ -13,36 +13,31 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden bg-cream">
-        <div className="container-page grid items-center gap-10 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="container-page py-16 md:py-24">
           <div>
-            <p className="eyebrow mb-4">{hero.eyebrow}</p>
-            <h1 className="text-4xl font-semibold sm:text-5xl lg:text-6xl">{hero.title}</h1>
-            <p className="mt-6 max-w-xl text-lg text-muted md:text-xl">{hero.body}</p>
+            <h1 className="max-w-4xl text-4xl font-semibold sm:text-5xl lg:text-6xl">{hero.title}</h1>
+            <p className="mt-6 max-w-2xl text-lg text-muted md:text-xl">{hero.body}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
               <Link href={site.secondaryCta.href} className="btn btn-secondary">{site.secondaryCta.label}</Link>
             </div>
           </div>
-          <HeroArt className="mx-auto w-full max-w-md lg:max-w-none" />
         </div>
       </section>
 
       <section className="section" aria-labelledby="who">
         <div className="container-page">
           <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
-          <Reveal>
-            <ul className="mt-8 flex flex-wrap gap-3">
-              {whoWeHelp.groups.map((g) => (
-                <li key={g} className="rounded-full border border-line bg-white px-5 py-2.5 font-semibold shadow-sm">{g}</li>
-              ))}
-            </ul>
-          </Reveal>
+          <p className="mt-6 max-w-2xl text-lg">{whoWeHelp.kinds}</p>
+          <h3 className="mt-12 mb-6 text-2xl font-semibold">{whoWeHelp.areaTitle}</h3>
+          <ServiceArea />
+          <p className="mt-8 max-w-2xl text-muted">{whoWeHelp.areaNote}</p>
         </div>
       </section>
 
       <section className="section bg-cream" aria-labelledby="how">
         <div className="container-page">
-          <SectionHeading id="how" eyebrow="The process" title={howItWorks.title} body={howItWorks.body} />
+          <SectionHeading id="how" title={howItWorks.title} body={howItWorks.body} />
           <Steps steps={howItWorks.steps} />
         </div>
       </section>
@@ -67,7 +62,7 @@ export default function Home() {
 
       <section className="section" aria-labelledby="roadmap">
         <div className="container-page">
-          <SectionHeading id="roadmap" eyebrow="Where we are headed" title="What comes next" body="We are starting with websites and doing that well before we take on more." />
+          <SectionHeading id="roadmap" title="What comes next" body="Websites first. We will add more only once those are done well." />
           <Roadmap items={roadmap} />
         </div>
       </section>

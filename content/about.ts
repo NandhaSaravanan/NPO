@@ -8,7 +8,7 @@ export const intro = {
 
 export const mission = {
   title: "Our mission",
-  body: "Every community group deserves a website that earns trust. We use the skills of local students to give small nonprofits a professional online presence, at no cost, so they can spend their time and money on the people they serve.",
+  body: "No pantry, rescue or youth program in Union County or Charlotte should lose a donor or volunteer at the first click because its site is missing, out of date or unreadable on a phone. Local students do the building. The nonprofit keeps the site.",
 };
 
 export const story = {
@@ -22,7 +22,7 @@ export const story = {
 
 export const model = {
   title: "How the model works",
-  body: "We match student volunteers with local nonprofits. Our focus is digital help, starting with websites.",
+  body: "We match student volunteers with local nonprofits and build websites. We are not a directory or a fundraising platform: the site we build is yours, at your own address.",
   points: [
     { title: "Match", body: "We pair a small team of student volunteers with a local nonprofit based on skills and the organization's needs." },
     { title: "Build", body: "The team scopes, designs and builds the site with a project lead as the nonprofit's single point of contact." },
@@ -31,7 +31,7 @@ export const model = {
 };
 
 export const values: Value[] = [
-  { title: "Community first", body: "We build for the people who rely on these organizations, not for our portfolios." },
+  { title: "The site comes first", body: "We want portfolio work and we say so. But the site has to work for the neighbors who rely on you before it works for our résumés." },
   { title: "Plain-spoken", body: "No jargon and no surprises. We say what we will do and then do it." },
   { title: "Built to last", body: "Simple, accessible, fast sites that a small team can keep running without us." },
   { title: "Owned by you", body: "Your domain, your content and your accounts are yours from day one." },
