@@ -8,14 +8,11 @@ export const hero = {
   body: `Food pantries, rescues, youth programs and church outreach groups do the work. We build the site that shows it: readable on a phone, registered in your name, with no fee and no agency markup. ${ORG_NAME} is a volunteer studio run by a high school student in Union County, and we are taking on our first projects.`,
 };
 
-/** Only things that are true today. Counts come from the service-area list so they cannot drift. */
+/** Only things that are true today, and none are performance counts. The place count comes from the service-area list. */
 export const facts = [
   { value: "$0", label: "Fee for design, build, launch or training" },
-  { value: "6 to 10", label: "Weeks from scope call to launch, typically" },
-  {
-    value: String(site.serviceArea.unionCounty.length + site.serviceArea.charlotte.length),
-    label: `Places we can visit in person: ${site.serviceArea.unionCounty.length} Union County towns and ${site.serviceArea.charlotte.length} Charlotte neighborhoods`,
-  },
+  { value: "6\u201310", label: "Weeks from scope call to launch, typically" },
+  { value: String(site.serviceArea.unionCounty.length + site.serviceArea.charlotte.length), label: "Towns and neighborhoods we can visit in person" },
 ];
 
 export const whoWeHelp = {

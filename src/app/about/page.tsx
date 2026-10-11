@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { intro, mission, story, timeline, model, values, teamIntro, team } from "@content/about";
 import { PageHeader, SectionHeading } from "@/components/Section";
-import { RuledList } from "@/components/RuledList";
+import { HairlineList } from "@/components/HairlineList";
 import { Timeline } from "@/components/Timeline";
 import { CtaBand } from "@/components/CtaBand";
 import { Photo } from "@/components/Photo";
@@ -66,24 +66,14 @@ export default function AboutPage() {
       <section className="section texture" aria-labelledby="values">
         <div className="container-page">
           <SectionHeading id="values" title="What we value" />
-          <RuledList items={values} className="mt-10" />
+          <HairlineList items={values} className="mt-10" />
         </div>
       </section>
 
       <section className="section texture bg-paper" aria-labelledby="team">
         <div className="container-page">
           <SectionHeading id="team" title={teamIntro.title} body={teamIntro.body} />
-          <div className="mt-10 border-t-2 border-pine">
-            {team.map((m) => (
-              <div key={`${m.name}-${m.role}`} className="grid gap-x-10 gap-y-1 border-b border-line py-6 md:grid-cols-[minmax(0,15rem)_1fr]">
-                <div>
-                  <h3 className="text-xl">{m.name}</h3>
-                  <p className="font-display font-bold text-catawba">{m.role}</p>
-                </div>
-                <p className="max-w-prose text-muted">{m.bio}</p>
-              </div>
-            ))}
-          </div>
+          <HairlineList items={team.map((m) => ({ title: m.name, meta: m.role, body: m.bio }))} className="mt-10" />
         </div>
       </section>
 

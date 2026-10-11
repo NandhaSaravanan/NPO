@@ -45,9 +45,9 @@ function CardBody({ c }: { c: CaseStudy }) {
       </div>
       <div className="flex flex-1 flex-col p-5">
         <ul className="flex flex-wrap gap-2">
-          <li className={`rounded-sm border px-2 py-0.5 font-display text-sm font-bold ${statusStyle[c.status]}`}>{statusLabel[c.status]}</li>
+          <li className={`rounded-ui border px-2 py-0.5 font-display text-sm font-bold ${statusStyle[c.status]}`}>{statusLabel[c.status]}</li>
           {c.tags.map((t) => (
-            <li key={t} className="rounded-sm border border-line px-2 py-0.5 font-display text-sm font-bold text-muted">{t}</li>
+            <li key={t} className="rounded-ui border border-line px-2 py-0.5 font-display text-sm font-bold text-muted">{t}</li>
           ))}
         </ul>
         <h3 className="mt-4 text-2xl">{c.title}</h3>
@@ -157,7 +157,7 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
           </li>
         ))}
         <li className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
-          <div className="flex w-full flex-col justify-between border-2 border-dashed border-pine p-6">
+          <div className="flex w-full flex-col justify-between rounded-ui border-2 border-dashed border-pine p-6">
             <div>
               <h3 className="text-2xl">{next.title}</h3>
               <p className="mt-3 text-muted">{next.body}</p>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { intro, roles, gains, commitment, faq, joinIntro, volunteerForm } from "@content/volunteer";
 import { PageHeader, SectionHeading } from "@/components/Section";
-import { RuledList } from "@/components/RuledList";
+import { HairlineList } from "@/components/HairlineList";
 import { Faq } from "@/components/Faq";
 import { Form } from "@/components/Form";
 
@@ -23,35 +23,21 @@ export default function VolunteerPage() {
       <section className="section texture" aria-labelledby="roles">
         <div className="container-page">
           <SectionHeading id="roles" title="Roles" body="Pick the one that fits, and tell us if you want to try something new." />
-          <div className="mt-10 border-t-2 border-pine">
-            {roles.map((r) => (
-              <div key={r.title} className="grid gap-x-10 gap-y-1 border-b border-line py-6 md:grid-cols-[minmax(0,15rem)_1fr]">
-                <h3 className="text-xl">{r.title}</h3>
-                <div className="max-w-prose">
-                  <p className="text-muted">{r.summary}</p>
-                  <p className="mt-2 font-display font-bold text-catawba">{r.skills.join(", ")}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <HairlineList items={roles.map((r) => ({ title: r.title, body: r.summary, note: r.skills.join(", ") }))} className="mt-10" />
         </div>
       </section>
 
       <section className="section texture bg-paper" aria-labelledby="gain">
         <div className="container-page">
           <SectionHeading id="gain" title={gains.title} />
-          <RuledList items={gains.items} className="mt-10" />
+          <HairlineList items={gains.items} className="mt-10" />
         </div>
       </section>
 
       <section className="section texture" aria-labelledby="commit">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-20">
           <SectionHeading id="commit" title={commitment.title} body={commitment.body} />
-          <ul className="border-t-2 border-pine">
-            {commitment.items.map((c) => (
-              <li key={c} className="border-b border-line py-4">{c}</li>
-            ))}
-          </ul>
+          <HairlineList items={commitment.items.map((c) => ({ body: c }))} />
         </div>
       </section>
 
