@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Gabarito, Public_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { site } from "@content/site";
 import { siteUrl } from "@/lib/site-url";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const display = Gabarito({ subsets: ["latin"], variable: "--font-gabarito", display: "swap" });
-const body = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans", display: "swap" });
+const display = Bricolage_Grotesque({ subsets: ["latin"], axes: ["opsz"], variable: "--font-bricolage", display: "swap" });
+const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
