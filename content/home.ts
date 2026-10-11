@@ -1,4 +1,4 @@
-import type { RoadmapItem, Step } from "./types";
+import type { CaseStudy, RoadmapItem, Step } from "./types";
 import { ORG_NAME, site } from "./site";
 
 const founder = site.founder;
@@ -11,8 +11,15 @@ export const hero = {
 export const whoWeHelp = {
   title: "Who we help",
   body: "Groups whose money goes to groceries, vet bills and field trips, not web design.",
-  kinds:
-    "Food pantries, youth programs, animal rescues, church outreach ministries, neighborhood associations and volunteer groups.",
+  /** Colors follow the project-card categories. Church outreach, neighborhood and volunteer groups share one. */
+  groups: [
+    { label: "Food pantries", category: "food" },
+    { label: "Youth programs", category: "youth" },
+    { label: "Animal rescues", category: "animals" },
+    { label: "Church outreach ministries", category: "community" },
+    { label: "Neighborhood associations", category: "community" },
+    { label: "Volunteer groups", category: "community" },
+  ] satisfies { label: string; category: CaseStudy["category"] }[],
   areaTitle: "Where we can show up in person",
   areaNote: "Not on the list but close by? Apply anyway and tell us where you are.",
 };
@@ -46,11 +53,29 @@ export const howItWorks = {
 
 export const whatYouGet = {
   title: "What we build into every site",
-  body: "A small site that does the few jobs a small organization needs.",
-  lead: {
-    title: "A site that works on phones",
-    body: "Most pages are designed for a small screen first, then scaled up.",
-  },
+  body: "Every site gets the same five things, whether the organization is in Weddington or NoDa.",
+  items: [
+    {
+      title: "A site that works on phones",
+      body: "Pages are designed for a small screen first and scaled up, so a Waxhaw pantry or a Charlotte youth program reads clearly on the phone in someone's hand.",
+    },
+    {
+      title: "Donation and volunteer forms",
+      body: "Forms for signing up and getting in touch go to your inbox, and giving goes through the donation service you already use, because we do not collect money or hold your supporters' details.",
+    },
+    {
+      title: "Basic SEO",
+      body: "Real page titles, descriptions and structure that name your town or neighborhood, so a search like \"food pantry Waxhaw\" has something accurate to find.",
+    },
+    {
+      title: "Hosting guidance",
+      body: "We recommend low-cost or free hosting, set it up with you, and put the domain and accounts in your name. The only cost you might see is the domain, usually $12 to $20 a year.",
+    },
+    {
+      title: "Training",
+      body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
+    },
+  ],
 };
 
 export const whyFree = {

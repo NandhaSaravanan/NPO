@@ -4,9 +4,10 @@ import { hero, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } fr
 import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { SectionHeading } from "@/components/Section";
 import { Steps } from "@/components/Steps";
-import { WhatYouGet } from "@/components/WhatYouGet";
+import { HairlineList } from "@/components/HairlineList";
 import { Roadmap } from "@/components/Roadmap";
 import { CtaBand } from "@/components/CtaBand";
+import { categoryAccent } from "@/lib/categories";
 import { Photo } from "@/components/Photo";
 import { photos } from "@content/photos";
 
@@ -32,7 +33,17 @@ export default function Home() {
       <section className="section texture bg-paper" aria-labelledby="who">
         <div className="container-page">
           <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
-          <p className="mt-6 max-w-2xl text-lg">{whoWeHelp.kinds}</p>
+          <ul className="mt-8 flex flex-wrap gap-3">
+            {whoWeHelp.groups.map((g) => (
+              <li
+                key={g.label}
+                className="rounded-ui px-4 py-2 font-display text-lg font-bold text-paper"
+                style={{ background: categoryAccent[g.category] }}
+              >
+                {g.label}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -47,7 +58,8 @@ export default function Home() {
 
       <section className="section texture bg-paper" aria-labelledby="get">
         <div className="container-page">
-          <WhatYouGet title={whatYouGet.title} body={whatYouGet.body} lead={whatYouGet.lead} />
+          <SectionHeading id="get" title={whatYouGet.title} body={whatYouGet.body} />
+          <HairlineList items={whatYouGet.items} className="mt-8" />
         </div>
       </section>
 
