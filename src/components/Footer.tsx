@@ -13,7 +13,7 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-muted">{site.description}</p>
         </div>
         <nav aria-label="Footer">
-          <h2 className="font-body text-base font-bold text-muted">Explore</h2>
+          <h2 className="font-body text-base font-semibold text-muted">Explore</h2>
           <ul className="mt-4 space-y-2">
             {site.nav.map((item) => (
               <li key={item.href}>
@@ -29,7 +29,7 @@ export function Footer() {
           </ul>
         </nav>
         <div>
-          <h2 className="font-body text-base font-bold text-muted">Contact</h2>
+          <h2 className="font-body text-base font-semibold text-muted">Contact</h2>
           <p className="mt-4">
             <a href={`mailto:${site.email}`} className="link font-semibold">
               {site.email}
