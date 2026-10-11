@@ -10,35 +10,31 @@ export const roles: Role[] = [
     title: "Web developer",
     summary: "Turn designs into fast, accessible, mobile-friendly pages and connect forms and hosting.",
     skills: ["HTML and CSS", "JavaScript or React", "Git basics"],
-    icon: "code",
   },
   {
     title: "Designer",
     summary: "Shape the look and feel: layout, color, type and simple graphics that suit each organization.",
     skills: ["Figma or similar", "Layout and typography", "Accessibility awareness"],
-    icon: "palette",
   },
   {
     title: "Content writer",
     summary: "Help nonprofits say what they do in clear, warm, plain language that moves people to act.",
     skills: ["Clear writing", "Interviewing", "Editing"],
-    icon: "pen",
   },
   {
     title: "Project lead",
     summary: "Be the main contact for a nonprofit, keep the team on schedule and make sure launch goes smoothly.",
     skills: ["Communication", "Organization", "Follow-through"],
-    icon: "compass",
   },
 ];
 
 export const gains = {
   title: "What you gain",
   items: [
-    { title: "A real portfolio", body: "Live projects with your name on them, far better than a class assignment.", icon: "briefcase" },
-    { title: "Service hours", body: "We track your hours and can provide documentation for school service requirements.", icon: "clock" },
-    { title: "Client experience", body: "Scope work, take feedback and deliver on a deadline, the way professionals do.", icon: "users" },
-    { title: "A reference", body: "Nonprofit leaders who can speak to your work and reliability.", icon: "star" },
+    { title: "A real portfolio", body: "Live projects with your name on them, far better than a class assignment." },
+    { title: "Service hours", body: "We track your hours and can provide documentation for school service requirements." },
+    { title: "Client experience", body: "Scope work, take feedback and deliver on a deadline, the way professionals do." },
+    { title: "A reference", body: "Nonprofit leaders who can speak to your work and reliability." },
   ] satisfies Feature[],
 };
 

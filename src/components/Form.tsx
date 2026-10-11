@@ -8,7 +8,7 @@ import { submitForm, type FormState } from "@/app/actions";
 import { validate, type FieldErrors } from "@/lib/validation";
 
 const inputCls =
-  "mt-1.5 block w-full rounded-xl border border-[#9b9080] bg-white px-4 py-3 text-base text-ink placeholder:text-[#7a7060] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
+  "mt-1.5 block w-full rounded border border-[#7d8a82] bg-white px-4 py-3 text-base text-pine placeholder:text-[#66736c] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
 
 function Field({ field, error, value, formId }: { field: FieldDef; error?: string; value: string; formId: string }) {
   const id = `${formId}-${field.name}`;
@@ -58,7 +58,7 @@ export function Form({ form }: { form: FormDef }) {
   if (state.status === "success") {
     return (
       <div role="status" className="card p-8 text-center">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent-100 text-accent-800">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-mist text-catawba">
           <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m5 12.5 4.5 4.5L19 7.5" />
           </svg>
@@ -95,12 +95,12 @@ export function Form({ form }: { form: FormDef }) {
       </div>
 
       {errorCount > 0 && (
-        <div role="alert" className="rounded-xl border border-[#b42318] bg-[#fff6f5] p-4 font-semibold text-[#8a1c12]">
+        <div role="alert" className="rounded border border-[#b42318] bg-[#fff6f5] p-4 font-semibold text-[#8a1c12]">
           Please fix {errorCount === 1 ? "1 field" : `${errorCount} fields`} below and try again.
         </div>
       )}
       {(state.status === "fallback" || state.status === "error") && (
-        <div role="alert" className="rounded-xl border border-accent-600 bg-accent-50 p-4">
+        <div role="alert" className="rounded border border-catawba bg-granite p-4">
           <p className="font-semibold">
             {state.status === "error"
               ? "We could not send your message automatically."

@@ -1,0 +1,29 @@
+import Image from "next/image";
+import type { Photo as PhotoData } from "@content/photos";
+
+/** A photo with a small credit line. `ratio` crops the frame; the image covers it. */
+export function Photo({
+  photo,
+  ratio,
+  sizes,
+  priority = false,
+}: {
+  photo: PhotoData;
+  ratio: string;
+  sizes: string;
+  priority?: boolean;
+}) {
+  return (
+    <figure>
+      <div className={`relative w-full overflow-hidden bg-mist ${ratio}`}>
+        <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} className="object-cover" />
+      </div>
+      <figcaption className="mt-2 text-sm text-muted">
+        Photo by{" "}
+        <a href={photo.photographerUrl} className="underline decoration-myrtle underline-offset-2">{photo.photographer}</a>
+        {" "}on{" "}
+        <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="underline decoration-myrtle underline-offset-2">Unsplash</a>
+      </figcaption>
+    </figure>
+  );
+}

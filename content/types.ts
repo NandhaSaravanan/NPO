@@ -1,14 +1,9 @@
-export type IconName =
-  | "layout" | "heart" | "search" | "server" | "graduation" | "mail"
-  | "code" | "palette" | "pen" | "compass" | "briefcase" | "clock"
-  | "star" | "users" | "check" | "chat";
-
 export interface Cta { label: string; href: string }
 
 export interface Step { title: string; body: string; /** Typical time this step takes. */ when: string }
-export interface Feature { title: string; body: string; icon: IconName }
+export interface Feature { title: string; body: string }
 export interface FaqItem { question: string; answer: string }
-export interface Role { title: string; summary: string; skills: string[]; icon: IconName }
+export interface Role { title: string; summary: string; skills: string[] }
 export interface Value { title: string; body: string }
 export interface RoadmapItem {
   phase: string;

@@ -1,26 +1,34 @@
 import type { RoadmapItem } from "@content/types";
-import { Reveal } from "./Reveal";
 
-const badge: Record<RoadmapItem["status"], { label: string; cls: string }> = {
-  now: { label: "Available now", cls: "bg-accent-400 text-ink" },
-  next: { label: "Coming next", cls: "bg-accent-100 text-accent-900" },
-  later: { label: "Coming later", cls: "bg-cream text-muted border border-line" },
+const label: Record<RoadmapItem["status"], string> = {
+  now: "Available now",
+  next: "Coming next",
+  later: "Coming later",
 };
 
+/** A staircase: the nearer the phase, the larger it is set and the further left it sits. */
 export function Roadmap({ items }: { items: RoadmapItem[] }) {
   return (
-    <ol className="mt-10 grid gap-5 md:grid-cols-3">
-      {items.map((item, i) => (
-        <li key={item.title}>
-          <Reveal delay={i * 80} className={`card h-full p-6 ${item.status === "now" ? "ring-2 ring-accent-400" : ""}`}>
-            <span className={`inline-block rounded-full px-3 py-1 text-sm font-bold ${badge[item.status].cls}`}>
-              {badge[item.status].label}
-            </span>
-            <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-            <p className="mt-2 text-muted">{item.body}</p>
-          </Reveal>
-        </li>
-      ))}
+    <ol className="mt-10 space-y-6">
+      {items.map((item) => {
+        if (item.status === "now") {
+          return (
+            <li key={item.title} className="bg-pine p-7 text-paper md:p-12">
+              <p className="font-display font-bold text-[#f1b8d0]">{label.now}</p>
+              <h3 className="mt-2 max-w-2xl text-3xl md:text-5xl">{item.title}</h3>
+              <p className="mt-4 max-w-xl text-lg text-mist">{item.body}</p>
+            </li>
+          );
+        }
+        const next = item.status === "next";
+        return (
+          <li key={item.title} className={`border-l-4 pl-6 ${next ? "border-catawba md:ml-16" : "border-line md:ml-32"}`}>
+            <p className={`font-display font-bold ${next ? "text-catawba" : "text-muted"}`}>{label[item.status]}</p>
+            <h3 className={`mt-1 ${next ? "text-2xl md:text-3xl" : "text-xl text-muted md:text-2xl"}`}>{item.title}</h3>
+            <p className="mt-2 max-w-xl text-muted">{item.body}</p>
+          </li>
+        );
+      })}
     </ol>
   );
 }

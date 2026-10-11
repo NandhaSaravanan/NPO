@@ -22,17 +22,14 @@ export const eligibility = {
     {
       title: "Local",
       body: "Based in or mainly serving a town or neighborhood on our service list below, or within about 30 miles of Union County.",
-      icon: "compass",
     },
     {
       title: "Mission-driven",
       body: "A registered 501(c)(3), or an established community, faith-based or volunteer organization doing public good.",
-      icon: "heart",
     },
     {
       title: "Ready to participate",
       body: "Someone on your team can talk with us, share content and photos, and review drafts on a reasonable schedule.",
-      icon: "users",
     },
   ] satisfies Feature[],
   note: "Not sure you qualify? Apply anyway or send us a note. We would rather talk than guess.",
