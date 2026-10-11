@@ -56,21 +56,43 @@ Open the file in `content/`, change the text, save. TypeScript will flag a missi
 
 ## Connect the forms
 
-All three forms (application, volunteer, contact) post to one server action, [`src/app/actions.ts`](src/app/actions.ts). It validates on the server, then POSTs JSON to the URL in the `FORM_ENDPOINT` environment variable:
+All three forms (application, volunteer, contact) post to one server action, [`src/app/actions.ts`](src/app/actions.ts). It rejects honeypot hits, validates on the server, then inserts a row into Supabase using a server-only client ([`src/lib/supabase/server.ts`](src/lib/supabase/server.ts)). Nothing is written from the browser.
+
+| Form | Table |
+| --- | --- |
+| Nonprofit application | `nonprofit_applications` |
+| Volunteer sign-up | `volunteer_signups` |
+| Contact | `contact_messages` |
+
+Each table has `id`, `created_at`, a `status` column (default `new`; use it to track follow-up), and one column per form field. Row Level Security is on with no policies, so the public (anon) key cannot read or write anything. Only the secret key, used on the server, can insert. View submissions in the Supabase dashboard under **Table Editor**.
+
+### Supabase setup
+
+1. Create a Supabase project and create the three tables above (the schema is in your project's migration history as `create_form_tables`). Keep RLS enabled and do not add policies for `anon`.
+2. In **Project Settings > API Keys**, copy the project URL, the publishable key (`sb_publishable_...`) and the secret key (`sb_secret_...`).
+3. Set these in `.env.local` locally and in Vercel for production:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` (the publishable key)
+   - `SUPABASE_SERVICE_ROLE_KEY` (the secret key; never expose it or prefix it with `NEXT_PUBLIC_`)
+4. Submit each form once and confirm the row appears in the Table Editor.
+
+**If Supabase is not configured, or an insert fails, nothing is stored.** The form says so plainly, keeps the visitor's answers, and shows an "Open email with my answers" button that opens a pre-filled `mailto:` to your address. Visitors are never told a message was sent when it wasn't.
+
+### Alternative: Formspree or Google Apps Script
+
+Used only when the Supabase variables are not set. The action POSTs JSON to the URL in `FORM_ENDPOINT`:
 
 ```json
 { "form": "contact", "subject": "Lumen: Contact message", "name": "…", "email": "…" }
 ```
 
-**Until `FORM_ENDPOINT` is set (or if it fails), nothing is sent.** The form says so plainly, keeps the visitor's answers, and shows an "Open email with my answers" button that opens a pre-filled `mailto:` to your address. Forms are never dead, and visitors are never told a message was sent when it wasn't.
-
-### Option A: Formspree (easiest)
+#### Formspree (easiest)
 
 1. Create a free form at [formspree.io](https://formspree.io) and copy its endpoint, like `https://formspree.io/f/abcd1234`.
 2. Set `FORM_ENDPOINT` to that URL (locally in `.env.local`, in production in Vercel).
 3. Submit a test, then confirm the email in Formspree's inbox. Free plans have a monthly submission limit.
 
-### Option B: Google Apps Script (free, writes to a Google Sheet)
+#### Google Apps Script (free, writes to a Google Sheet)
 
 1. Create a Google Sheet. Open **Extensions > Apps Script** and paste:
 
@@ -91,7 +113,7 @@ All three forms (application, volunteer, contact) post to one server action, [`s
 
 1. Push this folder to a GitHub repository.
 2. At [vercel.com/new](https://vercel.com/new), import the repo. Vercel detects Next.js, so no configuration is needed.
-3. Under **Settings > Environment Variables**, add `NEXT_PUBLIC_SITE_URL` (your final domain) and `FORM_ENDPOINT`.
+3. Under **Settings > Environment Variables**, add `NEXT_PUBLIC_SITE_URL` (your final domain) and the three Supabase variables.
 4. Deploy. Add your custom domain under **Settings > Domains**, then redeploy so the sitemap uses it.
 
 ## Notes
