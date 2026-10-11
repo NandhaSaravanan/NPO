@@ -33,11 +33,6 @@ export interface CaseStudy {
   /** Short descriptor of the organization, e.g. "Food pantry, Monroe NC" */
   orgType: string;
   summary: string;
-  /**
-   * Sets the card's accent strip. Four colors on purpose: food = brick, youth = Catawba, animals = evergreen,
-   * community = moss (church outreach, neighborhood associations and volunteer groups share it).
-   */
-  category: "food" | "youth" | "animals" | "community";
   /** "sample" cards are labeled as examples, not real clients. */
   status: "sample" | "in-progress" | "live";
   /** Tags such as "Website" or "Donation page". */

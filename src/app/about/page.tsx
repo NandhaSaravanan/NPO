@@ -5,8 +5,6 @@ import { PageHeader, SectionHeading } from "@/components/Section";
 import { HairlineList } from "@/components/HairlineList";
 import { Timeline } from "@/components/Timeline";
 import { CtaBand } from "@/components/CtaBand";
-import { Photo } from "@/components/Photo";
-import { photos } from "@content/photos";
 import { closing } from "@content/home";
 
 export const metadata: Metadata = pageMetadata({
@@ -25,9 +23,6 @@ export default function AboutPage() {
           <SectionHeading id="mission" title={mission.title} />
           <div>
             <p className="text-lg">{mission.body}</p>
-            <div className="mt-8">
-              <Photo photo={photos.charlotteWestSide} ratio="aspect-[16/9]" sizes="(min-width: 768px) 640px, 100vw" />
-            </div>
           </div>
         </div>
       </section>
