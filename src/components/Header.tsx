@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { site } from "@content/site";
 import { Logo } from "./Logo";
 
-const navLink = "nav-link whitespace-nowrap px-3 py-2 text-sm font-bold";
+const navLink = "nav-link whitespace-nowrap px-3 py-2 text-sm font-semibold";
 
 export function Header() {
   const pathname = usePathname();

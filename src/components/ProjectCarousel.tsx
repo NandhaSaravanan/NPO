@@ -37,20 +37,20 @@ function CardBody({ c }: { c: CaseStudy }) {
       </div>
       <div className="flex flex-1 flex-col p-5">
         <ul className="flex flex-wrap gap-2">
-          <li className={`rounded-ui border px-2 py-0.5 text-sm font-bold ${statusStyle[c.status]}`}>{statusLabel[c.status]}</li>
+          <li className={`rounded-ui border px-2 py-0.5 text-sm font-semibold ${statusStyle[c.status]}`}>{statusLabel[c.status]}</li>
           {c.tags.map((t) => (
-            <li key={t} className="rounded-ui border border-line px-2 py-0.5 text-sm font-bold text-muted">{t}</li>
+            <li key={t} className="rounded-ui border border-line px-2 py-0.5 text-sm font-semibold text-muted">{t}</li>
           ))}
         </ul>
         <h3 className="mt-4 text-lg">{c.title}</h3>
-        <p className="mt-1 font-bold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
+        <p className="mt-1 font-semibold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
         <p className="mt-3 text-muted">{c.summary}</p>
         {c.results && (
           <ul className="mt-3 list-disc space-y-1 pl-5 text-muted">
             {c.results.map((r) => <li key={r}>{r}</li>)}
           </ul>
         )}
-        {c.url && <p className="mt-auto pt-5 font-bold text-myrtle">View live site →</p>}
+        {c.url && <p className="mt-auto pt-5 font-semibold text-myrtle">View live site →</p>}
       </div>
     </>
   );
