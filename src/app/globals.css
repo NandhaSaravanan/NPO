@@ -3,8 +3,8 @@
 /* Design tokens. Palette from Charlotte and the Piedmont: granite, loblolly pine,
    crepe myrtle, the Catawba River, and mill brick. Myrtle is the only loud color. */
 @theme {
-  --font-display: var(--font-gabarito), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 
   /*
    * Type scale: Major Third (1.25) from an 18px body, with a smaller caption size.
@@ -111,7 +111,7 @@
     min-height: 3rem;
     padding: 0.75rem 1.5rem;
     border-radius: var(--radius-ui);
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: var(--text-base);
     line-height: 1.2;

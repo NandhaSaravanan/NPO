@@ -25,7 +25,7 @@ export function Roadmap({
   return (
     <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:items-end lg:gap-20">
       <div className="rounded-ui bg-pine p-8 text-paper shadow-card md:p-14">
-        <p className="font-display font-bold text-[#f1b8d0]">{label[now.status]}</p>
+        <p className="font-bold text-[#f1b8d0]">{label[now.status]}</p>
         <h2 id="roadmap" className="mt-3 text-2xl md:text-4xl">{now.title}</h2>
         <p className="mt-6 max-w-xl text-lg">{now.detail}</p>
         <Link href={site.primaryCta.href} className="btn btn-primary mt-8">{site.primaryCta.label}</Link>
@@ -36,8 +36,8 @@ export function Roadmap({
         <ul className="mt-6 space-y-5 border-l-2 border-line pl-5">
           {later.map((item) => (
             <li key={item.title}>
-              <p className="font-display text-sm font-bold text-muted">{label[item.status]}</p>
-              <p className="font-display text-base font-bold leading-snug">{item.title}</p>
+              <p className="text-sm font-bold text-muted">{label[item.status]}</p>
+              <p className="text-base font-bold leading-snug">{item.title}</p>
               <p className="mt-1 text-muted">{item.body.replace(/^Coming (next|later)\. /, "")}</p>
             </li>
           ))}

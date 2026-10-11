@@ -35,7 +35,7 @@ export default function Home() {
           <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
           <ul className="mt-8 flex flex-wrap gap-3">
             {whoWeHelp.groups.map((g) => (
-              <li key={g} className="rounded-ui bg-pine px-4 py-2 font-display text-base font-bold text-paper">
+              <li key={g} className="rounded-ui bg-pine px-4 py-2 text-base font-bold text-paper">
                 {g}
               </li>
             ))}
