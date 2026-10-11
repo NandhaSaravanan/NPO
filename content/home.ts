@@ -57,22 +57,27 @@ export const whatYouGet = {
   items: [
     {
       title: "A site that works on phones",
+      group: "On the page",
       body: "Pages are designed for a small screen first and scaled up, so a Waxhaw pantry or a Charlotte youth program reads clearly on the phone in someone's hand.",
     },
     {
       title: "Donation and volunteer forms",
+      group: "On the page",
       body: "Forms for signing up and getting in touch go to your inbox, and giving goes through the donation service you already use, because we do not collect money or hold your supporters' details.",
     },
     {
       title: "Basic SEO",
+      group: "On the page",
       body: "Real page titles, descriptions and structure that name your town or neighborhood, so a search like \"food pantry Waxhaw\" has something accurate to find.",
     },
     {
       title: "Hosting guidance",
+      group: "Handoff",
       body: "We recommend low-cost or free hosting, set it up with you, and put the domain and accounts in your name. The only cost you might see is the domain, usually $12 to $20 a year.",
     },
     {
       title: "Training",
+      group: "Handoff",
       body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
     },
   ],
