@@ -24,7 +24,7 @@ export function Roadmap({
   const [now, ...later] = items;
   return (
     <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:items-end lg:gap-20">
-      <div className="bg-pine p-8 text-paper md:p-14">
+      <div className="rounded-ui bg-pine p-8 text-paper shadow-card md:p-14">
         <p className="font-display font-bold text-[#f1b8d0]">{label[now.status]}</p>
         <h2 id="roadmap" className="mt-3 text-4xl md:text-6xl">{now.title}</h2>
         <p className="mt-6 max-w-xl text-xl">{now.detail}</p>

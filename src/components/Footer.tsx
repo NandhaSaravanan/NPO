@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="texture border-t border-line bg-paper">
       <div className="container-page grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Link href="/" aria-label={`${site.name} home`} className="inline-block rounded-lg">
+          <Link href="/" aria-label={`${site.name} home`} className="inline-block rounded-ui">
             <Logo />
           </Link>
           <p className="mt-4 max-w-sm text-muted">{site.description}</p>

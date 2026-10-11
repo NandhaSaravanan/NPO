@@ -27,7 +27,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-granite/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link href="/" aria-label={`${site.name} home`} className="rounded-lg">
+        <Link href="/" aria-label={`${site.name} home`} className="rounded-ui">
           <Logo />
         </Link>
 
@@ -44,7 +44,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded border border-pine hover:bg-mist lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-ui border border-pine hover:bg-mist lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

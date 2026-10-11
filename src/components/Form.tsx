@@ -8,7 +8,7 @@ import { submitForm, type FormState } from "@/app/actions";
 import { validate, type FieldErrors } from "@/lib/validation";
 
 const inputCls =
-  "mt-1.5 block w-full field rounded border bg-white px-4 py-3 text-base text-pine placeholder:text-[#66736c] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
+  "mt-1.5 block w-full field rounded-ui border bg-white px-4 py-3 text-base text-pine placeholder:text-[#66736c] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
 
 function Field({ field, error, value, formId }: { field: FieldDef; error?: string; value: string; formId: string }) {
   const id = `${formId}-${field.name}`;
@@ -95,12 +95,12 @@ export function Form({ form }: { form: FormDef }) {
       </div>
 
       {errorCount > 0 && (
-        <div role="alert" className="rounded border border-[#b42318] bg-[#fff6f5] p-4 font-semibold text-[#8a1c12]">
+        <div role="alert" className="rounded-ui border border-[#b42318] bg-[#fff6f5] p-4 font-semibold text-[#8a1c12]">
           Please fix {errorCount === 1 ? "1 field" : `${errorCount} fields`} below and try again.
         </div>
       )}
       {(state.status === "fallback" || state.status === "error") && (
-        <div role="alert" className="rounded border border-catawba bg-granite p-4">
+        <div role="alert" className="rounded-ui border border-catawba bg-granite p-4">
           <p className="font-semibold">
             {state.status === "error"
               ? "We could not send your message automatically."

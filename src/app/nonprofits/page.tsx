@@ -3,7 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { intro, difference, eligibility, process, timeline, needs, faq, applyIntro, applicationForm } from "@content/nonprofits";
 import { PageHeader, SectionHeading } from "@/components/Section";
-import { GroupedList } from "@/components/GroupedList";
+import { HairlineList } from "@/components/HairlineList";
 import { Steps } from "@/components/Steps";
 import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { Faq } from "@/components/Faq";
@@ -39,7 +39,7 @@ export default function NonprofitsPage() {
       <section className="section texture bg-paper" aria-labelledby="eligible">
         <div className="container-page">
           <SectionHeading id="eligible" title={eligibility.title} body={eligibility.body} />
-          <GroupedList items={eligibility.criteria} className="mt-8" />
+          <HairlineList items={eligibility.criteria} className="mt-8" />
         </div>
       </section>
 
@@ -55,21 +55,14 @@ export default function NonprofitsPage() {
       <section className="section texture bg-paper" aria-labelledby="timeline">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-20">
           <SectionHeading id="timeline" title={timeline.title} body={timeline.body} />
-          <dl className="border-t-2 border-pine">
-            {timeline.items.map((i) => (
-              <div key={i.label} className="flex items-baseline justify-between gap-4 border-b border-line py-4">
-                <dt className="text-muted">{i.label}</dt>
-                <dd className="text-right font-display text-lg font-bold">{i.value}</dd>
-              </div>
-            ))}
-          </dl>
+          <HairlineList items={timeline.items.map((i) => ({ title: i.label, body: i.value }))} />
         </div>
       </section>
 
       <section className="section texture" aria-labelledby="needs">
         <div className="container-page">
           <SectionHeading id="needs" title={needs.title} body={needs.body} />
-          <GroupedList items={needs.items} className="mt-8" />
+          <HairlineList items={needs.items} className="mt-8" />
         </div>
       </section>
 

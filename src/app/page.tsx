@@ -26,11 +26,11 @@ export default function Home() {
           <div className="mt-12 md:mt-16">
             <Photo photo={photos.uptownRailYard} ratio="aspect-[4/3] md:aspect-[21/9]" sizes="(min-width: 1152px) 1088px, 100vw" priority />
           </div>
-          <dl className="mt-12 grid gap-8 border-t-2 border-pine pt-6 sm:grid-cols-3">
+          <dl className="mt-12 border-t-2 border-pine sm:grid sm:grid-cols-3 sm:gap-x-10 sm:pt-6">
             {facts.map((f) => (
-              <div key={f.label}>
-                <dt className="font-display text-5xl font-extrabold text-catawba md:text-6xl">{f.value}</dt>
-                <dd className="mt-1 max-w-[16rem] text-muted">{f.label}</dd>
+              <div key={f.label} className="flex items-baseline gap-5 border-b border-line py-4 sm:block sm:border-0 sm:py-0">
+                <dt className="min-w-[6rem] whitespace-nowrap font-display text-4xl font-extrabold leading-none text-catawba sm:min-w-0 sm:text-5xl md:text-7xl">{f.value}</dt>
+                <dd className="max-w-[14rem] text-muted sm:mt-3">{f.label}</dd>
               </div>
             ))}
           </dl>
