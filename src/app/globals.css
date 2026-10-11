@@ -3,8 +3,28 @@
 /* Design tokens. Palette from Charlotte and the Piedmont: granite, loblolly pine,
    crepe myrtle, the Catawba River, and mill brick. Myrtle is the only loud color. */
 @theme {
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-source-serif), ui-serif, Georgia, serif;
+  --font-display: var(--font-gabarito), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /*
+   * Type scale: Major Third (1.25) from an 18px body, with a smaller caption size.
+   *   sm 15px caption and nav | base 18px body | lg 22.5px lead and small titles | xl 28px
+   *   2xl 35px | 3xl 44px | 4xl 55px (largest headline). Line height tightens as size grows.
+   */
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.40625rem;
+  --text-lg--line-height: 1.35;
+  --text-xl: 1.7578rem;
+  --text-xl--line-height: 1.2;
+  --text-2xl: 2.1973rem;
+  --text-2xl--line-height: 1.12;
+  --text-3xl: 2.7466rem;
+  --text-3xl--line-height: 1.08;
+  --text-4xl: 3.4332rem;
+  --text-4xl--line-height: 1.04;
 
   --color-granite: #e8ece7;
   --color-paper: #fafbf9;
@@ -44,15 +64,14 @@
     color: var(--color-pine);
     font-family: var(--font-body);
     font-size: 1.125rem;
-    line-height: 1.7;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 800;
-    font-stretch: 88%;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
@@ -94,7 +113,7 @@
     border-radius: var(--radius-ui);
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.0625rem;
+    font-size: var(--text-base);
     line-height: 1.2;
     text-align: center;
     /* The hover color fills in from the left instead of swapping. */

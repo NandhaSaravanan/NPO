@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
           <SectionHeading id="mission" title={mission.title} />
           <div>
-            <p className="text-xl leading-relaxed">{mission.body}</p>
+            <p className="text-lg">{mission.body}</p>
             <div className="mt-8">
               <Photo photo={photos.charlotteWestSide} ratio="aspect-[16/9]" sizes="(min-width: 768px) 640px, 100vw" />
             </div>
@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="section texture bg-paper" aria-labelledby="story">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
           <SectionHeading id="story" title={story.title} />
-          <div className="space-y-4 text-lg text-muted">
+          <div className="space-y-4 text-base text-muted">
             {story.paragraphs.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>
@@ -54,8 +54,8 @@ export default function AboutPage() {
           <ol className="mt-10 grid border-t-2 border-pine md:grid-cols-3">
             {model.points.map((p, i) => (
               <li key={p.title} className="border-b border-line py-6 md:border-b-0 md:border-l md:px-6 md:first:border-l-0 md:first:pl-0">
-                <span aria-hidden="true" className="font-display text-5xl font-extrabold text-myrtle">{i + 1}</span>
-                <h3 className="mt-2 text-xl">{p.title}</h3>
+                <span aria-hidden="true" className="font-display text-3xl font-extrabold text-myrtle">{i + 1}</span>
+                <h3 className="mt-2 text-lg">{p.title}</h3>
                 <p className="mt-2 text-muted">{p.body}</p>
               </li>
             ))}

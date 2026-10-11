@@ -11,7 +11,7 @@ export function Steps({ steps }: { steps: Step[] }) {
         <li key={step.title} className="relative grid gap-x-8 gap-y-1 pb-10 last:pb-0 md:grid-cols-[11rem_1fr]">
           <p className="pl-8 font-display font-bold text-catawba md:pl-0 md:pt-1 md:text-right">{step.when}</p>
           <div className="pl-8 md:pl-0">
-            <h3 className="text-2xl">{step.title}</h3>
+            <h3 className="text-lg">{step.title}</h3>
             <p className="mt-1 text-muted">{step.body}</p>
           </div>
           <span

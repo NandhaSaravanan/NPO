@@ -17,8 +17,8 @@ export default function Home() {
       <section className="texture">
         <div className="container-page pt-16 pb-12 md:pt-24 md:pb-16">
           <div>
-            <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl">{hero.title}</h1>
-            <p className="mt-6 max-w-2xl text-lg text-muted md:text-xl">{hero.body}</p>
+            <h1 className="max-w-4xl text-2xl sm:text-3xl lg:text-4xl">{hero.title}</h1>
+            <p className="mt-6 max-w-2xl text-base text-muted md:text-lg">{hero.body}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
               <Link href={site.secondaryCta.href} className="btn btn-secondary">{site.secondaryCta.label}</Link>
@@ -37,7 +37,7 @@ export default function Home() {
             {whoWeHelp.groups.map((g) => (
               <li
                 key={g.label}
-                className="rounded-ui px-4 py-2 font-display text-lg font-bold text-paper"
+                className="rounded-ui px-4 py-2 font-display text-base font-bold text-paper"
                 style={{ background: categoryAccent[g.category] }}
               >
                 {g.label}
@@ -68,7 +68,7 @@ export default function Home() {
           <div>
             <h2 id="free" className="text-3xl md:text-4xl">{whyFree.title}</h2>
           </div>
-          <div className="prose-plain space-y-4 text-lg text-muted">
+          <div className="prose-plain space-y-4 text-base text-muted">
             {whyFree.body.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>

@@ -20,13 +20,13 @@ export default function ContactPage() {
           <Form form={contactForm} />
           <aside className="space-y-8 lg:pt-2">
             <div>
-              <h2 className="text-xl">Email us</h2>
+              <h2 className="text-lg">Email us</h2>
               <p className="mt-2">
                 <a href={`mailto:${site.email}`} className="link font-semibold">{site.email}</a>
               </p>
             </div>
             <div>
-              <h2 className="text-xl">Where we work</h2>
+              <h2 className="text-lg">Where we work</h2>
               <p className="mt-2 text-muted">{site.region}</p>
             </div>
           </aside>

@@ -28,7 +28,7 @@ export default function NonprofitsPage() {
           <ul className="space-y-8">
             {difference.points.map((p) => (
               <li key={p.title} className="border-l-4 border-myrtle pl-5">
-                <h3 className="text-xl">{p.title}</h3>
+                <h3 className="text-lg">{p.title}</h3>
                 <p className="mt-1 text-muted">{p.body}</p>
               </li>
             ))}

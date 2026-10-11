@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Source_Serif_4 } from "next/font/google";
+import { Gabarito, Public_Sans } from "next/font/google";
 import { site } from "@content/site";
 import { siteUrl } from "@/lib/site-url";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const display = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
-const body = Source_Serif_4({ subsets: ["latin"], variable: "--font-source-serif", display: "swap" });
+const display = Gabarito({ subsets: ["latin"], variable: "--font-gabarito", display: "swap" });
+const body = Public_Sans({ subsets: ["latin"], variable: "--font-public-sans", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
