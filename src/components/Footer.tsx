@@ -17,21 +17,21 @@ export function Footer() {
           <ul className="mt-4 space-y-2">
             {site.nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="font-semibold hover:underline">{item.label}</Link>
+                <Link href={item.href} className="link font-semibold">{item.label}</Link>
               </li>
             ))}
             <li>
-              <Link href="/privacy" className="font-semibold hover:underline">Privacy Policy</Link>
+              <Link href="/privacy" className="link font-semibold">Privacy Policy</Link>
             </li>
             <li>
-              <Link href="/credits" className="font-semibold hover:underline">Photo credits</Link>
+              <Link href="/credits" className="link font-semibold">Photo credits</Link>
             </li>
           </ul>
         </nav>
         <div>
           <h2 className="font-body text-base font-bold text-muted">Contact</h2>
           <p className="mt-4">
-            <a href={`mailto:${site.email}`} className="font-semibold underline decoration-myrtle underline-offset-4 hover:decoration-2">
+            <a href={`mailto:${site.email}`} className="link font-semibold">
               {site.email}
             </a>
           </p>

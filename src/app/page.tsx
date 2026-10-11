@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { site } from "@content/site";
-import { hero, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } from "@content/home";
+import { hero, facts, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } from "@content/home";
 import { ServiceArea } from "@/components/ServiceArea";
 import { SectionHeading } from "@/components/Section";
 import { Steps } from "@/components/Steps";
@@ -26,6 +26,14 @@ export default function Home() {
           <div className="mt-12 md:mt-16">
             <Photo photo={photos.uptownRailYard} ratio="aspect-[4/3] md:aspect-[21/9]" sizes="(min-width: 1152px) 1088px, 100vw" priority />
           </div>
+          <dl className="mt-12 grid gap-8 border-t-2 border-pine pt-6 sm:grid-cols-3">
+            {facts.map((f) => (
+              <div key={f.label}>
+                <dt className="font-display text-5xl font-extrabold text-catawba md:text-6xl">{f.value}</dt>
+                <dd className="mt-1 max-w-[16rem] text-muted">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

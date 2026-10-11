@@ -2,42 +2,30 @@ import type { CaseStudy } from "./types";
 
 export const intro = {
   title: "Our work",
-  body: "Case studies from the organizations we have helped. We are just getting started, so the cards below are examples of the format. Real projects will replace them as we launch.",
+  body: "We have no finished projects yet. The first card shows how each one will be written up, and the last is the spot waiting for your organization.",
 };
 
 /**
- * To add a real project, copy an entry, fill it in, and delete the
- * `placeholder: true` line. Remove example cards once you have real ones.
+ * To add a real project: copy the entry, set `status`, fill in the text, add `image`,
+ * and set `url` once the site is public. Delete the sample entry when the first real one is in.
+ * Do not add numbers or results that are not true.
  */
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "example-food-pantry",
-    title: "Example: Community food pantry",
-    orgType: "Food pantry",
-    summary: "A sample case study showing how we will describe the problem, what we built and what changed for a food pantry once its site was live.",
-    services: ["Design", "Development", "Donation page", "Training"],
-    results: ["Results and numbers will appear here after launch."],
-    placeholder: true,
-  },
-  {
-    slug: "example-youth-program",
-    title: "Example: After-school youth program",
-    orgType: "Youth program",
-    summary: "A sample case study for a youth program that needed a mobile-friendly site with program schedules and a volunteer sign-up form.",
-    services: ["Design", "Development", "Volunteer forms"],
-    results: ["Results and numbers will appear here after launch."],
-    placeholder: true,
-  },
-  {
-    slug: "example-animal-rescue",
-    title: "Example: Local animal rescue",
-    orgType: "Animal rescue",
-    summary: "A sample case study for an animal rescue that needed adoptable pets, an application form and a clear way to donate.",
-    services: ["Design", "Development", "SEO", "Hosting setup"],
-    results: ["Results and numbers will appear here after launch."],
-    placeholder: true,
+    slug: "sample-food-pantry",
+    title: "Sample: A food pantry's first real website",
+    orgType: "Food pantry (example, not a real client)",
+    summary: "A sample showing the format: what the organization needed, what we built, and what changed once it was live.",
+    status: "sample",
+    tags: ["Website", "Donation page", "Training"],
   },
 ];
+
+export const nextInLine = {
+  title: "Next in line: your organization",
+  body: "Apply and you could be the first real project on this page.",
+  cta: { label: "Apply for a free website", href: "/nonprofits#apply" },
+};
 
 export const cta = {
   title: "Want to be our first case study?",

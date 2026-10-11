@@ -8,7 +8,7 @@ import { submitForm, type FormState } from "@/app/actions";
 import { validate, type FieldErrors } from "@/lib/validation";
 
 const inputCls =
-  "mt-1.5 block w-full rounded border border-[#7d8a82] bg-white px-4 py-3 text-base text-pine placeholder:text-[#66736c] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
+  "mt-1.5 block w-full field rounded border bg-white px-4 py-3 text-base text-pine placeholder:text-[#66736c] aria-[invalid=true]:border-[#b42318] aria-[invalid=true]:bg-[#fff6f5]";
 
 function Field({ field, error, value, formId }: { field: FieldDef; error?: string; value: string; formId: string }) {
   const id = `${formId}-${field.name}`;
@@ -108,7 +108,7 @@ export function Form({ form }: { form: FormDef }) {
           </p>
           <p className="mt-1 text-muted">
             Nothing has been sent. Your answers are kept below. Use the button to send them from your own email app, or write to{" "}
-            <a className="font-semibold underline" href={`mailto:${site.email}`}>{site.email}</a>.
+            <a className="link font-semibold" href={`mailto:${site.email}`}>{site.email}</a>.
           </p>
           <a href={state.mailto} className="btn btn-secondary mt-3 !min-h-10 !py-2">Open email with my answers</a>
         </div>

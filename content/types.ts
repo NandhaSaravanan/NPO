@@ -23,13 +23,16 @@ export interface CaseStudy {
   /** Short descriptor of the organization, e.g. "Food pantry, Monroe NC" */
   orgType: string;
   summary: string;
-  services: string[];
+  /** "sample" cards are labeled as examples, not real clients. */
+  status: "sample" | "in-progress" | "live";
+  /** Tags such as "Website" or "Donation page". */
+  tags: string[];
+  /** Real outcomes only. Leave out until there are some. */
   results?: string[];
+  /** Adds the "View live site" link and makes the card clickable. Only set for real, public sites. */
   url?: string;
-  /** Optional screenshot in /public, rendered with next/image */
+  /** Screenshot in /public. Without it the card shows a labeled empty frame. */
   image?: { src: string; alt: string; width: number; height: number };
-  /** Set true on example cards. Remove the field when you add a real project. */
-  placeholder?: boolean;
 }
 
 export type FieldType = "text" | "email" | "tel" | "url" | "textarea" | "select";
