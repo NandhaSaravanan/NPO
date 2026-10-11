@@ -15,7 +15,7 @@ export const site = {
   region: "Union County and the Charlotte area, North Carolina",
   locality: "Union County",
   state: "NC",
-  founder: "Naren Saravanan",
+  founder: "Nandha Saravanan",
   /** Override with NEXT_PUBLIC_SITE_URL in your hosting environment. */
   defaultUrl: "https://lumen.example",
   nav: [
