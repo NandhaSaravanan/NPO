@@ -14,7 +14,7 @@ export const mission = {
 export const story = {
   title: "Why we started",
   paragraphs: [
-    "Naren Saravanan, a high school student in Union County, started noticing the same thing around town: food pantries, youth programs and rescues doing wonderful work, with websites that were missing, out of date, or impossible to use on a phone.",
+    "Nandha Saravanan, a high school student in Union County, started noticing the same thing around town: food pantries, youth programs and rescues doing wonderful work, with websites that were missing, out of date, or impossible to use on a phone.",
     "A website is often the first thing a donor or new volunteer checks. When it looks neglected, people hesitate, even when the organization is excellent. Most of these groups cannot afford an agency, and many have nobody on staff who builds websites.",
     `Meanwhile, plenty of students want to build real things and have nowhere to practice on real projects. ${ORG_NAME} connects the two.`,
   ],
@@ -22,7 +22,7 @@ export const story = {
 
 export const model = {
   title: "How the model works",
-  body: "We are inspired by student-led groups like Volta NYC that match volunteers with community organizations. Ours is focused purely on digital help, starting with websites.",
+  body: "We match student volunteers with local nonprofits. Our focus is digital help, starting with websites.",
   points: [
     { title: "Match", body: "We pair a small team of student volunteers with a local nonprofit based on skills and the organization's needs." },
     { title: "Build", body: "The team scopes, designs and builds the site with a project lead as the nonprofit's single point of contact." },
@@ -39,26 +39,14 @@ export const values: Value[] = [
 
 export const teamIntro = {
   title: "The team",
-  body: "A small group of students, growing as we take on projects.",
+  body: "A student-run effort, just getting started.",
 };
 
-/** Replace placeholder entries as people join. */
+/** Add entries as people join. */
 export const team: TeamMember[] = [
   {
-    name: "Naren Saravanan",
+    name: "Nandha Saravanan",
     role: "Founder",
     bio: "High school student in Union County. Started the organization to help local nonprofits get online.",
-  },
-  {
-    name: "Your name here",
-    role: "Project lead",
-    bio: "We are looking for students to lead nonprofit projects. This spot could be yours.",
-    placeholder: true,
-  },
-  {
-    name: "Your name here",
-    role: "Lead designer",
-    bio: "We are looking for a designer to shape our look and feel. This spot could be yours.",
-    placeholder: true,
   },
 ];
