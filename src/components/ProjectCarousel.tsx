@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CaseStudy, Cta } from "@content/types";
 import { BrowserFrame, SampleLayout } from "./BrowserFrame";
-import { categoryAccent as accent } from "@/lib/categories";
 
 const statusLabel: Record<CaseStudy["status"], string> = {
   sample: "Sample",
@@ -138,12 +137,12 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
         {items.map((c) => (
           <li key={c.slug} className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
             {c.url ? (
-              <a href={c.url} target="_blank" rel="noopener noreferrer" className="project-card flex w-full flex-col overflow-hidden" style={{ "--card-accent": accent[c.category] } as React.CSSProperties} draggable={false}>
+              <a href={c.url} target="_blank" rel="noopener noreferrer" className="project-card flex w-full flex-col overflow-hidden" draggable={false}>
                 <CardBody c={c} />
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
             ) : (
-              <article className="project-card flex w-full flex-col overflow-hidden" style={{ "--card-accent": accent[c.category] } as React.CSSProperties}>
+              <article className="project-card flex w-full flex-col overflow-hidden">
                 <CardBody c={c} />
               </article>
             )}

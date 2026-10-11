@@ -1,4 +1,4 @@
-import type { CaseStudy, RoadmapItem, Step } from "./types";
+import type { RoadmapItem, Step } from "./types";
 import { ORG_NAME, site } from "./site";
 
 const founder = site.founder;
@@ -11,15 +11,14 @@ export const hero = {
 export const whoWeHelp = {
   title: "Who we help",
   body: "Groups whose money goes to groceries, vet bills and field trips, not web design.",
-  /** Colors follow the project-card categories. Church outreach, neighborhood and volunteer groups share one. */
   groups: [
-    { label: "Food pantries", category: "food" },
-    { label: "Youth programs", category: "youth" },
-    { label: "Animal rescues", category: "animals" },
-    { label: "Church outreach ministries", category: "community" },
-    { label: "Neighborhood associations", category: "community" },
-    { label: "Volunteer groups", category: "community" },
-  ] satisfies { label: string; category: CaseStudy["category"] }[],
+    "Food pantries",
+    "Youth programs",
+    "Animal rescues",
+    "Church outreach ministries",
+    "Neighborhood associations",
+    "Volunteer groups",
+  ],
   areaTitle: "Where we can show up in person",
   areaNote: "Not on the list but close by? Apply anyway and tell us where you are.",
 };

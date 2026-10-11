@@ -23,7 +23,7 @@ export const photos = {
     photographer: "Ryan M",
     photographerUrl: "https://unsplash.com/@rymc02?utm_source=lumen&utm_medium=referral",
     sourceUrl: "https://unsplash.com/photos/cJp16tjKAWk?utm_source=lumen&utm_medium=referral",
-    usedOn: "Home page, below the headline; behind the closing call-to-action band",
+    usedOn: "Home page hero, below the headline",
   },
   charlotteWestSide: {
     src: "/photos/charlotte-west-side.jpg",
@@ -33,6 +33,16 @@ export const photos = {
     photographer: "Daniel Weiss",
     photographerUrl: "https://unsplash.com/@dweiss002?utm_source=lumen&utm_medium=referral",
     sourceUrl: "https://unsplash.com/photos/x0P-6BRp5jc?utm_source=lumen&utm_medium=referral",
-    usedOn: "About page, next to the mission; behind the service-area section on the home and For Nonprofits pages",
+    usedOn: "Behind the service-area section on the home and For Nonprofits pages",
+  },
+  uptownNight: {
+    src: "/photos/uptown-night.jpg",
+    width: 2000,
+    height: 1333,
+    alt: "Uptown Charlotte's towers lit up against a dark sky at night.",
+    photographer: "Wes Hicks",
+    photographerUrl: "https://unsplash.com/@sickhews?utm_source=lumen&utm_medium=referral",
+    sourceUrl: "https://unsplash.com/photos/6biN3uBw4Fg?utm_source=lumen&utm_medium=referral",
+    usedOn: "Home page, behind the Why free? section",
   },
 } satisfies Record<string, Photo>;

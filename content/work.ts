@@ -16,7 +16,6 @@ export const caseStudies: CaseStudy[] = [
     title: "Sample: A food pantry's first real website",
     orgType: "Food pantry (example, not a real client)",
     summary: "A sample showing the format: what the organization needed, what we built, and what changed once it was live.",
-    category: "food",
     status: "sample",
     tags: ["Website", "Donation page", "Training"],
   },
