@@ -11,7 +11,7 @@ export function CtaBand({ title, body }: { title: string; body: string }) {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
           <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
-          <Link href={site.secondaryCta.href} className="btn border-2 border-paper text-paper hover:bg-paper hover:text-pine">
+          <Link href={site.secondaryCta.href} className="btn btn-light">
             {site.secondaryCta.label}
           </Link>
         </div>

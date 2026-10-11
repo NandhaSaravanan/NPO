@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { site } from "@content/site";
 import { Logo } from "./Logo";
 
+const navLink = "nav-link whitespace-nowrap px-3 py-2 font-display text-[1rem] font-bold";
+
 export function Header() {
   const pathname = usePathname();
   // Remember which page the menu was opened on, so navigating closes it.
@@ -22,11 +24,6 @@ export function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  const link = (href: string) =>
-    `whitespace-nowrap px-3 py-2 font-display text-[1rem] font-bold decoration-2 underline-offset-8 hover:underline hover:decoration-myrtle ${
-      pathname === href ? "underline decoration-myrtle" : ""
-    }`;
-
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-granite/95 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
@@ -36,7 +33,7 @@ export function Header() {
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {site.nav.map((item) => (
-            <Link key={item.href} href={item.href} className={link(item.href)} aria-current={pathname === item.href ? "page" : undefined}>
+            <Link key={item.href} href={item.href} className={navLink} aria-current={pathname === item.href ? "page" : undefined}>
               {item.label}
             </Link>
           ))}
@@ -47,7 +44,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded border border-pine lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded border border-pine hover:bg-mist lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -63,7 +60,7 @@ export function Header() {
         <ul className="container-page flex flex-col gap-1 py-4">
           {site.nav.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className={`block ${link(item.href)} !py-3`} aria-current={pathname === item.href ? "page" : undefined}>
+              <Link href={item.href} className={`block ${navLink} !py-3`} aria-current={pathname === item.href ? "page" : undefined}>
                 {item.label}
               </Link>
             </li>

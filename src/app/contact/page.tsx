@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-xl">Email us</h2>
               <p className="mt-2">
-                <a href={`mailto:${site.email}`} className="font-semibold underline decoration-myrtle decoration-2 underline-offset-4">{site.email}</a>
+                <a href={`mailto:${site.email}`} className="link font-semibold">{site.email}</a>
               </p>
             </div>
             <div>

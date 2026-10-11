@@ -16,6 +16,16 @@
   --color-mist: #d3dad2;
   --color-line: #b9c2b8;
   --color-muted: #46544d;
+
+  /* One easing curve and one duration for every hover and focus change on the site. */
+  --ease-ui: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --shadow-lift: 0 14px 26px -16px rgb(43 102 130 / 0.5), 0 2px 4px rgb(27 58 49 / 0.06);
+}
+
+:root { --dur-ui: 240ms; }
+/* Reduced motion keeps the change (color, border, underline) but drops the glide. */
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-ui: 1ms; }
 }
 
 @layer base {
@@ -41,6 +51,11 @@
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
+  a, button, summary, input, select, textarea {
+    transition-property: color, background-color, background-size, border-color, box-shadow, transform, opacity;
+    transition-duration: var(--dur-ui);
+    transition-timing-function: var(--ease-ui);
+  }
   :focus-visible {
     outline: 3px solid var(--color-catawba);
     outline-offset: 3px;
@@ -77,12 +92,64 @@
     font-size: 1.0625rem;
     line-height: 1.2;
     text-align: center;
-    transition: background-color 0.15s, color 0.15s;
+    /* The hover color fills in from the left instead of swapping. */
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 0% 100%;
   }
-  .btn-primary { background: var(--color-myrtle); color: #fff; }
-  .btn-primary:hover { background: var(--color-myrtle-deep); }
-  .btn-secondary { border: 2px solid var(--color-pine); color: var(--color-pine); }
-  .btn-secondary:hover { background: var(--color-pine); color: var(--color-paper); }
+  .btn:hover, .btn:focus-visible { background-size: 100% 100%; }
+  .btn-primary {
+    background-color: var(--color-myrtle);
+    background-image: linear-gradient(var(--color-myrtle-deep), var(--color-myrtle-deep));
+    color: #fff;
+  }
+  .btn-secondary {
+    border: 2px solid var(--color-pine);
+    color: var(--color-pine);
+    background-image: linear-gradient(var(--color-pine), var(--color-pine));
+  }
+  .btn-secondary:hover, .btn-secondary:focus-visible { color: var(--color-paper); }
+  .btn-light {
+    border: 2px solid var(--color-paper);
+    color: var(--color-paper);
+    background-image: linear-gradient(var(--color-paper), var(--color-paper));
+  }
+  .btn-light:hover, .btn-light:focus-visible { color: var(--color-pine); }
+
+  /* Text links: a quiet resting underline, and the accent underline grows over it from the left. */
+  .link, .nav-link {
+    background-image: linear-gradient(var(--color-myrtle), var(--color-myrtle)), linear-gradient(var(--color-line), var(--color-line));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px, 100% 2px;
+    padding-bottom: 1px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .link:hover, .link:focus-visible, .nav-link:hover, .nav-link:focus-visible,
+  .nav-link[aria-current="page"] { background-size: 100% 2px, 100% 2px; }
+  /* Navigation shows no resting underline until it is hovered or current. */
+  .nav-link { background-image: linear-gradient(var(--color-myrtle), var(--color-myrtle)); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
+  .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] { background-size: 100% 3px; }
+
+  /* Form fields: border and a faint tinted ring respond to hover and focus. */
+  .field { border-color: #7d8a82; }
+  .field:hover { border-color: var(--color-catawba); }
+  .field:focus-visible {
+    border-color: var(--color-catawba);
+    box-shadow: 0 0 0 4px rgb(43 102 130 / 0.18);
+    outline-color: transparent;
+  }
+
+  /* Clickable project cards only. Static cards get none of this. */
+  .project-card { border: 1px solid var(--color-line); background: var(--color-paper); border-radius: 0.375rem; }
+  .project-card[href]:hover, .project-card[href]:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--color-catawba);
+    box-shadow: var(--shadow-lift);
+  }
+  .faq-summary:hover { color: var(--color-catawba); }
+
   /* A plain panel for forms and asides. Not used for repeated content. */
   .card {
     background: var(--color-paper);

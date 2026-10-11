@@ -20,9 +20,9 @@ export function Photo({
       </div>
       <figcaption className="mt-2 text-sm text-muted">
         Photo by{" "}
-        <a href={photo.photographerUrl} className="underline decoration-myrtle underline-offset-2">{photo.photographer}</a>
+        <a href={photo.photographerUrl} className="link">{photo.photographer}</a>
         {" "}on{" "}
-        <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="underline decoration-myrtle underline-offset-2">Unsplash</a>
+        <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="link">Unsplash</a>
       </figcaption>
     </figure>
   );
