@@ -1,31 +1,21 @@
 @import "tailwindcss";
 
-/* Design tokens. The accent color is defined once, here. */
+/* Design tokens. Palette from Charlotte and the Piedmont: granite, loblolly pine,
+   crepe myrtle, the Catawba River, and mill brick. Myrtle is the only loud color. */
 @theme {
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
-  --font-body: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-serif), ui-serif, Georgia, serif;
 
-  /* Accent: warm amber */
-  --color-accent-50: #fff8e6;
-  --color-accent-100: #fdecbd;
-  --color-accent-200: #fbdb86;
-  --color-accent-300: #f8c64d;
-  --color-accent-400: #f2b01e;
-  --color-accent-500: #d9960b;
-  --color-accent-600: #b3750a;
-  --color-accent-700: #8a5808;
-  --color-accent-800: #6b4509;
-  --color-accent-900: #4a300a;
-
-  /* Neutrals: warm stone */
-  --color-paper: #fffdf8;
-  --color-cream: #faf5ea;
-  --color-line: #e8e0cf;
-  --color-ink: #251f17;
-  --color-muted: #5c5345;
-
-  --radius-card: 1.25rem;
-  --shadow-card: 0 1px 2px rgb(37 31 23 / 0.05), 0 8px 24px -12px rgb(37 31 23 / 0.15);
+  --color-granite: #e8ece7;
+  --color-paper: #fafbf9;
+  --color-pine: #1b3a31;
+  --color-myrtle: #b0306a;
+  --color-myrtle-deep: #8f2556;
+  --color-catawba: #2b6682;
+  --color-brick: #8e4631;
+  --color-mist: #d3dad2;
+  --color-line: #b9c2b8;
+  --color-muted: #46544d;
 }
 
 @layer base {
@@ -35,24 +25,26 @@
     scroll-padding-top: 5rem;
   }
   body {
-    background: var(--color-paper);
-    color: var(--color-ink);
+    background: var(--color-granite);
+    color: var(--color-pine);
     font-family: var(--font-body);
-    font-size: 1.0625rem;
-    line-height: 1.65;
+    font-size: 1.125rem;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 {
     font-family: var(--font-display);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-weight: 800;
+    font-stretch: 88%;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
   :focus-visible {
-    outline: 3px solid var(--color-accent-700);
+    outline: 3px solid var(--color-catawba);
     outline-offset: 3px;
-    border-radius: 4px;
+    border-radius: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -73,50 +65,29 @@
   @media (min-width: 768px) {
     .section { padding-block: 6rem; }
   }
-  .eyebrow {
-    font-size: 0.9375rem;
-    font-weight: 700;
-    color: var(--color-accent-700);
-  }
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
     min-height: 3rem;
     padding: 0.75rem 1.5rem;
-    border-radius: 999px;
+    border-radius: 0.25rem;
+    font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.2;
     text-align: center;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: background-color 0.15s, color 0.15s;
   }
-  .btn-primary {
-    background: var(--color-accent-400);
-    color: var(--color-ink);
-    box-shadow: 0 2px 0 var(--color-accent-600);
-  }
-  .btn-primary:hover { background: var(--color-accent-300); transform: translateY(-1px); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--color-ink);
-    border: 2px solid var(--color-ink);
-  }
-  .btn-secondary:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn-primary { background: var(--color-myrtle); color: #fff; }
+  .btn-primary:hover { background: var(--color-myrtle-deep); }
+  .btn-secondary { border: 2px solid var(--color-pine); color: var(--color-pine); }
+  .btn-secondary:hover { background: var(--color-pine); color: var(--color-paper); }
+  /* A plain panel for forms and asides. Not used for repeated content. */
   .card {
-    background: #fff;
+    background: var(--color-paper);
     border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
+    border-radius: 0.375rem;
   }
   .prose-plain p + p { margin-top: 1rem; }
-}
-
-/* Scroll reveal: subtle, and off entirely for reduced motion. */
-.reveal-hidden { opacity: 0; transform: translateY(16px); }
-.reveal { transition: opacity 0.6s ease, transform 0.6s ease; }
-@media (prefers-reduced-motion: reduce) {
-  .reveal-hidden { opacity: 1; transform: none; }
-  .reveal { transition: none; }
 }

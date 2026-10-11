@@ -51,27 +51,22 @@ export const whatYouGet = {
     {
       title: "A site that works on phones",
       body: "Most pages are designed for a small screen first, then scaled up.",
-      icon: "layout",
     },
     {
       title: "Donation and volunteer forms",
       body: "Clear ways for people to give, sign up and get in touch, wired to your inbox or the donation page you already use.",
-      icon: "heart",
     },
     {
       title: "Basic SEO",
       body: "Real page titles, descriptions and structure, so a search like \"food pantry Waxhaw\" has something accurate to find.",
-      icon: "search",
     },
     {
       title: "Hosting guidance",
       body: "We recommend low-cost or free hosting, set it up with you, and put the accounts in your name.",
-      icon: "server",
     },
     {
       title: "Training",
       body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
-      icon: "graduation",
     },
   ] satisfies Feature[],
 };

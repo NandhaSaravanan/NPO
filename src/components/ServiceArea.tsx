@@ -18,11 +18,11 @@ export function ServiceArea() {
 function Stretch({ name, places }: { name: string; places: string[] }) {
   return (
     <section aria-label={name}>
-      <h3 className="text-xl font-semibold text-accent-800">{name}</h3>
-      <ul className="relative mt-3 ml-1.5 border-l-2 border-dashed border-accent-400 pl-7">
+      <h3 className="text-xl font-semibold text-catawba">{name}</h3>
+      <ul className="relative mt-3 ml-1.5 border-l-2 border-dashed border-catawba pl-7">
         {places.map((place) => (
           <li key={place} className="relative py-1.5 font-display text-3xl font-semibold leading-tight sm:text-4xl">
-            <span aria-hidden="true" className="absolute -left-[2.3125rem] top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full border-[3px] border-ink bg-accent-300" />
+            <span aria-hidden="true" className="absolute -left-[2.3125rem] top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full border-[3px] border-pine bg-granite" />
             {place}
           </li>
         ))}

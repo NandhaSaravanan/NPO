@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-line bg-cream">
+    <footer className="border-t border-line bg-paper">
       <div className="container-page grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Link href="/" aria-label={`${site.name} home`} className="inline-block rounded-lg">
@@ -23,12 +23,15 @@ export function Footer() {
             <li>
               <Link href="/privacy" className="font-semibold hover:underline">Privacy Policy</Link>
             </li>
+            <li>
+              <Link href="/credits" className="font-semibold hover:underline">Photo credits</Link>
+            </li>
           </ul>
         </nav>
         <div>
           <h2 className="font-body text-base font-bold text-muted">Contact</h2>
           <p className="mt-4">
-            <a href={`mailto:${site.email}`} className="font-semibold underline decoration-accent-500 underline-offset-4 hover:decoration-2">
+            <a href={`mailto:${site.email}`} className="font-semibold underline decoration-myrtle underline-offset-4 hover:decoration-2">
               {site.email}
             </a>
           </p>
