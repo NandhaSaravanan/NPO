@@ -30,7 +30,10 @@ function smooth(points: [number, number][]) {
   return d;
 }
 
-export function ServiceMap({ className = "" }: { className?: string }) {
+export function ServiceMap({ className = "", tone = "light" }: { className?: string; tone?: "light" | "dark" }) {
+  const dark = tone === "dark";
+  const line = dark ? "var(--color-mist)" : "var(--color-catawba)";
+  const accentOn = dark ? "#f1b8d0" : "var(--color-myrtle)";
   const [active, setActive] = useState<string | null>(null);
   const stops: Stop[] = [
     ...site.serviceArea.charlotte.map((name, i) => ({ name, county: "Mecklenburg County", x: charlotteSpots[i][0], y: charlotteSpots[i][1], label: charlotteSpots[i][2] })),
@@ -41,11 +44,11 @@ export function ServiceMap({ className = "" }: { className?: string }) {
 
   return (
     <svg viewBox="0 0 1220 400" className={className} role="group" aria-label="Where we can show up in person. Each stop names a place and its county.">
-      <text x="40" y="40" className="fill-catawba font-display text-[26px] font-extrabold">Charlotte</text>
-      <text x="1180" y="390" textAnchor="end" className="fill-catawba font-display text-[26px] font-extrabold">Union County</text>
+      <text x="40" y="40" className={`${dark ? "fill-mist" : "fill-catawba"} font-display text-[26px] font-extrabold`}>Charlotte</text>
+      <text x="1180" y="390" textAnchor="end" className={`${dark ? "fill-mist" : "fill-catawba"} font-display text-[26px] font-extrabold`}>Union County</text>
 
-      <path d={smooth(cs.map(pt))} fill="none" stroke="var(--color-catawba)" strokeWidth="3" strokeLinecap="round" />
-      <path d={smooth(us.map(pt))} fill="none" stroke="var(--color-catawba)" strokeWidth="3" strokeLinecap="round" />
+      <path d={smooth(cs.map(pt))} fill="none" stroke={line} strokeWidth="3" strokeLinecap="round" />
+      <path d={smooth(us.map(pt))} fill="none" stroke={line} strokeWidth="3" strokeLinecap="round" />
 
       {stops.map((s) => {
         const on = active === s.name;
@@ -67,16 +70,16 @@ export function ServiceMap({ className = "" }: { className?: string }) {
             <circle cx={s.x} cy={s.y} r="30" fill="transparent" />
             <circle
               cx={s.x} cy={s.y} r={on ? 15 : 10}
-              fill={on ? "var(--color-myrtle)" : "var(--color-granite)"}
-              stroke={on ? "var(--color-myrtle)" : "var(--color-pine)"} strokeWidth="4"
+              fill={on ? accentOn : dark ? "var(--color-pine)" : "var(--color-granite)"}
+              stroke={on ? accentOn : dark ? "var(--color-paper)" : "var(--color-pine)"} strokeWidth="4"
               style={{ transition: "r var(--dur-ui) var(--ease-ui), fill var(--dur-ui) var(--ease-ui), stroke var(--dur-ui) var(--ease-ui)" }}
             />
-            <text x={s.x} y={s.y + ty} textAnchor="middle" className={`font-display text-[24px] font-bold ${on ? "fill-myrtle" : "fill-pine"}`}
-              style={{ transition: "fill var(--dur-ui) var(--ease-ui)" }}>
+            <text x={s.x} y={s.y + ty} textAnchor="middle" className={`font-display text-[24px] font-bold ${dark ? "" : on ? "fill-myrtle" : "fill-pine"}`}
+              style={{ transition: "fill var(--dur-ui) var(--ease-ui)", ...(dark ? { fill: on ? accentOn : "var(--color-paper)" } : {}) }}>
               {s.name}
             </text>
             {on && (
-              <text x={s.x} y={s.y + ty + (s.label === "above" ? -26 : 24)} textAnchor="middle" className="fill-muted font-display text-[18px] font-bold">
+              <text x={s.x} y={s.y + ty + (s.label === "above" ? -26 : 24)} textAnchor="middle" className={`${dark ? "fill-mist" : "fill-muted"} font-display text-[18px] font-bold`}>
                 {s.county}
               </text>
             )}

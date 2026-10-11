@@ -1,7 +1,7 @@
 export interface Cta { label: string; href: string }
 
 export interface Step { title: string; body: string; /** Typical time this step takes. */ when: string }
-export interface Feature { title: string; body: string }
+export interface Feature { title: string; body: string; /** Items sharing a group render under one small label. */ group?: string }
 export interface FaqItem { question: string; answer: string }
 export interface Role { title: string; summary: string; skills: string[] }
 export interface TimelineEntry {

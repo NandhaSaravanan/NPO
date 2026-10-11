@@ -20,7 +20,7 @@ export default function VolunteerPage() {
         <Link href="#join" className="btn btn-primary">Sign up to volunteer</Link>
       </PageHeader>
 
-      <section className="section" aria-labelledby="roles">
+      <section className="section texture" aria-labelledby="roles">
         <div className="container-page">
           <SectionHeading id="roles" title="Roles" body="Pick the one that fits, and tell us if you want to try something new." />
           <div className="mt-10 border-t-2 border-pine">
@@ -37,14 +37,14 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="gain">
+      <section className="section texture bg-paper" aria-labelledby="gain">
         <div className="container-page">
           <SectionHeading id="gain" title={gains.title} />
           <RuledList items={gains.items} className="mt-10" />
         </div>
       </section>
 
-      <section className="section" aria-labelledby="commit">
+      <section className="section texture" aria-labelledby="commit">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-20">
           <SectionHeading id="commit" title={commitment.title} body={commitment.body} />
           <ul className="border-t-2 border-pine">
@@ -55,14 +55,14 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="vfaq">
+      <section className="section texture bg-paper" aria-labelledby="vfaq">
         <div className="container-page max-w-4xl">
           <SectionHeading id="vfaq" title="Questions" />
           <div className="mt-8"><Faq items={faq} /></div>
         </div>
       </section>
 
-      <section id="join" className="section" aria-labelledby="join-title">
+      <section id="join" className="section texture" aria-labelledby="join-title">
         <div className="container-page max-w-3xl">
           <SectionHeading id="join-title" title={joinIntro.title} body={joinIntro.body} />
           <div className="mt-8"><Form form={volunteerForm} /></div>

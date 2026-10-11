@@ -20,7 +20,7 @@ export default function AboutPage() {
     <>
       <PageHeader title={intro.title} body={intro.body} />
 
-      <section className="section" aria-labelledby="mission">
+      <section className="section texture" aria-labelledby="mission">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
           <SectionHeading id="mission" title={mission.title} />
           <div>
@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="story">
+      <section className="section texture bg-paper" aria-labelledby="story">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
           <SectionHeading id="story" title={story.title} />
           <div className="space-y-4 text-lg text-muted">
@@ -41,14 +41,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="timeline">
+      <section className="section texture" aria-labelledby="timeline">
         <div className="container-page">
           <SectionHeading id="timeline" title={timeline.title} body={timeline.body} />
           <Timeline entries={timeline.entries} />
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="model">
+      <section className="section texture bg-paper" aria-labelledby="model">
         <div className="container-page">
           <SectionHeading id="model" title={model.title} body={model.body} />
           <ol className="mt-10 grid border-t-2 border-pine md:grid-cols-3">
@@ -63,14 +63,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="values">
+      <section className="section texture" aria-labelledby="values">
         <div className="container-page">
           <SectionHeading id="values" title="What we value" />
           <RuledList items={values} className="mt-10" />
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="team">
+      <section className="section texture bg-paper" aria-labelledby="team">
         <div className="container-page">
           <SectionHeading id="team" title={teamIntro.title} body={teamIntro.body} />
           <div className="mt-10 border-t-2 border-pine">

@@ -15,7 +15,7 @@ export default function WorkPage() {
   return (
     <>
       <PageHeader title={intro.title} body={intro.body} />
-      <section className="section" aria-label="Case studies">
+      <section className="section texture" aria-label="Case studies">
         <div className="container-page">
           <ProjectCarousel items={caseStudies} next={nextInLine} />
         </div>
