@@ -49,7 +49,7 @@ export default function AboutPage() {
           <ol className="mt-10 grid border-t-2 border-pine md:grid-cols-3">
             {model.points.map((p, i) => (
               <li key={p.title} className="border-b border-line py-6 md:border-b-0 md:border-l md:px-6 md:first:border-l-0 md:first:pl-0">
-                <span aria-hidden="true" className="font-display text-3xl font-bold text-myrtle">{i + 1}</span>
+                <span aria-hidden="true" className="text-3xl font-extrabold text-myrtle">{i + 1}</span>
                 <h3 className="mt-2 text-lg">{p.title}</h3>
                 <p className="mt-2 text-muted">{p.body}</p>
               </li>
