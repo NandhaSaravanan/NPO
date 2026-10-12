@@ -64,7 +64,7 @@ export default function Home() {
           <div>
             <h2 id="free" className="text-xl md:text-2xl">{whyFree.title}</h2>
           </div>
-          <div className="prose-plain space-y-4 text-base text-mist">
+          <div className="prose-plain space-y-4 text-base font-medium text-mist">
             {whyFree.body.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>
