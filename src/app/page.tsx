@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <section className="texture-dark bg-pine text-paper">
-        <div className="container-page pt-16 pb-12 md:pt-24 md:pb-16">
+        <div className="container-page pb-12 pt-[calc(var(--nav-h)+2.5rem)] md:pb-16 md:pt-[calc(var(--nav-h)+4.5rem)]">
           <div>
             <h1 className="max-w-4xl text-2xl sm:text-3xl lg:text-4xl">{hero.title}</h1>
             <p className="mt-6 max-w-2xl text-base text-mist md:text-lg">{hero.body}</p>
