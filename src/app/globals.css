@@ -37,6 +37,8 @@
   --color-moss: #667528;
   --color-mist: #d3dad2;
   --color-line: #b9c2b8;
+  --color-pine-edge: #3f6155;
+  --radius-bar: 1rem;
   --color-muted: #46544d;
 
   /* One easing curve and one duration for every hover and focus change on the site. */
@@ -47,7 +49,7 @@
   --shadow-lift: 0 1px 2px rgb(27 58 49 / 0.06), 0 16px 28px -16px rgb(43 102 130 / 0.5);
 }
 
-:root { --dur-ui: 240ms; }
+:root { --dur-ui: 240ms; --nav-h: 4.5rem; }
 /* Reduced motion keeps the change (color, border, underline) but drops the glide. */
 @media (prefers-reduced-motion: reduce) {
   :root { --dur-ui: 1ms; }
@@ -57,7 +59,7 @@
   html {
     color-scheme: light;
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
   body {
     background: var(--color-granite);
@@ -140,6 +142,16 @@
   }
   .btn-light:hover, .btn-light:focus-visible { color: var(--color-pine); }
 
+  /* Floating nav bar: transparent over the dark home hero, then one smooth change to solid pine. Solid always below lg. */
+  .nav-bar { background-color: transparent; border-color: transparent; transition-property: background-color, border-color; transition-duration: var(--dur-ui); transition-timing-function: var(--ease-ui); }
+  .nav-bar[data-solid="true"] { background-color: var(--color-pine); border-color: var(--color-pine-edge); }
+  @media (max-width: 1023px) {
+    .nav-bar { background-color: var(--color-pine); border-color: var(--color-pine-edge); }
+  }
+  /* Controls on dark surfaces: light text and a light focus ring. */
+  .on-dark { color: var(--color-paper); }
+  .on-dark :focus-visible { outline-color: var(--color-paper); }
+
   /* Text links: a quiet resting underline, and the accent underline grows over it from the left. */
   .link, .nav-link {
     background-image: linear-gradient(var(--color-myrtle), var(--color-myrtle)), linear-gradient(var(--color-line), var(--color-line));
@@ -153,7 +165,8 @@
   .link:hover, .link:focus-visible, .nav-link:hover, .nav-link:focus-visible,
   .nav-link[aria-current="page"] { background-size: 100% 2px, 100% 2px; }
   /* Navigation shows no resting underline until it is hovered or current. */
-  .nav-link { background-image: linear-gradient(var(--color-myrtle), var(--color-myrtle)); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
+  .nav-link { background-image: linear-gradient(var(--nav-underline, var(--color-myrtle)), var(--nav-underline, var(--color-myrtle))); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
+  .on-dark .nav-link { --nav-underline: #f1b8d0; }
   .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] { background-size: 100% 3px; }
 
   /* Form fields: border and a faint tinted ring respond to hover and focus. */
