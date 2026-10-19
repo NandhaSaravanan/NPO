@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="section texture bg-paper" aria-labelledby="work">
         <div className="container-page">
-          <SectionHeading id="work" title="Selected work" body="We have no finished client projects yet. These concept demos show how we'd approach a real one, built with the same system we'd use for yours." />
+          <SectionHeading id="work" title="Selected work" body="No finished client projects yet — here's how we'd approach one for an organization like yours." />
           <div className="mt-8 grid gap-10 md:grid-cols-2">
             {featuredWork.map((c) => (
               <div key={c.slug}>
@@ -105,7 +105,6 @@ export default function Home() {
         <div className="container-page">
           <SectionHeading id="trust" title={trust.title} body={trust.body} />
           <HairlineList items={trust.points} className="mt-8" />
-          <Link href={trust.cta.href} className="link mt-8 inline-block font-semibold">{trust.cta.label}</Link>
         </div>
       </section>
 
@@ -139,7 +138,7 @@ export default function Home() {
 
       <section className="section" aria-labelledby="faq">
         <div className="container-page max-w-4xl">
-          <SectionHeading id="faq" title="A few quick questions" />
+          <SectionHeading id="faq" title="Questions before you get started" />
           <div className="mt-8"><Faq items={homeFaq} /></div>
           <Link href="/nonprofits#faq" className="link mt-6 inline-block font-semibold">More questions, answered</Link>
         </div>
