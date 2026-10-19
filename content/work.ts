@@ -52,6 +52,11 @@ export const caseStudies: CaseStudy[] = [
       goal: "Lead with hours and how to get food, not an about-us paragraph — and make giving or volunteering a one-click decision.",
       pages: "Home, Get Food, Donate, Volunteer, About.",
     },
+    decisions: [
+      { title: "A dark, confident hero", body: "Most pantry sites bury their hours in a sidebar. Here the hero is the hours and the help — everything else is secondary." },
+      { title: "Warm, not corporate", body: "A cooler palette would read like every other nonprofit template. Warm brown and olive feel more like a real kitchen table than a dashboard." },
+      { title: "Three ways to help, side by side", body: "Weekly pantry, mobile stops and the garden get equal visual weight, because a volunteer and a donor are looking for different things on the same visit." },
+    ],
   },
   {
     slug: "concept-animal-rescue",
@@ -91,6 +96,11 @@ export const caseStudies: CaseStudy[] = [
       goal: "Put adoptable animals first, keep the foster and adoption applications short, and make a gift's impact concrete.",
       pages: "Home, Adopt, Foster, Donate, About.",
     },
+    decisions: [
+      { title: "Animals first, organization second", body: "The adoption grid would normally sit three clicks deep. Here it's the first thing after the hero." },
+      { title: "Navy and amber, not rescue-site orange", body: "Most shelter sites use the same bright orange on white. Navy reads calmer and more trustworthy, with amber doing the work of a single accent." },
+      { title: "A real number for where gifts go", body: "Donation pages that say \"every dollar helps\" get ignored. A specific line about what a gift covers earns more trust than a slogan." },
+    ],
   },
   {
     slug: "concept-youth-program",
@@ -130,6 +140,11 @@ export const caseStudies: CaseStudy[] = [
       goal: "Surface dates, cost and registration status first, since that's what decides whether a parent signs up.",
       pages: "Home, Programs, Register, Volunteer, About.",
     },
+    decisions: [
+      { title: "Built for a parent on a phone", body: "Dates, cost and whether registration is open come before the program description, because that's the order a busy parent actually needs them in." },
+      { title: "Bold on purpose", body: "Violet and a hard yellow accent read as energetic rather than institutional, matching a program built for kids, not adults." },
+      { title: "Mentorship gets its own place", body: "It would be easy to bury mentorship under \"volunteer.\" Giving it a dedicated block signals it's a real program, not an afterthought." },
+    ],
   },
 ];
 

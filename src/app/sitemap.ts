@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site-url";
+import { caseStudies } from "@content/work";
 
 const routes = [
   "",
@@ -13,6 +14,7 @@ const routes = [
   "/contact",
   "/privacy",
   "/credits",
+  ...caseStudies.filter((c) => c.demo).map((c) => `/our-work/${c.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
