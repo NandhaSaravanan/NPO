@@ -31,7 +31,7 @@ export const site = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ] satisfies Cta[],
-  primaryCta: { label: "Get a free website", href: "/nonprofits#apply" } satisfies Cta,
+  primaryCta: { label: "Apply for a free website", href: "/nonprofits#apply" } satisfies Cta,
   secondaryCta: { label: "Volunteer with us", href: "/volunteer#join" } satisfies Cta,
   social: [] as { label: string; href: string }[],
 };

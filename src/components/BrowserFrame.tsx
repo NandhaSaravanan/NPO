@@ -18,6 +18,18 @@ export function BrowserFrame({ children, className = "" }: { children: React.Rea
   );
 }
 
+/** A small phone bezel, for showing a mobile view of the same content next to a BrowserFrame. */
+export function PhoneFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`overflow-hidden rounded-[1.1rem] border-4 border-pine bg-paper ${className}`}>
+      <div className="flex justify-center border-b border-line bg-granite py-1" aria-hidden="true">
+        <span className="h-1 w-8 rounded-full bg-line" />
+      </div>
+      {children}
+    </div>
+  );
+}
+
 /** Greyed placeholder page. The one call-to-action block borrows the card's accent. */
 export function SampleLayout() {
   return (

@@ -23,7 +23,7 @@ export const photos = {
     photographer: "Ryan M",
     photographerUrl: "https://unsplash.com/@rymc02?utm_source=lumen&utm_medium=referral",
     sourceUrl: "https://unsplash.com/photos/cJp16tjKAWk?utm_source=lumen&utm_medium=referral",
-    usedOn: "Home page hero, below the headline",
+    usedOn: "About page, beside the Why we started section",
   },
   uptownNight: {
     src: "/photos/uptown-night.jpg",

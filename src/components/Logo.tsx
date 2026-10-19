@@ -3,8 +3,8 @@ import { site } from "@content/site";
 export function LogoMark({ className = "h-8 w-8", onDark = false }: { className?: string; onDark?: boolean }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true" focusable="false">
-      <rect width="32" height="32" rx="4" fill={onDark ? "#fafbf9" : "#1b3a31"} />
-      <circle cx="16" cy="16" r="6" fill="#b0306a" />
+      <rect width="32" height="32" rx="4" fill={onDark ? "#f7f6f0" : "#173f35"} />
+      <circle cx="16" cy="16" r="6" fill="#8f315b" />
     </svg>
   );
 }

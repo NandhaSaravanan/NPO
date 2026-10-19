@@ -26,11 +26,11 @@
   --text-4xl: 3.4332rem;
   --text-4xl--line-height: 1.04;
 
-  --color-granite: #e8ece7;
-  --color-paper: #fafbf9;
-  --color-pine: #1b3a31;
-  --color-myrtle: #b0306a;
-  --color-myrtle-deep: #8f2556;
+  --color-granite: #e6eae5;
+  --color-paper: #f7f6f0;
+  --color-pine: #173f35;
+  --color-myrtle: #8f315b;
+  --color-myrtle-deep: #6e2448;
   --color-catawba: #2b6682;
   --color-brick: #8e4631;
   --color-evergreen: #2e6b57;
@@ -40,13 +40,14 @@
   --color-pine-edge: #3f6155;
   --radius-bar: 1rem;
   --color-muted: #46544d;
+  --color-charcoal: #263b36;
 
   /* One easing curve and one duration for every hover and focus change on the site. */
   --ease-ui: cubic-bezier(0.2, 0.7, 0.2, 1);
   /* One corner radius and one shadow pair for every surface: cards, buttons, fields, photo frames. */
   --radius-ui: 0.5rem;
-  --shadow-card: 0 1px 2px rgb(27 58 49 / 0.06), 0 10px 22px -16px rgb(27 58 49 / 0.28);
-  --shadow-lift: 0 1px 2px rgb(27 58 49 / 0.06), 0 16px 28px -16px rgb(43 102 130 / 0.5);
+  --shadow-card: 0 1px 2px rgb(23 63 53 / 0.06), 0 10px 22px -16px rgb(23 63 53 / 0.28);
+  --shadow-lift: 0 1px 2px rgb(23 63 53 / 0.06), 0 16px 28px -16px rgb(43 102 130 / 0.5);
 }
 
 :root { --dur-ui: 240ms; --nav-h: 4.5rem; }
@@ -63,7 +64,7 @@
   }
   body {
     background: var(--color-granite);
-    color: var(--color-pine);
+    color: var(--color-charcoal);
     font-family: var(--font-sans);
     font-size: 1.125rem;
     line-height: 1.6;
@@ -198,8 +199,9 @@
   .prose-plain p + p { margin-top: 1rem; }
 
   /*
-   * Texture: plain diagonal hairlines, one direction, evenly spaced across the whole section at one faint
-   * intensity. Add `texture` to a light section or `texture-dark` to a dark one. Defined once, used everywhere.
+   * Texture: plain diagonal hairlines, one direction, evenly spaced. Kept deliberately faint and used
+   * selectively (strong dark sections, the hero) rather than behind every section, so it reads as a quiet
+   * identity mark instead of wallpaper. Add `texture` to a light section or `texture-dark` to a dark one.
    */
   .texture, .texture-dark { position: relative; isolation: isolate; }
   .texture::before, .texture-dark::before {
@@ -210,10 +212,10 @@
     pointer-events: none;
   }
   .texture::before {
-    background-image: repeating-linear-gradient(135deg, rgb(27 58 49 / 0.06) 0 1px, transparent 1px 20px);
+    background-image: repeating-linear-gradient(135deg, rgb(23 63 53 / 0.035) 0 1px, transparent 1px 22px);
   }
   .texture-dark::before {
-    background-image: repeating-linear-gradient(135deg, rgb(250 251 249 / 0.07) 0 1px, transparent 1px 20px);
+    background-image: repeating-linear-gradient(135deg, rgb(247 246 240 / 0.045) 0 1px, transparent 1px 22px);
   }
 
 }
