@@ -21,7 +21,7 @@ export function ConceptPreview() {
           <MiniSite content={foodPantryDemo} compact />
         </PhoneFrame>
       </div>
-      <figcaption className="mt-4 text-sm text-mist sm:max-w-[70%]">
+      <figcaption className="mt-4 text-sm text-sage sm:max-w-[70%]">
         Concept preview for a Union County nonprofit — not a real client site. See{" "}
         <Link href="/our-work" className="link">our actual projects</Link> as they launch.
       </figcaption>

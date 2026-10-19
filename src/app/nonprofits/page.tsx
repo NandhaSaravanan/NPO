@@ -27,7 +27,7 @@ export default function NonprofitsPage() {
           <SectionHeading id="different" title={difference.title} body={difference.body} />
           <ul className="space-y-8">
             {difference.points.map((p) => (
-              <li key={p.title} className="border-l-4 border-myrtle pl-5">
+              <li key={p.title} className="border-l-4 border-cobalt pl-5">
                 <h3 className="text-lg">{p.title}</h3>
                 <p className="mt-1 text-muted">{p.body}</p>
               </li>
@@ -36,7 +36,7 @@ export default function NonprofitsPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="eligible">
+      <section className="section texture bg-linen" aria-labelledby="eligible">
         <div className="container-page">
           <SectionHeading id="eligible" title={eligibility.title} body={eligibility.body} />
           <HairlineList items={eligibility.criteria} className="mt-8" />
@@ -52,7 +52,7 @@ export default function NonprofitsPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="timeline">
+      <section className="section texture bg-linen" aria-labelledby="timeline">
         <div className="container-page grid gap-10 lg:grid-cols-2 lg:gap-20">
           <SectionHeading id="timeline" title={timeline.title} body={timeline.body} />
           <HairlineList items={timeline.items.map((i) => ({ title: i.label, body: i.value }))} />
@@ -66,7 +66,7 @@ export default function NonprofitsPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="faq">
+      <section className="section texture bg-linen" aria-labelledby="faq">
         <div className="container-page max-w-4xl">
           <SectionHeading id="faq" title="Frequently asked questions" />
           <div className="mt-8"><Faq items={faq} /></div>

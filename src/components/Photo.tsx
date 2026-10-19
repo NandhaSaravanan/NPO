@@ -18,10 +18,10 @@ export function Photo({
 }) {
   return (
     <figure>
-      <div className={`relative w-full overflow-hidden rounded-ui bg-mist shadow-card ${ratio}`}>
+      <div className={`relative w-full overflow-hidden rounded-ui bg-granite shadow-card ${ratio}`}>
         <Image src={photo.src} alt={photo.alt} fill sizes={sizes} priority={priority} className="object-cover" />
       </div>
-      <figcaption className={`mt-2 text-sm ${onDark ? "text-mist" : "text-muted"}`}>
+      <figcaption className={`mt-2 text-sm ${onDark ? "text-sage" : "text-muted"}`}>
         Photo by{" "}
         <a href={photo.photographerUrl} className="link">{photo.photographer}</a>
         {" "}on{" "}

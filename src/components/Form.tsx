@@ -58,7 +58,7 @@ export function Form({ form }: { form: FormDef }) {
   if (state.status === "success") {
     return (
       <div role="status" className="card p-8 text-center">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-mist text-catawba">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-granite text-cobalt">
           <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m5 12.5 4.5 4.5L19 7.5" />
           </svg>
@@ -100,7 +100,7 @@ export function Form({ form }: { form: FormDef }) {
         </div>
       )}
       {(state.status === "fallback" || state.status === "error") && (
-        <div role="alert" className="rounded-ui border border-catawba bg-granite p-4">
+        <div role="alert" className="rounded-ui border border-cobalt bg-granite p-4">
           <p className="font-semibold">
             {state.status === "error"
               ? "We could not send your message automatically."

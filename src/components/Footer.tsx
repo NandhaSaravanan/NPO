@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="texture border-t border-line bg-paper">
+    <footer className="texture border-t border-line bg-linen">
       <div className="container-page grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Link href="/" aria-label={`${site.name} home`} className="inline-block rounded-ui">

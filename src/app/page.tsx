@@ -21,17 +21,20 @@ const featuredWork = caseStudies.slice(0, 2);
 export default function Home() {
   return (
     <>
-      <section className="texture-dark bg-pine text-paper">
+      <section className="texture-dark bg-pine text-linen">
         <div className="container-page pb-16 pt-[calc(var(--nav-h)+2.5rem)] md:pb-24 md:pt-[calc(var(--nav-h)+4.5rem)]">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
             <div>
-              <h1 className="max-w-xl text-2xl sm:text-3xl lg:text-4xl">{hero.title}</h1>
-              <p className="mt-6 max-w-xl text-base text-mist md:text-lg">{hero.body}</p>
+              <h1 className="max-w-xl text-2xl sm:text-3xl lg:text-4xl">
+                Free websites for the nonprofits
+                <br className="hidden sm:block" /> of Union County and Charlotte.
+              </h1>
+              <p className="mt-6 max-w-xl text-base text-linen md:text-lg">{hero.body}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
                 <Link href={hero.secondaryCta.href} className="btn btn-light">{hero.secondaryCta.label}</Link>
               </div>
-              <p className="mt-6 max-w-sm text-sm text-mist">{hero.note}</p>
+              <p className="mt-6 max-w-sm text-sm text-sage">{hero.note}</p>
             </div>
             <div className="lg:pl-4">
               <ConceptPreview />
@@ -40,7 +43,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="work">
+      <section className="section texture bg-linen" aria-labelledby="work">
         <div className="container-page">
           <SectionHeading id="work" title="Selected work" body="No finished client projects yet — here's how we'd approach one for an organization like yours." />
           <div className="mt-8 grid gap-10 md:grid-cols-2">
@@ -49,7 +52,7 @@ export default function Home() {
                 <BrowserFrame className="shadow-card">
                   {c.demo && <MiniSite content={c.demo} />}
                 </BrowserFrame>
-                <p className="mt-3 text-sm font-semibold text-catawba">{c.orgType}</p>
+                <p className="mt-3 text-sm font-semibold text-cobalt-deep">{c.orgType}</p>
                 <h3 className="mt-1 text-lg">{c.title}</h3>
                 <p className="mt-1 text-muted">{c.summary}</p>
               </div>
@@ -66,7 +69,7 @@ export default function Home() {
             {whoWeHelp.lead}{" "}
             {whoWeHelp.groups.map((g, i) => (
               <span key={g}>
-                <span className="text-myrtle">{g}</span>
+                <span className="text-cobalt">{g}</span>
                 {i === whoWeHelp.groups.length - 1 ? "" : i === whoWeHelp.groups.length - 2 ? ", and " : ", "}
               </span>
             ))}
@@ -78,7 +81,7 @@ export default function Home() {
 
       <ServiceAreaBand title={whoWeHelp.areaTitle} note={whoWeHelp.areaNote} />
 
-      <section className="section texture bg-paper" aria-labelledby="offer">
+      <section className="section texture bg-linen" aria-labelledby="offer">
         <div className="container-page">
           <SectionHeading id="offer" title={offerIntro.title} body={offerIntro.body} />
           <OfferTiers tiers={tiers} compact />
@@ -92,7 +95,7 @@ export default function Home() {
           <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {howItWorks.steps.map((step, i) => (
               <li key={step.title} className="border-t-2 border-pine pt-4">
-                <span aria-hidden="true" className="text-sm font-semibold text-catawba">{i + 1}</span>
+                <span aria-hidden="true" className="text-sm font-semibold text-cobalt-deep">{i + 1}</span>
                 <p className="mt-1 text-lg font-semibold leading-tight">{step.title}</p>
               </li>
             ))}
@@ -101,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-paper" aria-labelledby="trust">
+      <section className="section bg-linen" aria-labelledby="trust">
         <div className="container-page">
           <SectionHeading id="trust" title={trust.title} body={trust.body} />
           <HairlineList items={trust.points} className="mt-8" />
@@ -113,9 +116,9 @@ export default function Home() {
           <div>
             <h2 id="free" className="text-xl md:text-2xl">{whyFree.title}</h2>
           </div>
-          <div className="prose-plain space-y-4 text-base font-medium text-mist">
+          <div className="prose-plain space-y-4 text-base font-medium text-linen">
             {whyFree.body.map((p) => <p key={p}>{p}</p>)}
-            <Link href={whyFree.cta.href} className="link font-semibold text-paper">{whyFree.cta.label}</Link>
+            <Link href={whyFree.cta.href} className="link font-semibold text-linen">{whyFree.cta.label}</Link>
           </div>
         </div>
       </PhotoBand>
@@ -130,7 +133,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="roadmap">
+      <section className="section texture bg-linen" aria-labelledby="roadmap">
         <div className="container-page">
           <Roadmap items={roadmap} asideTitle="What comes next" asideBody="Websites first. We will add more only once those are done well." />
         </div>

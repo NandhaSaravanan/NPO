@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
-/* Design tokens. Palette from Charlotte and the Piedmont: granite, loblolly pine,
-   crepe myrtle, the Catawba River, and mill brick. Myrtle is the only loud color. */
+/* Civic Pine: pine green and warm linen carry the page. Cobalt is the one accent —
+   reserved for calls to action, links and interactive emphasis, never decoration. */
 @theme {
-  /* One family everywhere. Hierarchy comes from weight: 800 headlines, 400 body, 600 for UI. */
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  /* Two families: Bricolage Grotesque for headlines, Instrument Sans for body and UI. */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 
   /*
    * Type scale: Major Third (1.25) from an 18px body, with a smaller caption size.
@@ -26,28 +27,28 @@
   --text-4xl: 3.4332rem;
   --text-4xl--line-height: 1.04;
 
-  --color-granite: #e6eae5;
-  --color-paper: #f7f6f0;
-  --color-pine: #173f35;
-  --color-myrtle: #8f315b;
-  --color-myrtle-deep: #6e2448;
-  --color-catawba: #2b6682;
-  --color-brick: #8e4631;
-  --color-evergreen: #2e6b57;
-  --color-moss: #667528;
-  --color-mist: #d3dad2;
-  --color-line: #b9c2b8;
-  --color-pine-edge: #3f6155;
+  /* Civic Pine tokens. */
+  --color-pine: #173d30;
+  --color-cobalt: #3478f6;
+  --color-cobalt-deep: #275ab9;
+  --color-linen: #f5f1e8;
+  --color-sage: #a8bdaa;
+  --color-ink: #20241f;
+  /* Derived, not independent brand decisions: a sage wash for secondary backgrounds,
+     a sage-grey for hairline borders, and a pine/sage blend for dark-surface borders. */
+  --color-granite: #e4e6da;
+  --color-line: #c3cfc0;
+  --color-pine-edge: #4a6a5b;
+  /* Body copy color on light sections, between ink and sage — stays >=4.5:1 on linen and granite. */
+  --color-muted: #495249;
   --radius-bar: 1rem;
-  --color-muted: #46544d;
-  --color-charcoal: #263b36;
 
   /* One easing curve and one duration for every hover and focus change on the site. */
   --ease-ui: cubic-bezier(0.2, 0.7, 0.2, 1);
   /* One corner radius and one shadow pair for every surface: cards, buttons, fields, photo frames. */
   --radius-ui: 0.5rem;
-  --shadow-card: 0 1px 2px rgb(23 63 53 / 0.06), 0 10px 22px -16px rgb(23 63 53 / 0.28);
-  --shadow-lift: 0 1px 2px rgb(23 63 53 / 0.06), 0 16px 28px -16px rgb(43 102 130 / 0.5);
+  --shadow-card: 0 1px 2px rgb(23 61 48 / 0.06), 0 10px 22px -16px rgb(23 61 48 / 0.28);
+  --shadow-lift: 0 1px 2px rgb(23 61 48 / 0.06), 0 16px 28px -16px rgb(52 120 246 / 0.45);
 }
 
 :root { --dur-ui: 240ms; --nav-h: 4.5rem; }
@@ -64,17 +65,17 @@
   }
   body {
     background: var(--color-granite);
-    color: var(--color-charcoal);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1.125rem;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 {
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 800;
     line-height: 1.12;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
@@ -84,7 +85,7 @@
     transition-timing-function: var(--ease-ui);
   }
   :focus-visible {
-    outline: 3px solid var(--color-catawba);
+    outline: 3px solid var(--color-cobalt);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -125,9 +126,10 @@
     background-size: 0% 100%;
   }
   .btn:hover, .btn:focus-visible { background-size: 100% 100%; }
+  /* Resting fill is the deeper cobalt so the white label clears 4.5:1; hover brightens to true cobalt. */
   .btn-primary {
-    background-color: var(--color-myrtle);
-    background-image: linear-gradient(var(--color-myrtle-deep), var(--color-myrtle-deep));
+    background-color: var(--color-cobalt-deep);
+    background-image: linear-gradient(var(--color-cobalt), var(--color-cobalt));
     color: #fff;
   }
   .btn-secondary {
@@ -135,11 +137,11 @@
     color: var(--color-pine);
     background-image: linear-gradient(var(--color-pine), var(--color-pine));
   }
-  .btn-secondary:hover, .btn-secondary:focus-visible { color: var(--color-paper); }
+  .btn-secondary:hover, .btn-secondary:focus-visible { color: var(--color-linen); }
   .btn-light {
-    border: 2px solid var(--color-paper);
-    color: var(--color-paper);
-    background-image: linear-gradient(var(--color-paper), var(--color-paper));
+    border: 2px solid var(--color-linen);
+    color: var(--color-linen);
+    background-image: linear-gradient(var(--color-linen), var(--color-linen));
   }
   .btn-light:hover, .btn-light:focus-visible { color: var(--color-pine); }
 
@@ -150,12 +152,12 @@
     .nav-bar { background-color: var(--color-pine); border-color: var(--color-pine-edge); }
   }
   /* Controls on dark surfaces: light text and a light focus ring. */
-  .on-dark { color: var(--color-paper); }
-  .on-dark :focus-visible { outline-color: var(--color-paper); }
+  .on-dark { color: var(--color-linen); }
+  .on-dark :focus-visible { outline-color: var(--color-linen); }
 
   /* Text links: a quiet resting underline, and the accent underline grows over it from the left. */
   .link, .nav-link {
-    background-image: linear-gradient(var(--color-myrtle), var(--color-myrtle)), linear-gradient(var(--color-line), var(--color-line));
+    background-image: linear-gradient(var(--color-cobalt-deep), var(--color-cobalt-deep)), linear-gradient(var(--color-line), var(--color-line));
     background-repeat: no-repeat;
     background-position: 0 100%;
     background-size: 0% 2px, 100% 2px;
@@ -165,33 +167,33 @@
   }
   .link:hover, .link:focus-visible, .nav-link:hover, .nav-link:focus-visible,
   .nav-link[aria-current="page"] { background-size: 100% 2px, 100% 2px; }
-  /* Navigation shows no resting underline until it is hovered or current. */
-  .nav-link { background-image: linear-gradient(var(--nav-underline, var(--color-myrtle)), var(--nav-underline, var(--color-myrtle))); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
-  .on-dark .nav-link { --nav-underline: #f1b8d0; }
+  /* Navigation shows no resting underline until it is hovered or current. Cobalt text on dark pine is never
+     used directly (fails contrast), so the on-dark underline uses linen instead of the accent color. */
+  .nav-link { background-image: linear-gradient(var(--nav-underline, var(--color-cobalt-deep)), var(--nav-underline, var(--color-cobalt-deep))); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
+  .on-dark .nav-link { --nav-underline: var(--color-linen); }
   .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] { background-size: 100% 3px; }
 
   /* Form fields: border and a faint tinted ring respond to hover and focus. */
   .field { border-color: #7d8a82; }
-  .field:hover { border-color: var(--color-catawba); }
+  .field:hover { border-color: var(--color-cobalt); }
   .field:focus-visible {
-    border-color: var(--color-catawba);
-    box-shadow: 0 0 0 4px rgb(43 102 130 / 0.18);
+    border-color: var(--color-cobalt);
+    box-shadow: 0 0 0 4px rgb(52 120 246 / 0.18);
     outline-color: transparent;
   }
 
   /* Clickable project cards only. Static cards get none of this. */
-  /* One strip color for now. Revisit a multi-color set once there are three or more real projects. */
-  .project-card { --card-accent: var(--color-catawba); border: 1px solid var(--color-line); background: var(--color-paper); border-radius: var(--radius-ui); box-shadow: var(--shadow-card); }
+  .project-card { --card-accent: var(--color-cobalt-deep); border: 1px solid var(--color-line); background: var(--color-linen); border-radius: var(--radius-ui); box-shadow: var(--shadow-card); }
   .project-card[href]:hover, .project-card[href]:focus-visible {
     transform: translateY(-3px);
-    border-color: var(--color-catawba);
+    border-color: var(--color-cobalt);
     box-shadow: var(--shadow-lift);
   }
-  .faq-summary:hover { color: var(--color-catawba); }
+  .faq-summary:hover { color: var(--color-cobalt-deep); }
 
   /* A plain panel for forms and asides. Not used for repeated content. */
   .card {
-    background: var(--color-paper);
+    background: var(--color-linen);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-ui);
     box-shadow: var(--shadow-card);
@@ -212,10 +214,10 @@
     pointer-events: none;
   }
   .texture::before {
-    background-image: repeating-linear-gradient(135deg, rgb(23 63 53 / 0.035) 0 1px, transparent 1px 22px);
+    background-image: repeating-linear-gradient(135deg, rgb(23 61 48 / 0.035) 0 1px, transparent 1px 22px);
   }
   .texture-dark::before {
-    background-image: repeating-linear-gradient(135deg, rgb(247 246 240 / 0.045) 0 1px, transparent 1px 22px);
+    background-image: repeating-linear-gradient(135deg, rgb(245 241 232 / 0.045) 0 1px, transparent 1px 22px);
   }
 
 }

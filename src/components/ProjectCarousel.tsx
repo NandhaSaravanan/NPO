@@ -14,8 +14,8 @@ const statusLabel: Record<CaseStudy["status"], string> = {
 };
 const statusStyle: Record<CaseStudy["status"], string> = {
   sample: "border-pine text-pine",
-  "in-progress": "border-catawba text-catawba",
-  live: "border-pine bg-pine text-paper",
+  "in-progress": "border-cobalt text-cobalt-deep",
+  live: "border-pine bg-pine text-linen",
 };
 
 function CardBody({ c }: { c: CaseStudy }) {
@@ -51,15 +51,15 @@ function CardBody({ c }: { c: CaseStudy }) {
         {c.breakdown && (
           <dl className="mt-4 space-y-2 border-t border-line pt-4 text-sm">
             <div>
-              <dt className="font-semibold text-catawba">Who it&apos;s for</dt>
+              <dt className="font-semibold text-cobalt-deep">Who it&apos;s for</dt>
               <dd className="text-muted">{c.breakdown.audience}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-catawba">What it has to make easy</dt>
+              <dt className="font-semibold text-cobalt-deep">What it has to make easy</dt>
               <dd className="text-muted">{c.breakdown.goal}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-catawba">Pages</dt>
+              <dt className="font-semibold text-cobalt-deep">Pages</dt>
               <dd className="text-muted">{c.breakdown.pages}</dd>
             </div>
           </dl>
@@ -69,7 +69,7 @@ function CardBody({ c }: { c: CaseStudy }) {
             {c.results.map((r) => <li key={r}>{r}</li>)}
           </ul>
         )}
-        {c.url && <p className="mt-auto pt-5 font-semibold text-myrtle">View live site →</p>}
+        {c.url && <p className="mt-auto pt-5 font-semibold text-cobalt-deep">View live site →</p>}
       </div>
     </>
   );

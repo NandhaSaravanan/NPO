@@ -21,7 +21,7 @@ export default function WhatWeOfferPage() {
           <OfferTiers tiers={tiers} />
         </div>
       </section>
-      <section className="section texture bg-paper" aria-labelledby="offer-closing">
+      <section className="section texture bg-linen" aria-labelledby="offer-closing">
         <div className="container-page max-w-2xl">
           <SectionHeading id="offer-closing" title={offerClosing.title} body={offerClosing.body} />
         </div>
