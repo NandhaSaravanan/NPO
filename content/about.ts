@@ -31,7 +31,7 @@ export const timeline = {
     {
       when: "TBD",
       title: "The idea",
-      body: "Nandha Saravanan, a high school student in Union County, noticed how many local nonprofits had websites that were missing, out of date or hard to use on a phone.",
+      body: "The realization behind the whole project, described above, turns into an actual plan.",
       status: "tbd",
     },
     {
