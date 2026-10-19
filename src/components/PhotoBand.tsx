@@ -4,7 +4,7 @@ import type { Photo } from "@content/photos";
 /** Overlay strength, 0 to 1. A number is uniform. Stops run left to right on wide screens. */
 export type Overlay = number | { from: number; mid: number; to: number };
 
-const PINE = "27 58 49";
+const PINE = "23 63 53";
 
 /**
  * A full-bleed section with a photo behind it. The photo keeps its own color: no saturation filter, only a

@@ -5,7 +5,9 @@ import { PageHeader, SectionHeading } from "@/components/Section";
 import { HairlineList } from "@/components/HairlineList";
 import { Timeline } from "@/components/Timeline";
 import { CtaBand } from "@/components/CtaBand";
+import { Photo } from "@/components/Photo";
 import { closing } from "@content/home";
+import { photos } from "@content/photos";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -27,9 +29,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="story">
+      <section className="section bg-paper" aria-labelledby="story">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
-          <SectionHeading id="story" title={story.title} />
+          <div>
+            <SectionHeading id="story" title={story.title} />
+            <div className="mt-6 hidden md:block">
+              <Photo photo={photos.uptownRailYard} ratio="aspect-[4/5]" sizes="20rem" />
+            </div>
+          </div>
           <div className="space-y-4 text-base text-muted">
             {story.paragraphs.map((p) => <p key={p}>{p}</p>)}
           </div>

@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { site } from "@content/site";
-import { hero, aboutTeaser, whoWeHelp, howItWorks, whyFree, roadmap, closing } from "@content/home";
+import { hero, aboutTeaser, whoWeHelp, howItWorks, trust, homeFaq, whyFree, roadmap, closing } from "@content/home";
 import { offerIntro, tiers } from "@content/offer";
 import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { SectionHeading } from "@/components/Section";
 import { OfferTiers } from "@/components/OfferTiers";
+import { HairlineList } from "@/components/HairlineList";
+import { Faq } from "@/components/Faq";
 import { Roadmap } from "@/components/Roadmap";
 import { CtaBand } from "@/components/CtaBand";
-import { Photo } from "@/components/Photo";
+import { ConceptPreview } from "@/components/ConceptPreview";
 import { PhotoBand } from "@/components/PhotoBand";
 import { photos } from "@content/photos";
 
@@ -15,27 +17,20 @@ export default function Home() {
   return (
     <>
       <section className="texture-dark bg-pine text-paper">
-        <div className="container-page pb-12 pt-[calc(var(--nav-h)+2.5rem)] md:pb-16 md:pt-[calc(var(--nav-h)+4.5rem)]">
-          <div>
-            <h1 className="max-w-4xl text-2xl sm:text-3xl lg:text-4xl">{hero.title}</h1>
-            <p className="mt-6 max-w-2xl text-base text-mist md:text-lg">{hero.body}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
-              <Link href={site.secondaryCta.href} className="btn btn-light">{site.secondaryCta.label}</Link>
+        <div className="container-page pb-16 pt-[calc(var(--nav-h)+2.5rem)] md:pb-24 md:pt-[calc(var(--nav-h)+4.5rem)]">
+          <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
+            <div>
+              <h1 className="max-w-xl text-2xl sm:text-3xl lg:text-4xl">{hero.title}</h1>
+              <p className="mt-6 max-w-xl text-base text-mist md:text-lg">{hero.body}</p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link href={site.primaryCta.href} className="btn btn-primary">{site.primaryCta.label}</Link>
+                <Link href={hero.secondaryCta.href} className="btn btn-light">{hero.secondaryCta.label}</Link>
+              </div>
+              <p className="mt-6 max-w-sm text-sm text-mist">{hero.note}</p>
             </div>
-          </div>
-          <div className="mt-12 md:mt-16">
-            <Photo photo={photos.uptownRailYard} ratio="aspect-[4/3] md:aspect-[21/9]" sizes="(min-width: 1152px) 1088px, 100vw" priority onDark />
-          </div>
-        </div>
-      </section>
-
-      <section className="section texture bg-paper" aria-labelledby="about">
-        <div className="container-page grid gap-6 md:grid-cols-[1fr_1.4fr] md:items-start">
-          <SectionHeading id="about" title={aboutTeaser.title} />
-          <div>
-            <p className="max-w-2xl text-base text-muted">{aboutTeaser.body}</p>
-            <Link href={aboutTeaser.cta.href} className="link mt-4 inline-block font-semibold">{aboutTeaser.cta.label}</Link>
+            <div className="lg:pl-4">
+              <ConceptPreview />
+            </div>
           </div>
         </div>
       </section>
@@ -59,7 +54,15 @@ export default function Home() {
 
       <ServiceAreaBand title={whoWeHelp.areaTitle} note={whoWeHelp.areaNote} />
 
-      <section className="section texture bg-paper" aria-labelledby="how">
+      <section className="section texture bg-paper" aria-labelledby="offer">
+        <div className="container-page">
+          <SectionHeading id="offer" title={offerIntro.title} body={offerIntro.body} />
+          <OfferTiers tiers={tiers} compact />
+          <Link href="/what-we-offer" className="link mt-8 inline-block font-semibold">See what&apos;s included in each tier</Link>
+        </div>
+      </section>
+
+      <section className="section texture" aria-labelledby="how">
         <div className="container-page">
           <SectionHeading id="how" title={howItWorks.title} body={howItWorks.body} />
           <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -74,11 +77,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section texture" aria-labelledby="offer">
+      <section className="section bg-paper" aria-labelledby="trust">
         <div className="container-page">
-          <SectionHeading id="offer" title={offerIntro.title} body={offerIntro.body} />
-          <OfferTiers tiers={tiers} compact />
-          <Link href="/what-we-offer" className="link mt-8 inline-block font-semibold">See what&apos;s included in each tier</Link>
+          <SectionHeading id="trust" title={trust.title} body={trust.body} />
+          <HairlineList items={trust.points} className="mt-8" />
+          <Link href={trust.cta.href} className="link mt-8 inline-block font-semibold">{trust.cta.label}</Link>
         </div>
       </section>
 
@@ -94,9 +97,27 @@ export default function Home() {
         </div>
       </PhotoBand>
 
+      <section className="section" aria-labelledby="about">
+        <div className="container-page grid gap-6 md:grid-cols-[1fr_1.4fr] md:items-start">
+          <SectionHeading id="about" title={aboutTeaser.title} />
+          <div>
+            <p className="max-w-2xl text-base text-muted">{aboutTeaser.body}</p>
+            <Link href={aboutTeaser.cta.href} className="link mt-4 inline-block font-semibold">{aboutTeaser.cta.label}</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section texture bg-paper" aria-labelledby="roadmap">
         <div className="container-page">
           <Roadmap items={roadmap} asideTitle="What comes next" asideBody="Websites first. We will add more only once those are done well." />
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="faq">
+        <div className="container-page max-w-4xl">
+          <SectionHeading id="faq" title="A few quick questions" />
+          <div className="mt-8"><Faq items={homeFaq} /></div>
+          <Link href="/nonprofits#faq" className="link mt-6 inline-block font-semibold">More questions, answered</Link>
         </div>
       </section>
 

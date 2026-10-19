@@ -1,11 +1,13 @@
-import type { RoadmapItem, Step } from "./types";
+import type { FaqItem, RoadmapItem, Step } from "./types";
 import { ORG_NAME, site } from "./site";
 
 const founder = site.founder;
 
 export const hero = {
   title: "Free websites for the nonprofits of Union County and Charlotte.",
-  body: `Food pantries, rescues, youth programs and church outreach groups do the work. We build the site that shows it: readable on a phone, registered in your name, with no fee and no agency markup. ${ORG_NAME} is a volunteer studio run by a high school student in Union County, and we are taking on our first projects.`,
+  body: "Food pantries, rescues, youth programs and church outreach groups do the work. We design and build the site that shows it: readable on a phone, registered in your name, with no design or development fee.",
+  note: "A student-led community initiative serving local nonprofits in Union County and Charlotte.",
+  secondaryCta: { label: "Explore our work", href: "/our-work" },
 };
 
 export const aboutTeaser = {
@@ -58,10 +60,43 @@ export const howItWorks = {
   ] satisfies Step[],
 };
 
+export const trust = {
+  title: "How this is run",
+  body: "The questions we'd ask before handing our website to a stranger.",
+  cta: { label: "More on how it works", href: "/how-it-works" },
+  points: [
+    { title: "Who's behind it", body: "Lumen is run by Nandha Saravanan with a small team of student volunteers. No company structure — just the people doing the work." },
+    { title: "How applications are reviewed", body: "A real person reads every application within a week. We check fit, then set up a scope call." },
+    { title: "Who owns the site", body: "Your organization, from day one. The domain, hosting and files are registered in your name at launch, not ours." },
+    { title: "How access is handed off", body: "At launch we transfer every login — domain, hosting, connected accounts — to your point person, with a record of what's where." },
+    { title: "What it might cost", body: "The design and build are free. The only likely cost is a domain name, usually $12 to $20 a year, paid to a registrar, not to us." },
+    { title: "What happens after launch", body: "We train your team and give you a plain-English guide. We stay reachable, but the goal is for you to run it without us." },
+  ],
+};
+
+export const homeFaq: FaqItem[] = [
+  {
+    question: "Is it really free?",
+    answer: "Yes. There is no fee for design, build, launch or training. The only cost you may have is one you control, such as a custom domain name.",
+  },
+  {
+    question: "Who is eligible to apply?",
+    answer: "Local 501(c)(3) nonprofits and established community, faith-based or volunteer organizations within about 30 miles of Union County.",
+  },
+  {
+    question: "Do we own the finished website?",
+    answer: "Yes. Your domain, hosting and site files are set up in your organization's name, and we hand over everything at launch.",
+  },
+  {
+    question: "We're not on the service list — can we still apply?",
+    answer: "Apply anyway and tell us where you are. We'll be straightforward about whether we can take it on.",
+  },
+];
+
 export const whyFree = {
   title: "Why free?",
   body: [
-    `There's no office, no payroll and no agency markup, so there's nothing to charge for. ${ORG_NAME} is run by ${founder}, a high school student, and built by student volunteers who want real client work, not a fee.`,
+    `There's no office, no payroll and no agency markup, so there's nothing to charge for. Every project is volunteer-built, including by the student team on yours.`,
   ],
   cta: { label: "The full story", href: "/why-free" },
 };
