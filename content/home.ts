@@ -8,6 +8,12 @@ export const hero = {
   body: `Food pantries, rescues, youth programs and church outreach groups do the work. We build the site that shows it: readable on a phone, registered in your name, with no fee and no agency markup. ${ORG_NAME} is a volunteer studio run by a high school student in Union County, and we are taking on our first projects.`,
 };
 
+export const aboutTeaser = {
+  title: "Who's behind this",
+  body: `${ORG_NAME} is run by ${founder}, a high school student in Union County. The idea started after seeing how many local nonprofits were getting by on a Facebook page or no website at all — not for lack of effort, but because a professional site costs more than most of these groups can spend. Every project is built personally, start to finish, at no cost to the organization.`,
+  cta: { label: "More about us", href: "/about" },
+};
+
 export const whoWeHelp = {
   title: "Who we help",
   body: "Groups whose money goes to groceries, vet bills and field trips, not web design.",
@@ -26,6 +32,7 @@ export const whoWeHelp = {
 export const howItWorks = {
   title: "How it works",
   body: "From your application to a live site you own, usually six to ten weeks.",
+  cta: { label: "The full process", href: "/how-it-works" },
   steps: [
     {
       title: "Apply",
@@ -50,44 +57,12 @@ export const howItWorks = {
   ] satisfies Step[],
 };
 
-export const whatYouGet = {
-  title: "What we build into every site",
-  body: "Every site gets the same five things, whether the organization is in Weddington or NoDa.",
-  items: [
-    {
-      title: "A site that works on phones",
-      group: "On the page",
-      body: "Pages are designed for a small screen first and scaled up, so a Waxhaw pantry or a Charlotte youth program reads clearly on the phone in someone's hand.",
-    },
-    {
-      title: "Donation and volunteer forms",
-      group: "On the page",
-      body: "Forms for signing up and getting in touch go to your inbox, and giving goes through the donation service you already use, because we do not collect money or hold your supporters' details.",
-    },
-    {
-      title: "Basic SEO",
-      group: "On the page",
-      body: "Real page titles, descriptions and structure that name your town or neighborhood, so a search like \"food pantry Waxhaw\" has something accurate to find.",
-    },
-    {
-      title: "Hosting guidance",
-      group: "Handoff",
-      body: "We recommend low-cost or free hosting, set it up with you, and put the domain and accounts in your name. The only cost you might see is the domain, usually $12 to $20 a year.",
-    },
-    {
-      title: "Training",
-      group: "Handoff",
-      body: "A hands-on session and a plain-English guide, so someone on your team can update the site without us.",
-    },
-  ],
-};
-
 export const whyFree = {
   title: "Why free?",
   body: [
-    `There is no office, no payroll and no agency markup here, so there is nothing to cover. ${ORG_NAME} is a volunteer studio run by ${founder}, a high school student in Union County who is building a portfolio on real projects. The students on your team are doing the same.`,
-    "So the trade is simple. You get a working site, and we get something real to put our names on. We are not a funded startup, and we are not asking you for donations. The only cost you might see is a domain name, usually $12 to $20 a year, and we will tell you before you commit.",
+    `There's no office, no payroll and no agency markup, so there's nothing to charge for. ${ORG_NAME} is run by ${founder}, a high school student, and built by student volunteers who want real client work, not a fee.`,
   ],
+  cta: { label: "The full story", href: "/why-free" },
 };
 
 export const roadmap: RoadmapItem[] = [

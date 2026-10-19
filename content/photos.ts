@@ -25,16 +25,6 @@ export const photos = {
     sourceUrl: "https://unsplash.com/photos/cJp16tjKAWk?utm_source=lumen&utm_medium=referral",
     usedOn: "Home page hero, below the headline",
   },
-  charlotteWestSide: {
-    src: "/photos/charlotte-west-side.jpg",
-    width: 2000,
-    height: 1125,
-    alt: "The Charlotte skyline in daylight, seen over treetops and low rooftops from the west.",
-    photographer: "Daniel Weiss",
-    photographerUrl: "https://unsplash.com/@dweiss002?utm_source=lumen&utm_medium=referral",
-    sourceUrl: "https://unsplash.com/photos/x0P-6BRp5jc?utm_source=lumen&utm_medium=referral",
-    usedOn: "Behind the service-area section on the home and For Nonprofits pages",
-  },
   uptownNight: {
     src: "/photos/uptown-night.jpg",
     width: 2000,

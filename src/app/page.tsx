@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { site } from "@content/site";
-import { hero, whoWeHelp, howItWorks, whatYouGet, whyFree, roadmap, closing } from "@content/home";
+import { hero, aboutTeaser, whoWeHelp, howItWorks, whyFree, roadmap, closing } from "@content/home";
+import { offerIntro, tiers } from "@content/offer";
 import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { SectionHeading } from "@/components/Section";
-import { Steps } from "@/components/Steps";
-import { HairlineList } from "@/components/HairlineList";
+import { OfferTiers } from "@/components/OfferTiers";
 import { Roadmap } from "@/components/Roadmap";
 import { CtaBand } from "@/components/CtaBand";
 import { Photo } from "@/components/Photo";
@@ -30,7 +30,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="who">
+      <section className="section texture bg-paper" aria-labelledby="about">
+        <div className="container-page grid gap-6 md:grid-cols-[1fr_1.4fr] md:items-start">
+          <SectionHeading id="about" title={aboutTeaser.title} />
+          <div>
+            <p className="max-w-2xl text-base text-muted">{aboutTeaser.body}</p>
+            <Link href={aboutTeaser.cta.href} className="link mt-4 inline-block font-semibold">{aboutTeaser.cta.label}</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section texture" aria-labelledby="who">
         <div className="container-page">
           <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
           <ul className="mt-8 flex flex-wrap gap-3">
@@ -45,17 +55,26 @@ export default function Home() {
 
       <ServiceAreaBand title={whoWeHelp.areaTitle} note={whoWeHelp.areaNote} />
 
-      <section className="section texture" aria-labelledby="how">
+      <section className="section texture bg-paper" aria-labelledby="how">
         <div className="container-page">
           <SectionHeading id="how" title={howItWorks.title} body={howItWorks.body} />
-          <Steps steps={howItWorks.steps} />
+          <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {howItWorks.steps.map((step, i) => (
+              <li key={step.title} className="border-t-2 border-pine pt-4">
+                <span aria-hidden="true" className="text-sm font-semibold text-catawba">{i + 1}</span>
+                <p className="mt-1 text-lg font-semibold leading-tight">{step.title}</p>
+              </li>
+            ))}
+          </ol>
+          <Link href={howItWorks.cta.href} className="link mt-8 inline-block font-semibold">{howItWorks.cta.label}</Link>
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="get">
+      <section className="section texture" aria-labelledby="offer">
         <div className="container-page">
-          <SectionHeading id="get" title={whatYouGet.title} body={whatYouGet.body} />
-          <HairlineList items={whatYouGet.items} className="mt-8" />
+          <SectionHeading id="offer" title={offerIntro.title} body={offerIntro.body} />
+          <OfferTiers tiers={tiers} compact />
+          <Link href="/what-we-offer" className="link mt-8 inline-block font-semibold">See what&apos;s included in each tier</Link>
         </div>
       </section>
 
@@ -66,6 +85,7 @@ export default function Home() {
           </div>
           <div className="prose-plain space-y-4 text-base font-medium text-mist">
             {whyFree.body.map((p) => <p key={p}>{p}</p>)}
+            <Link href={whyFree.cta.href} className="link font-semibold text-paper">{whyFree.cta.label}</Link>
           </div>
         </div>
       </PhotoBand>
