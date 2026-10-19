@@ -49,6 +49,19 @@ export interface CaseStudy {
   url?: string;
   /** Screenshot in /public. Without it the card shows a labeled empty frame. */
   image?: { src: string; alt: string; width: number; height: number };
+  /** A rendered concept mini-site, shown instead of the grey placeholder when there is no real screenshot. */
+  demo?: MiniSiteContent;
+  /** The design thinking behind a concept demo: who it's for, what it has to make easy, and its page map. */
+  breakdown?: { audience: string; goal: string; pages: string };
+}
+
+export interface MiniSiteContent {
+  orgName: string;
+  navLinks: string[];
+  headline: string;
+  subcopy: string;
+  ctaLabel: string;
+  blocks: { title: string; body: string }[];
 }
 
 export type FieldType = "text" | "email" | "tel" | "url" | "textarea" | "select";

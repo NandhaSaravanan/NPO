@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { CaseStudy, Cta } from "@content/types";
 import { BrowserFrame, SampleLayout } from "./BrowserFrame";
+import { MiniSite } from "./MiniSite";
 
 const statusLabel: Record<CaseStudy["status"], string> = {
-  sample: "Sample",
+  sample: "Concept demo",
   "in-progress": "In progress",
   live: "Live",
 };
@@ -27,11 +28,13 @@ function CardBody({ c }: { c: CaseStudy }) {
             <div className="relative aspect-[16/10] w-full">
               <Image src={c.image.src} alt={c.image.alt} fill sizes="(min-width: 640px) 26rem, 85vw" className="object-cover object-top" draggable={false} />
             </div>
+          ) : c.demo ? (
+            <MiniSite content={c.demo} />
           ) : (
             <SampleLayout />
           )}
         </BrowserFrame>
-        {c.status === "sample" && !c.image && (
+        {c.status === "sample" && !c.image && !c.demo && (
           <p className="mt-2 text-sm text-muted">Sample layout, not a real client</p>
         )}
       </div>
@@ -45,6 +48,22 @@ function CardBody({ c }: { c: CaseStudy }) {
         <h3 className="mt-4 text-lg">{c.title}</h3>
         <p className="mt-1 font-semibold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
         <p className="mt-3 text-muted">{c.summary}</p>
+        {c.breakdown && (
+          <dl className="mt-4 space-y-2 border-t border-line pt-4 text-sm">
+            <div>
+              <dt className="font-semibold text-catawba">Who it&apos;s for</dt>
+              <dd className="text-muted">{c.breakdown.audience}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-catawba">What it has to make easy</dt>
+              <dd className="text-muted">{c.breakdown.goal}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-catawba">Pages</dt>
+              <dd className="text-muted">{c.breakdown.pages}</dd>
+            </div>
+          </dl>
+        )}
         {c.results && (
           <ul className="mt-3 list-disc space-y-1 pl-5 text-muted">
             {c.results.map((r) => <li key={r}>{r}</li>)}
@@ -135,7 +154,7 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
         aria-label="Project cards. Use the arrow keys or swipe."
       >
         {items.map((c) => (
-          <li key={c.slug} className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
+          <li key={c.slug} className="flex w-[85%] shrink-0 snap-start sm:w-[29rem]">
             {c.url ? (
               <a href={c.url} target="_blank" rel="noopener noreferrer" className="project-card flex w-full flex-col overflow-hidden" draggable={false}>
                 <CardBody c={c} />
@@ -148,7 +167,7 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
             )}
           </li>
         ))}
-        <li className="flex w-[85%] shrink-0 snap-start sm:w-[26rem]">
+        <li className="flex w-[85%] shrink-0 snap-start sm:w-[29rem]">
           <div className="flex w-full flex-col justify-between rounded-ui border-2 border-dashed border-pine p-6">
             <div>
               <h3 className="text-lg">{next.title}</h3>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site } from "@content/site";
 import { hero, aboutTeaser, whoWeHelp, howItWorks, trust, homeFaq, whyFree, roadmap, closing } from "@content/home";
 import { offerIntro, tiers } from "@content/offer";
+import { caseStudies } from "@content/work";
 import { ServiceAreaBand } from "@/components/ServiceAreaBand";
 import { SectionHeading } from "@/components/Section";
 import { OfferTiers } from "@/components/OfferTiers";
@@ -10,8 +11,12 @@ import { Faq } from "@/components/Faq";
 import { Roadmap } from "@/components/Roadmap";
 import { CtaBand } from "@/components/CtaBand";
 import { ConceptPreview } from "@/components/ConceptPreview";
+import { BrowserFrame } from "@/components/BrowserFrame";
+import { MiniSite } from "@/components/MiniSite";
 import { PhotoBand } from "@/components/PhotoBand";
 import { photos } from "@content/photos";
+
+const featuredWork = caseStudies.slice(0, 2);
 
 export default function Home() {
   return (
@@ -32,6 +37,25 @@ export default function Home() {
               <ConceptPreview />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section texture bg-paper" aria-labelledby="work">
+        <div className="container-page">
+          <SectionHeading id="work" title="Selected work" body="We have no finished client projects yet. These concept demos show how we'd approach a real one, built with the same system we'd use for yours." />
+          <div className="mt-8 grid gap-10 md:grid-cols-2">
+            {featuredWork.map((c) => (
+              <div key={c.slug}>
+                <BrowserFrame className="shadow-card">
+                  {c.demo && <MiniSite content={c.demo} />}
+                </BrowserFrame>
+                <p className="mt-3 text-sm font-semibold text-catawba">{c.orgType}</p>
+                <h3 className="mt-1 text-lg">{c.title}</h3>
+                <p className="mt-1 text-muted">{c.summary}</p>
+              </div>
+            ))}
+          </div>
+          <Link href="/our-work" className="link mt-8 inline-block font-semibold">See all our work</Link>
         </div>
       </section>
 
@@ -65,7 +89,7 @@ export default function Home() {
       <section className="section texture" aria-labelledby="how">
         <div className="container-page">
           <SectionHeading id="how" title={howItWorks.title} body={howItWorks.body} />
-          <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {howItWorks.steps.map((step, i) => (
               <li key={step.title} className="border-t-2 border-pine pt-4">
                 <span aria-hidden="true" className="text-sm font-semibold text-catawba">{i + 1}</span>
