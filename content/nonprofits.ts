@@ -48,18 +48,23 @@ export const process = {
       when: "Reply within a week",
     },
     {
-      title: "Scope call",
-      body: "A call to agree on pages, features, content and a timeline.",
+      title: "Discovery call",
+      body: "We talk through your audience, priorities, content and timeline, so the scope is clear before we design anything.",
       when: "30 minutes",
     },
     {
-      title: "Build",
-      body: "We design and build your site, share a preview link, and revise based on your feedback.",
-      when: "4 to 6 weeks",
+      title: "Design review",
+      body: "We propose a site structure and visual direction and share it with you for feedback before we build.",
+      when: "1 to 2 weeks",
+    },
+    {
+      title: "Build and QA",
+      body: "We develop the approved design, add your content, and test links, forms, mobile layouts and accessibility.",
+      when: "3 to 5 weeks",
     },
     {
       title: "Launch and handoff",
-      body: "We go live, move all accounts into your name, and train your team to maintain the site.",
+      body: "We connect your domain, confirm ownership and hosting, and walk your team through updating the site.",
       when: "About a week",
     },
   ] satisfies Step[],
@@ -67,11 +72,11 @@ export const process = {
 
 export const timeline = {
   title: "Timeline expectations",
-  body: "Most projects take about six to ten weeks from the scope call to launch. Student schedules and school breaks can stretch that, and slow feedback or late content does too. We will agree on a target date up front and tell you early if anything shifts.",
+  body: "Most projects take about six to ten weeks from the discovery call to launch. Student schedules and school breaks can stretch that, and slow feedback or late content does too. We will agree on a target date up front and tell you early if anything shifts.",
   items: [
     { label: "Application review", value: "Within 1 week" },
-    { label: "Scope call to build start", value: "1 to 2 weeks" },
-    { label: "Build and revisions", value: "4 to 6 weeks" },
+    { label: "Discovery call to design review", value: "1 to 2 weeks" },
+    { label: "Build and QA", value: "3 to 5 weeks" },
     { label: "Launch and training", value: "About 1 week" },
   ],
 };
@@ -119,6 +124,10 @@ export const faq: FaqItem[] = [
   {
     question: "How many projects do you take on?",
     answer: "We are a small team, so we take on a limited number at a time to keep quality high. If we are full, we will tell you honestly and keep your application on file.",
+  },
+  {
+    question: "What if our organization isn't a fit, or you can't take the project?",
+    answer: "We will tell you plainly, with the reason, whether it's eligibility, capacity or timing. We are not able to fund or recommend paid alternatives, but we are happy to point you toward other resources we know of.",
   },
 ];
 

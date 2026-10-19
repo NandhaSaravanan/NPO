@@ -39,22 +39,27 @@ export const howItWorks = {
   steps: [
     {
       title: "Apply",
-      body: "Tell us about your organization and what the site needs to do. It takes about ten minutes.",
+      body: "Tell us your mission, your current site if you have one, and what you need. We review every application and reply within a week.",
       when: "We reply within a week",
     },
     {
-      title: "Scope call",
-      body: "A short call to agree on pages, priorities and a launch date, so nothing surprises you later.",
+      title: "Discovery call",
+      body: "We talk through your audience, priorities, content and timeline, so the scope is clear before we design anything.",
       when: "30 minutes",
     },
     {
-      title: "Build",
-      body: "A small student team designs and builds your site. You see a preview link and send feedback as we go.",
-      when: "4 to 6 weeks",
+      title: "Design review",
+      body: "We propose a site structure and visual direction and share it with you for feedback before we build.",
+      when: "1 to 2 weeks",
+    },
+    {
+      title: "Build and QA",
+      body: "We develop the approved design, add your content, and test links, forms, mobile layouts and accessibility.",
+      when: "3 to 5 weeks",
     },
     {
       title: "Launch and handoff",
-      body: "We publish it, move the domain and hosting into your name, and train someone on your team to update it.",
+      body: "We connect your domain, confirm ownership and hosting, and walk your team through updating the site.",
       when: "About a week",
     },
   ] satisfies Step[],
