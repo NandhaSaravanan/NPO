@@ -17,6 +17,20 @@ export const foodPantryDemo = {
     { title: "Mobile stops", body: "A van bringing food to four neighborhoods each month." },
     { title: "Community garden", body: "Volunteer-grown produce, free to anyone who stops by." },
   ],
+  // Warm, harvest-toned identity — deliberately not Lumen's own pine/cobalt/linen.
+  palette: {
+    heroBg: "#6B4423",
+    heroText: "#FBF3E7",
+    heroSubtext: "#D9C3A8",
+    accentBg: "#8A9B4F",
+    accentText: "#1A1F0D",
+    navBg: "#FBF3E7",
+    navText: "#3D2B1A",
+    blockBg: "#F3E7D3",
+    blockTitle: "#6B4423",
+    blockBody: "#5A4A3A",
+    headlineFont: "Georgia, 'Times New Roman', serif",
+  },
 };
 
 /**
@@ -57,6 +71,20 @@ export const caseStudies: CaseStudy[] = [
         { title: "Foster program", body: "What fostering involves and how to apply in one short form." },
         { title: "Where gifts go", body: "A plain breakdown of what a donation covers, in real terms." },
       ],
+      // Friendly navy-and-amber identity — a different composition from the food pantry demo.
+      palette: {
+        heroBg: "#1E3A5F",
+        heroText: "#FAF6EE",
+        heroSubtext: "#A9BFD6",
+        accentBg: "#E8984F",
+        accentText: "#1E3A5F",
+        navBg: "#FAF6EE",
+        navText: "#1E3A5F",
+        blockBg: "#EEF2F7",
+        blockTitle: "#1E3A5F",
+        blockBody: "#4A5A6B",
+        headlineFont: "'Trebuchet MS', 'Segoe UI', sans-serif",
+      },
     },
     breakdown: {
       audience: "Local families ready to adopt or foster, and donors who want to see impact.",
@@ -82,6 +110,20 @@ export const caseStudies: CaseStudy[] = [
         { title: "Summer camp", body: "Dates, cost and what to bring, with registration that opens on time." },
         { title: "Mentorship", body: "How the matching works, for both families and volunteer mentors." },
       ],
+      // Bold violet-and-yellow identity — energetic, the third distinct look.
+      palette: {
+        heroBg: "#3D2563",
+        heroText: "#FFFFFF",
+        heroSubtext: "#C9B8E0",
+        accentBg: "#F2C230",
+        accentText: "#2B1A47",
+        navBg: "#FFFFFF",
+        navText: "#3D2563",
+        blockBg: "#F4EEFC",
+        blockTitle: "#3D2563",
+        blockBody: "#5C4A78",
+        headlineFont: "'Arial Black', 'Arial Bold', Gadget, sans-serif",
+      },
     },
     breakdown: {
       audience: "Parents comparing programs quickly, plus volunteers and donors.",

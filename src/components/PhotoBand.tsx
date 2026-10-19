@@ -38,12 +38,12 @@ export function PhotoBand({
       ? `rgb(${PINE} / ${overlay})`
       : `linear-gradient(to right, rgb(${PINE} / ${overlay.from}) 0%, rgb(${PINE} / ${overlay.mid}) 55%, rgb(${PINE} / ${overlay.to}) 100%)`;
   return (
-    <section className="relative isolate overflow-hidden bg-pine text-paper" aria-labelledby={labelledBy}>
+    <section className="relative isolate overflow-hidden bg-pine text-linen" aria-labelledby={labelledBy}>
       <Image src={photo.src} alt="" fill sizes="100vw" className="-z-20 object-cover" style={{ objectPosition: focus }} />
       <div className="absolute inset-0 -z-10 bg-pine md:hidden" style={{ opacity: solid }} aria-hidden="true" />
       <div className="absolute inset-0 -z-10 hidden md:block" style={{ background: wide }} aria-hidden="true" />
       <div className={`container-page ${padding}`}>{children}</div>
-      <p className="container-page pb-6 text-sm text-mist">
+      <p className="container-page pb-6 text-sm text-sage">
         <span className="rounded-ui bg-pine/75 px-2 py-0.5">
           Background photo by <a href={photo.photographerUrl} className="link">{photo.photographer}</a> on{" "}
           <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="link">Unsplash</a>

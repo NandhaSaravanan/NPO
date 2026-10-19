@@ -27,7 +27,7 @@ export const whoWeHelp = {
     "neighborhood associations",
     "volunteer groups",
   ],
-  trail: "the organizations whose money goes to groceries, vet bills and field trips, not web design.",
+  trail: "money goes to groceries, vet bills and field trips, not web design.",
   areaTitle: "Where we can show up in person",
   areaNote: "Not on the list but close by? Apply anyway and tell us where you are.",
 };

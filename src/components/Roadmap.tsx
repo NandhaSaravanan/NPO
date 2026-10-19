@@ -24,8 +24,8 @@ export function Roadmap({
   const [now, ...later] = items;
   return (
     <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:items-end lg:gap-20">
-      <div className="rounded-ui bg-pine p-8 text-paper shadow-card md:p-14">
-        <p className="font-semibold text-[#f1b8d0]">{label[now.status]}</p>
+      <div className="rounded-ui bg-pine p-8 text-linen shadow-card md:p-14">
+        <p className="font-semibold text-sage">{label[now.status]}</p>
         <h2 id="roadmap" className="mt-3 text-2xl md:text-4xl">{now.title}</h2>
         <p className="mt-6 max-w-xl text-lg">{now.detail}</p>
         <Link href={site.primaryCta.href} className="btn btn-primary mt-8">{site.primaryCta.label}</Link>

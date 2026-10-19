@@ -15,14 +15,14 @@ export function OfferTiers({ tiers, compact = false }: { tiers: Tier[]; compact?
           </span>
           <div>
             <h3 className="text-lg">{tier.name}</h3>
-            <p className="mt-1 font-semibold text-catawba">{tier.tagline}</p>
+            <p className="mt-1 font-semibold text-cobalt-deep">{tier.tagline}</p>
             {!compact && (
               <>
                 <p className="mt-3 max-w-prose text-muted">{tier.bestFor}</p>
                 <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                   {tier.includes.map((item) => (
                     <li key={item} className="flex gap-2 text-muted">
-                      <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-myrtle" />
+                      <span aria-hidden="true" className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />
                       <span>{item}</span>
                     </li>
                   ))}

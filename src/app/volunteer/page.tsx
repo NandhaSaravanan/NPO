@@ -27,7 +27,7 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="gain">
+      <section className="section texture bg-linen" aria-labelledby="gain">
         <div className="container-page">
           <SectionHeading id="gain" title={gains.title} />
           <HairlineList items={gains.items} className="mt-10" />
@@ -41,7 +41,7 @@ export default function VolunteerPage() {
         </div>
       </section>
 
-      <section className="section texture bg-paper" aria-labelledby="vfaq">
+      <section className="section texture bg-linen" aria-labelledby="vfaq">
         <div className="container-page max-w-4xl">
           <SectionHeading id="vfaq" title="Questions" />
           <div className="mt-8"><Faq items={faq} /></div>

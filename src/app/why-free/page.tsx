@@ -21,7 +21,7 @@ export default function WhyFreePage() {
           {explainer.paragraphs.map((p) => <p key={p}>{p}</p>)}
         </div>
       </section>
-      <section className="section texture bg-paper" aria-labelledby="not">
+      <section className="section texture bg-linen" aria-labelledby="not">
         <div className="container-page">
           <SectionHeading id="not" title={whatThisIsNot.title} />
           <HairlineList items={whatThisIsNot.items} className="mt-8" />

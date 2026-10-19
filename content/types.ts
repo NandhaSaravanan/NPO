@@ -62,6 +62,24 @@ export interface MiniSiteContent {
   subcopy: string;
   ctaLabel: string;
   blocks: { title: string; body: string }[];
+  /**
+   * An invented visual identity for this one demo, distinct from Lumen's own pine/cobalt/linen
+   * system and from every other demo. A portfolio that reskins the studio's own site in every
+   * example proves nothing about range — these colors and this font never come from globals.css.
+   */
+  palette: {
+    heroBg: string;
+    heroText: string;
+    heroSubtext: string;
+    accentBg: string;
+    accentText: string;
+    navBg: string;
+    navText: string;
+    blockBg: string;
+    blockTitle: string;
+    blockBody: string;
+    headlineFont: string;
+  };
 }
 
 export type FieldType = "text" | "email" | "tel" | "url" | "textarea" | "select";

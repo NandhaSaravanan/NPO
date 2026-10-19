@@ -19,7 +19,7 @@ export function SectionHeading({
 
 export function PageHeader({ title, body, children }: { title: string; body: string; children?: React.ReactNode }) {
   return (
-    <section className="texture border-b border-line bg-paper">
+    <section className="texture border-b border-line bg-linen">
       <div className="container-page pb-14 pt-[calc(var(--nav-h)+2.5rem)] md:pb-20 md:pt-[calc(var(--nav-h)+3.5rem)]">
         <h1 className="max-w-3xl text-2xl sm:text-3xl md:text-4xl">{title}</h1>
         <p className="mt-5 max-w-2xl text-base text-muted md:text-lg">{body}</p>
