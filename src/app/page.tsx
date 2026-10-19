@@ -42,14 +42,18 @@ export default function Home() {
 
       <section className="section texture" aria-labelledby="who">
         <div className="container-page">
-          <SectionHeading id="who" title={whoWeHelp.title} body={whoWeHelp.body} />
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {whoWeHelp.groups.map((g) => (
-              <li key={g} className="rounded-ui bg-pine px-4 py-2 text-base font-semibold text-paper">
-                {g}
-              </li>
+          <h2 id="who" className="text-lg text-muted md:text-xl">{whoWeHelp.title}</h2>
+          <p className="mt-4 max-w-4xl text-2xl font-extrabold leading-snug text-pine md:text-4xl">
+            {whoWeHelp.lead}{" "}
+            {whoWeHelp.groups.map((g, i) => (
+              <span key={g}>
+                <span className="text-myrtle">{g}</span>
+                {i === whoWeHelp.groups.length - 1 ? "" : i === whoWeHelp.groups.length - 2 ? ", and " : ", "}
+              </span>
             ))}
-          </ul>
+            {" — "}
+            {whoWeHelp.trail}
+          </p>
         </div>
       </section>
 
