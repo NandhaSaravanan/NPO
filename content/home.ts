@@ -16,15 +16,16 @@ export const aboutTeaser = {
 
 export const whoWeHelp = {
   title: "Who we help",
-  body: "Groups whose money goes to groceries, vet bills and field trips, not web design.",
+  lead: "We build for",
   groups: [
-    "Food pantries",
-    "Youth programs",
-    "Animal rescues",
-    "Church outreach ministries",
-    "Neighborhood associations",
-    "Volunteer groups",
+    "food pantries",
+    "youth programs",
+    "animal rescues",
+    "church outreach ministries",
+    "neighborhood associations",
+    "volunteer groups",
   ],
+  trail: "the organizations whose money goes to groceries, vet bills and field trips, not web design.",
   areaTitle: "Where we can show up in person",
   areaNote: "Not on the list but close by? Apply anyway and tell us where you are.",
 };
