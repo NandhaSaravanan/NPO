@@ -70,6 +70,7 @@ function CardBody({ c }: { c: CaseStudy }) {
           </ul>
         )}
         {c.url && <p className="mt-auto pt-5 font-semibold text-cobalt-deep">View live site →</p>}
+        {!c.url && c.demo && <p className="mt-auto pt-5 font-semibold text-cobalt-deep">View case study →</p>}
       </div>
     </>
   );
@@ -160,6 +161,10 @@ export function ProjectCarousel({ items, next }: { items: CaseStudy[]; next: { t
                 <CardBody c={c} />
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
+            ) : c.demo ? (
+              <Link href={`/our-work/${c.slug}`} className="project-card flex w-full flex-col overflow-hidden" draggable={false}>
+                <CardBody c={c} />
+              </Link>
             ) : (
               <article className="project-card flex w-full flex-col overflow-hidden">
                 <CardBody c={c} />

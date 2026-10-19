@@ -53,6 +53,8 @@ export interface CaseStudy {
   demo?: MiniSiteContent;
   /** The design thinking behind a concept demo: who it's for, what it has to make easy, and its page map. */
   breakdown?: { audience: string; goal: string; pages: string };
+  /** Specific, concrete design decisions for the case-study detail page — not generic process talk. */
+  decisions?: { title: string; body: string }[];
 }
 
 export interface MiniSiteContent {
