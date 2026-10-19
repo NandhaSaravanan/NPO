@@ -13,6 +13,12 @@ export interface TimelineEntry {
   status: "done" | "tbd" | "upcoming";
 }
 export interface Value { title: string; body: string }
+export interface Tier {
+  name: string;
+  tagline: string;
+  bestFor: string;
+  includes: string[];
+}
 export interface RoadmapItem {
   phase: string;
   status: "now" | "next" | "later";

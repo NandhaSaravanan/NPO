@@ -21,6 +21,15 @@ export function Footer() {
               </li>
             ))}
             <li>
+              <Link href="/how-it-works" className="link font-semibold">How it works</Link>
+            </li>
+            <li>
+              <Link href="/what-we-offer" className="link font-semibold">What we offer</Link>
+            </li>
+            <li>
+              <Link href="/why-free" className="link font-semibold">Why free?</Link>
+            </li>
+            <li>
               <Link href="/privacy" className="link font-semibold">Privacy Policy</Link>
             </li>
             <li>
