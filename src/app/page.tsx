@@ -12,6 +12,7 @@ import { Faq } from "@/components/Faq";
 import { Roadmap } from "@/components/Roadmap";
 import { CtaBand } from "@/components/CtaBand";
 import { NameYourSite } from "@/components/NameYourSite";
+import { ServiceAreaMap } from "@/components/ServiceAreaMap";
 import { Stages } from "@/components/Stages";
 import { Reveal } from "@/components/Reveal";
 import { BrowserFrame } from "@/components/BrowserFrame";
@@ -34,9 +35,9 @@ const featuredWork = caseStudies.slice(0, 2);
 export default function Home() {
   return (
     <>
-      {/* Chapter 1 — forest. The opening, and the one live thing on the page. */}
+      {/* Chapter 1 — forest, over a map of the two counties we actually work in. */}
       <section className="chapter-forest">
-        <div className="container-page pb-20 pt-[calc(var(--nav-h)+3rem)] md:pb-28 md:pt-[calc(var(--nav-h)+4rem)]">
+        <div className="container-page pb-20 pt-[calc(var(--nav-h)+3rem)] md:pb-28 md:pt-[calc(var(--nav-h)+4.5rem)]">
           {/*
             The title takes the full width above both columns. In the left column alone it fell
             to four lines at display size; across the page it lands on two at every width.
@@ -44,7 +45,7 @@ export default function Home() {
           <Reveal>
             <h1 className="max-w-[15ch] text-4xl">{hero.title}</h1>
           </Reveal>
-          <div className="mt-12 grid gap-14 md:mt-16 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-20">
+          <div className="mt-10 grid gap-12 md:mt-14 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16">
             <Reveal>
               <p className="max-w-xl text-lg text-linen">{hero.body}</p>
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -53,9 +54,7 @@ export default function Home() {
               </div>
               <p className="mt-8 max-w-sm text-sm text-sage">{hero.note}</p>
             </Reveal>
-            <div className="lg:pl-4">
-              <NameYourSite />
-            </div>
+            <ServiceAreaMap />
           </div>
         </div>
       </section>
@@ -76,7 +75,19 @@ export default function Home() {
               </div>
             ))}
           </Reveal>
-          <Link href="/our-work" className="link mt-10 inline-block text-base font-semibold">See all our work</Link>
+          <Reveal className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-16">
+            <div>
+              <h3 className="text-xl">See your own name on one</h3>
+              <p className="mt-5 max-w-[48ch] text-base">
+                Type your organization into the field and it takes its place in a real rendered
+                site. This is the same build the case studies use, not a picture of one.
+              </p>
+              <Link href="/our-work" className="link mt-6 inline-block text-base font-semibold">See all our work</Link>
+            </div>
+            <div className="rounded-ui bg-pine p-6 md:p-8">
+              <NameYourSite />
+            </div>
+          </Reveal>
         </div>
       </section>
 
