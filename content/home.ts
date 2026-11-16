@@ -4,8 +4,12 @@ import { ORG_NAME, site } from "./site";
 const founder = site.founder;
 
 export const hero = {
-  title: "Free websites for the nonprofits of Union County and Charlotte.",
-  body: "Food pantries, rescues, youth programs and church outreach groups do the work. We design and build the site that shows it: readable on a phone, registered in your name, with no design or development fee.",
+  /*
+   * Two lines at every width (29 characters), so it reads as a title and not a paragraph.
+   * The place and the promise sit in `body`, directly beneath it at the second size.
+   */
+  title: "Free websites for nonprofits.",
+  body: "We design, build and hand over the site for nonprofits in Union County and Charlotte — registered in your name from day one, with no design or development fee.",
   note: "Student-led and volunteer-powered — not a funded startup or an agency.",
   secondaryCta: { label: "Explore our work", href: "/our-work" },
 };

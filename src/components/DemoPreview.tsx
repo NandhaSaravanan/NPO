@@ -10,10 +10,10 @@ export function DemoPreview({ content, className = "" }: { content: MiniSiteCont
   return (
     // Right padding reserves empty space for the phone frame, so it overlaps the gap, never the desktop content.
     <div className={`relative pb-6 sm:pb-14 sm:pr-24 md:pr-28 ${className}`}>
-      <BrowserFrame className="shadow-lift">
+      <BrowserFrame>
         <MiniSite content={content} />
       </BrowserFrame>
-      <PhoneFrame className="absolute bottom-0 right-0 hidden w-28 shadow-lift sm:block md:w-32">
+      <PhoneFrame className="absolute bottom-0 right-0 hidden w-28 sm:block md:w-32">
         <MiniSite content={content} compact />
       </PhoneFrame>
     </div>

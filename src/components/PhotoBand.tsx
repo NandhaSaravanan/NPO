@@ -1,11 +1,7 @@
 import Image from "next/image";
 import type { Photo } from "@content/photos";
-
 /** Overlay strength, 0 to 1. A number is uniform. Stops run left to right on wide screens. */
 export type Overlay = number | { from: number; mid: number; to: number };
-
-const PINE = "23 63 53";
-
 /**
  * A full-bleed section with a photo behind it. The photo keeps its own color: no saturation filter, only a
  * pine overlay where text needs it. Each instance sets its own overlay, because a bright photo and a dark
@@ -33,20 +29,24 @@ export function PhotoBand({
   children: React.ReactNode;
 }) {
   const solid = mobileOverlay ?? (typeof overlay === "number" ? overlay : Math.max(overlay.from, overlay.mid, overlay.to));
-  const wide =
-    typeof overlay === "number"
-      ? `rgb(${PINE} / ${overlay})`
-      : `linear-gradient(to right, rgb(${PINE} / ${overlay.from}) 0%, rgb(${PINE} / ${overlay.mid}) 55%, rgb(${PINE} / ${overlay.to}) 100%)`;
+  // One flat scrim, not a gradient: the house keeps hard edges, and a graded wash over a
+  // photograph is the tell it exists to avoid. The strongest stop wins so text stays legible
+  // across the whole band rather than only where the wash happened to be dark.
+  const wideOpacity = typeof overlay === "number" ? overlay : Math.max(overlay.from, overlay.mid, overlay.to);
   return (
     <section className="relative isolate overflow-hidden bg-pine text-linen" aria-labelledby={labelledBy}>
       <Image src={photo.src} alt="" fill sizes="100vw" className="-z-20 object-cover" style={{ objectPosition: focus }} />
       <div className="absolute inset-0 -z-10 bg-pine md:hidden" style={{ opacity: solid }} aria-hidden="true" />
-      <div className="absolute inset-0 -z-10 hidden md:block" style={{ background: wide }} aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 hidden bg-pine md:block" style={{ opacity: wideOpacity }} aria-hidden="true" />
       <div className={`container-page ${padding}`}>{children}</div>
       <p className="container-page pb-6 text-sm text-sage">
         <span className="rounded-ui bg-pine/75 px-2 py-0.5">
-          Background photo by <a href={photo.photographerUrl} className="link">{photo.photographer}</a> on{" "}
-          <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="link">Unsplash</a>
+          Photo by <a href={photo.photographerUrl} className="link">{photo.photographer}</a>
+          {photo.licence ? (
+            <>, <a href={photo.licence.url} className="link">{photo.licence.label}</a></>
+          ) : (
+            <> on <a href="https://unsplash.com/?utm_source=lumen&utm_medium=referral" className="link">Unsplash</a></>
+          )}
         </span>
       </p>
     </section>

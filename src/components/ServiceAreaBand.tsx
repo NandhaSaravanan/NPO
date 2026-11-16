@@ -1,24 +1,38 @@
 import { site } from "@content/site";
+import { photos } from "@content/photos";
+import { PhotoBand } from "./PhotoBand";
 
 /**
- * One plain statement of why we exist, on solid pine with the standard diagonal texture.
- * No photo: a motive statement carries its own weight, and a generic skyline shot only
- * undercut it. The towns and neighborhoods stay as a plain line because the eligibility
- * list points to them.
+ * Where we can show up in person, carried by a photograph of the actual county line on NC 200.
+ *
+ * This section used to be a plain dark band with its text on the left and half the screen
+ * empty. The picture is the argument here — "in person" means this road — so it fills the
+ * field, and the towns list takes the second column so nothing is left hanging.
  */
 export function ServiceAreaBand({ title, note }: { title: string; note: string }) {
   const { unionCounty, charlotte } = site.serviceArea;
   const list = (names: string[]) => names.slice(0, -1).join(", ") + " and " + names[names.length - 1];
+
   return (
-    <section className="texture-dark bg-pine text-linen" aria-labelledby="service-area">
-      <div className="container-page py-20 md:py-28">
-        <h2 id="service-area" className="text-lg text-sage md:text-xl">{title}</h2>
-        <p className="mt-4 max-w-3xl text-2xl font-extrabold md:text-4xl">{site.serviceStatement}</p>
-        <p className="mt-8 max-w-2xl text-base font-medium text-sage">
-          {list(unionCounty)} in Union County. {list(charlotte)} in Charlotte.
-        </p>
-        <p className="mt-3 max-w-2xl font-medium text-sage">{note}</p>
+    <PhotoBand
+      photo={photos.countyLine}
+      labelledBy="service-area"
+      overlay={0.74}
+      mobileOverlay={0.82}
+      focus="center 55%"
+    >
+      <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start lg:gap-16">
+        <div>
+          <h2 id="service-area" className="text-lg font-extrabold">{title}</h2>
+          <p className="statement mt-6">{site.serviceStatement}</p>
+        </div>
+        <div className="lg:pt-14">
+          <p className="max-w-2xl text-base font-medium">
+            {list(unionCounty)} in Union County. {list(charlotte)} in Charlotte.
+          </p>
+          <p className="mt-4 max-w-2xl text-base font-medium text-sage">{note}</p>
+        </div>
       </div>
-    </section>
+    </PhotoBand>
   );
 }

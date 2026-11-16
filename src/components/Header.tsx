@@ -91,7 +91,7 @@ export function Header() {
           </button>
         </div>
 
-        <nav id="mobile-nav" aria-label="Mobile" hidden={!open} className="border-t border-pine-edge lg:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" hidden={!open} className="bg-pine-deep lg:hidden">
           <ul className="flex flex-col gap-1 px-4 py-4">
             {site.nav.map((item) => (
               <li key={item.href}>

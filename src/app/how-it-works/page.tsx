@@ -15,7 +15,7 @@ export default function HowItWorksPage() {
   return (
     <>
       <PageHeader title={howItWorks.title} body={`${howItWorks.body} The whole thing is free, start to finish.`} />
-      <section className="section texture">
+      <section className="section chapter-mist">
         <div className="container-page">
           <Steps steps={howItWorks.steps} />
         </div>

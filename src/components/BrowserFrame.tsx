@@ -1,11 +1,14 @@
 /**
+ * A small browser window. Its root carries `data-ui`: everything inside is a rendering of
+ * someone else's website, so the house rules for Lumen's own page do not apply to it.
+ *
  * A small browser window. Holds a real screenshot when there is one, otherwise a greyed-out
  * layout that is labeled as a sample so nobody mistakes it for a client's site.
  */
 export function BrowserFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`overflow-hidden rounded-ui border border-line bg-linen ${className}`}>
-      <div className="flex items-center gap-3 border-b border-line bg-granite px-3 py-2" aria-hidden="true">
+    <div data-ui className={`overflow-hidden rounded-ui bg-linen ${className}`}>
+      <div className="flex items-center gap-3 bg-granite px-3 py-2" aria-hidden="true">
         <span className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
@@ -21,8 +24,8 @@ export function BrowserFrame({ children, className = "" }: { children: React.Rea
 /** A small phone bezel, for showing a mobile view of the same content next to a BrowserFrame. */
 export function PhoneFrame({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`overflow-hidden rounded-[1.1rem] border-4 border-pine bg-linen ${className}`}>
-      <div className="flex justify-center border-b border-line bg-granite py-1" aria-hidden="true">
+    <div data-ui className={`overflow-hidden rounded-[1.1rem] border-4 border-pine bg-linen ${className}`}>
+      <div className="flex justify-center bg-granite py-1" aria-hidden="true">
         <span className="h-1 w-8 rounded-full bg-line" />
       </div>
       {children}

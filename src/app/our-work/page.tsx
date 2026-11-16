@@ -16,7 +16,7 @@ export default function WorkPage() {
   return (
     <>
       <PageHeader title={intro.title} body={intro.body} />
-      <section className="section texture bg-linen" aria-labelledby="compare">
+      <section className="section chapter-paper" aria-labelledby="compare">
         <div className="container-page max-w-3xl">
           <SectionHeading id="compare" title="See the difference" body="What changes when a nonprofit's site gets rebuilt — not described, shown." />
           <div className="mt-8">
@@ -24,7 +24,7 @@ export default function WorkPage() {
           </div>
         </div>
       </section>
-      <section className="section texture" aria-label="Case studies">
+      <section className="section chapter-mist" aria-label="Case studies">
         <div className="container-page">
           <ProjectCarousel items={caseStudies} next={nextInLine} />
         </div>

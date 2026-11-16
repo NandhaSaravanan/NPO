@@ -7,3 +7,11 @@ next-env.d.ts
 *.tsbuildinfo
 .vercel
 .DS_Store
+
+# Working files from the design inspector (screenshots, reports) and the
+# originals of downloaded pictures. The resized copies in public/photos ship.
+.taste-skill
+assets
+
+# Auto-generated agent rules file (re-created by `next dev`).
+AGENTS.md

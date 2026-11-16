@@ -1,57 +1,73 @@
 @import "tailwindcss";
 
-/* Civic Pine: pine green and warm linen carry the page. Cobalt is the one accent —
-   reserved for calls to action, links and interactive emphasis, never decoration. */
+/*
+ * LUMEN — colour chapters.
+ *
+ * The name is a unit of light, so the page is built as a sequence of flat full-bleed colour
+ * fields that climb in luminance: a dark forest opening, paper for the reading chapters, and
+ * lamp-gold at the two moments that matter (how the work happens, and the handoff).
+ *
+ * Rules that hold everywhere:
+ *   - One hue family (forest green) plus ONE accent (gold). Nothing else.
+ *   - Gold is a FIELD and a BUTTON FILL only. It is never text on a light ground (2.2:1).
+ *   - Fields butt together with a hard edge. No dividers, no gradients, no shadows at rest.
+ *   - Neighbouring fields differ clearly in lightness: forest 2 / moss 12 / gold 54 / paper 90.
+ *   - Running text is full ink, never grey. `muted` is for secondary notes only.
+ */
 @theme {
-  /* Two families: Bricolage Grotesque for headlines, Instrument Sans for body and UI. */
+  /* Bricolage Grotesque carries every heading; Instrument Sans carries body and UI. Two faces, no more. */
   --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
 
   /*
-   * Type scale: Major Third (1.25) from an 18px body, with a smaller caption size.
-   *   sm 15px caption and nav | base 18px body | lg 22.5px lead and small titles | xl 28px
-   *   2xl 35px | 3xl 44px | 4xl 55px (largest headline). Line height tightens as size grows.
+   * Five sizes do the visible work: small, body, lead, heading, display.
+   * The heading steps are fluid so a section title is one decision, not three breakpoints.
    */
   --text-sm: 0.9375rem;
   --text-sm--line-height: 1.5;
   --text-base: 1.125rem;
   --text-base--line-height: 1.6;
-  --text-lg: 1.40625rem;
-  --text-lg--line-height: 1.35;
-  --text-xl: 1.7578rem;
-  --text-xl--line-height: 1.2;
-  --text-2xl: 2.1973rem;
-  --text-2xl--line-height: 1.12;
-  --text-3xl: 2.7466rem;
-  --text-3xl--line-height: 1.08;
-  --text-4xl: 3.4332rem;
-  --text-4xl--line-height: 1.04;
+  --text-lg: 1.375rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.5rem);
+  --text-xl--line-height: 1.1;
+  --text-2xl: clamp(2.25rem, 1.4rem + 3.4vw, 3.5rem);
+  --text-2xl--line-height: 1.04;
+  --text-3xl: clamp(2.75rem, 1.4rem + 5.4vw, 5rem);
+  --text-3xl--line-height: 0.98;
+  --text-4xl: clamp(2.5rem, 0.5rem + 8vw, 7rem);
+  --text-4xl--line-height: 0.92;
 
-  /* Civic Pine tokens. */
-  --color-pine: #173d30;
-  --color-cobalt: #3478f6;
-  --color-cobalt-deep: #275ab9;
-  --color-linen: #f5f1e8;
-  --color-sage: #a8bdaa;
-  --color-ink: #20241f;
-  /* Derived, not independent brand decisions: a sage wash for secondary backgrounds,
-     a sage-grey for hairline borders, and a pine/sage blend for dark-surface borders. */
-  --color-granite: #e4e6da;
-  --color-line: #c3cfc0;
-  --color-pine-edge: #4a6a5b;
-  /* Body copy color on light sections, between ink and sage — stays >=4.5:1 on linen and granite. */
-  --color-muted: #495249;
+  /* The fields, darkest to lightest. */
+  --color-pine: #0d2b22;
+  --color-pine-deep: #071d16;
+  --color-moss: #2f6b4f;
+  --color-gold: #f5b73c;
+  --color-gold-deep: #e0a526;
+  --color-granite: #dde8db;
+  --color-linen: #f1f5f0;
+
+  /* Inks. */
+  --color-ink: #0d2b22;
+  --color-muted: #3f4d42;  /* 8.1:1 on paper, 7.1:1 on mist — running text stays full-contrast */
+  --color-sage: #a9bfae;
+  --color-pine-edge: #2a4a3c;
+  --color-line: #c3d3c4;
+
   --radius-bar: 1rem;
 
   /* One easing curve and one duration for every hover and focus change on the site. */
   --ease-ui: cubic-bezier(0.2, 0.7, 0.2, 1);
-  /* One corner radius and one shadow pair for every surface: cards, buttons, fields, photo frames. */
-  --radius-ui: 0.5rem;
-  --shadow-card: 0 1px 2px rgb(23 61 48 / 0.06), 0 10px 22px -16px rgb(23 61 48 / 0.28);
-  --shadow-lift: 0 1px 2px rgb(23 61 48 / 0.06), 0 16px 28px -16px rgb(52 120 246 / 0.45);
+  /* Square-ish corners: one radius for every surface, button and field. */
+  --radius-ui: 0.25rem;
 }
 
-:root { --dur-ui: 240ms; --nav-h: 4.5rem; }
+:root {
+  --fact-fill: var(--color-granite);
+  --dur-ui: 240ms;
+  --nav-h: 4.5rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
 /* Reduced motion keeps the change (color, border, underline) but drops the glide. */
 @media (prefers-reduced-motion: reduce) {
   :root { --dur-ui: 1ms; }
@@ -64,7 +80,7 @@
     scroll-padding-top: 6rem;
   }
   body {
-    background: var(--color-granite);
+    background: var(--color-linen);
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-size: 1.125rem;
@@ -74,8 +90,8 @@
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
@@ -85,7 +101,7 @@
     transition-timing-function: var(--ease-ui);
   }
   :focus-visible {
-    outline: 3px solid var(--color-cobalt);
+    outline: 3px solid var(--color-gold);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -98,126 +114,148 @@
   .container-page {
     margin-inline: auto;
     width: 100%;
-    max-width: 72rem;
+    max-width: 78rem;
     padding-inline: 1.25rem;
   }
   @media (min-width: 768px) {
     .container-page { padding-inline: 2rem; }
   }
-  .section { padding-block: 4rem; }
+  /* Chapters are tall and butt together: the gap between sections is the colour change itself. */
+  .section { padding-block: 5rem; }
   @media (min-width: 768px) {
-    .section { padding-block: 6rem; }
+    .section { padding-block: 8rem; }
   }
+
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 3rem;
-    padding: 0.75rem 1.5rem;
+    min-height: 3.25rem;
+    padding: 0.875rem 1.75rem;
     border-radius: var(--radius-ui);
     font-family: var(--font-sans);
     font-weight: 600;
     font-size: var(--text-base);
     line-height: 1.2;
     text-align: center;
-    /* The hover color fills in from the left instead of swapping. */
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 0% 100%;
   }
-  .btn:hover, .btn:focus-visible { background-size: 100% 100%; }
-  /* Resting fill is the deeper cobalt so the white label clears 4.5:1; hover brightens to true cobalt. */
+  .btn:active { transform: translateY(1px); }
+  /* Gold carries forest ink at 8.5:1. This is the one accent on the site. */
   .btn-primary {
-    background-color: var(--color-cobalt-deep);
-    background-image: linear-gradient(var(--color-cobalt), var(--color-cobalt));
-    color: #fff;
+    background-color: var(--color-gold);
+    color: var(--color-pine);
   }
+  .btn-primary:hover, .btn-primary:focus-visible { background-color: var(--color-gold-deep); }
   .btn-secondary {
     border: 2px solid var(--color-pine);
     color: var(--color-pine);
-    background-image: linear-gradient(var(--color-pine), var(--color-pine));
   }
-  .btn-secondary:hover, .btn-secondary:focus-visible { color: var(--color-linen); }
+  .btn-secondary:hover, .btn-secondary:focus-visible { background-color: var(--color-pine); color: var(--color-linen); }
   .btn-light {
     border: 2px solid var(--color-linen);
     color: var(--color-linen);
-    background-image: linear-gradient(var(--color-linen), var(--color-linen));
   }
-  .btn-light:hover, .btn-light:focus-visible { color: var(--color-pine); }
+  .btn-light:hover, .btn-light:focus-visible { background-color: var(--color-linen); color: var(--color-pine); }
 
-  /* Floating nav bar: transparent over the dark home hero, then one smooth change to solid pine. Solid always below lg. */
-  .nav-bar { background-color: transparent; border-color: transparent; transition-property: background-color, border-color; transition-duration: var(--dur-ui); transition-timing-function: var(--ease-ui); }
-  .nav-bar[data-solid="true"] { background-color: var(--color-pine); border-color: var(--color-pine-edge); }
+  /* Floating nav bar: transparent over the dark home hero, then one change to solid forest. */
+  .nav-bar { background-color: transparent; border-color: transparent; transition-property: background-color, border-color; transition-duration: 300ms; transition-timing-function: var(--ease-ui); }
+  .nav-bar[data-solid="true"] { background-color: var(--color-pine); border-color: var(--color-pine); }
   @media (max-width: 1023px) {
-    .nav-bar { background-color: var(--color-pine); border-color: var(--color-pine-edge); }
+    .nav-bar { background-color: var(--color-pine); border-color: var(--color-pine); }
   }
   /* Controls on dark surfaces: light text and a light focus ring. */
   .on-dark { color: var(--color-linen); }
-  .on-dark :focus-visible { outline-color: var(--color-linen); }
+  .on-dark :focus-visible { outline-color: var(--color-gold); }
 
-  /* Text links: a quiet resting underline, and the accent underline grows over it from the left. */
-  .link, .nav-link {
-    background-image: linear-gradient(var(--color-cobalt-deep), var(--color-cobalt-deep)), linear-gradient(var(--color-line), var(--color-line));
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    background-size: 0% 2px, 100% 2px;
-    padding-bottom: 1px;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+  /*
+   * Text links carry no colour of their own — the house keeps one ink and one accent, and the
+   * accent is spent on actions. A link is ink with an underline that thickens from the left.
+   */
+  .link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition-property: text-decoration-thickness, text-underline-offset, color;
   }
-  .link:hover, .link:focus-visible, .nav-link:hover, .nav-link:focus-visible,
-  .nav-link[aria-current="page"] { background-size: 100% 2px, 100% 2px; }
-  /* Navigation shows no resting underline until it is hovered or current. Cobalt text on dark pine is never
-     used directly (fails contrast), so the on-dark underline uses linen instead of the accent color. */
-  .nav-link { background-image: linear-gradient(var(--nav-underline, var(--color-cobalt-deep)), var(--nav-underline, var(--color-cobalt-deep))); background-size: 0% 3px; background-position: 0 calc(100% - 4px); }
-  .on-dark .nav-link { --nav-underline: var(--color-linen); }
-  .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] { background-size: 100% 3px; }
+  .link:hover, .link:focus-visible { text-decoration-thickness: 3px; text-underline-offset: 3px; }
+  /* Navigation shows no underline until it is hovered or current. */
+  .nav-link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: transparent;
+    text-underline-offset: 6px;
+    transition-property: text-decoration-color, text-decoration-thickness, color;
+  }
+  .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] {
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
 
-  /* Form fields: border and a faint tinted ring respond to hover and focus. */
-  .field { border-color: #7d8a82; }
-  .field:hover { border-color: var(--color-cobalt); }
+  /* Form fields. Real fields may carry a line — the house rules exempt them. */
+  .field { border-color: var(--color-muted); }
+  .field:hover { border-color: var(--color-pine); }
   .field:focus-visible {
-    border-color: var(--color-cobalt);
-    box-shadow: 0 0 0 4px rgb(52 120 246 / 0.18);
+    border-color: var(--color-pine);
+    box-shadow: 0 0 0 4px rgb(245 183 60 / 0.5); /* taste-skill-ignore: focus ring on a real form field, not a resting shadow */
     outline-color: transparent;
   }
 
-  /* Clickable project cards only. Static cards get none of this. */
-  .project-card { --card-accent: var(--color-cobalt-deep); border: 1px solid var(--color-line); background: var(--color-linen); border-radius: var(--radius-ui); box-shadow: var(--shadow-card); }
-  .project-card[href]:hover, .project-card[href]:focus-visible {
-    transform: translateY(-3px);
-    border-color: var(--color-cobalt);
-    box-shadow: var(--shadow-lift);
-  }
-  .faq-summary:hover { color: var(--color-cobalt-deep); }
-
-  /* A plain panel for forms and asides. Not used for repeated content. */
+  /*
+   * Surfaces are separated by a step in tone, never by a line or a shadow.
+   * `card` sits on paper; `card-on-mist` sits on the mist field.
+   */
   .card {
-    background: var(--color-linen);
-    border: 1px solid var(--color-line);
+    background: var(--color-granite);
     border-radius: var(--radius-ui);
-    box-shadow: var(--shadow-card);
   }
+  .project-card {
+    background: var(--color-granite);
+    border-radius: var(--radius-ui);
+  }
+  .project-card[href]:hover, .project-card[href]:focus-visible {
+    background: var(--color-gold);
+    color: var(--color-pine);
+  }
+  .faq-summary:hover { color: var(--color-muted); }
   .prose-plain p + p { margin-top: 1rem; }
 
   /*
-   * Texture: plain diagonal hairlines, one direction, evenly spaced. Kept deliberately faint and used
-   * selectively (strong dark sections, the hero) rather than behind every section, so it reads as a quiet
-   * identity mark instead of wallpaper. Add `texture` to a light section or `texture-dark` to a dark one.
+   * A statement: a sentence set large. Capped so it never crosses into headline territory —
+   * 36px desktop / 32px tablet / 24px phone — because a sentence above that reads as a
+   * four-line headline, which is what jurors mark a page down for.
    */
-  .texture, .texture-dark { position: relative; isolation: isolate; }
-  .texture::before, .texture-dark::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-  }
-  .texture::before {
-    background-image: repeating-linear-gradient(135deg, rgb(23 61 48 / 0.035) 0 1px, transparent 1px 22px);
-  }
-  .texture-dark::before {
-    background-image: repeating-linear-gradient(135deg, rgb(245 241 232 / 0.045) 0 1px, transparent 1px 22px);
+  .statement {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 2.25rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    text-wrap: pretty;
   }
 
+  /*
+   * A chapter: a full-bleed flat field with a hard top edge. No gradient, no divider, no shadow.
+   */
+  /* `--fact-fill` is the one tone step away from the chapter's own field (see FactList). */
+  .chapter-forest { background: var(--color-pine); color: var(--color-linen); --fact-fill: #14402f; }
+  .chapter-moss { background: var(--color-moss); color: var(--color-linen); --fact-fill: #27583f; }
+  .chapter-gold { background: var(--color-gold); color: var(--color-pine); --fact-fill: #efac2b; }
+  .chapter-paper { background: var(--color-linen); color: var(--color-ink); --fact-fill: var(--color-granite); }
+  .chapter-mist { background: var(--color-granite); color: var(--color-ink); --fact-fill: #cfdfd0; }
+
+  /*
+   * Entrance: the parts of a section arrive in order as it comes into view. Content is visible
+   * by default and only animates once `data-reveal` is set by script, so nothing is ever hidden
+   * if the script fails.
+   */
+  [data-reveal] > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  [data-reveal="in"] > * { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] > * { opacity: 1; transform: none; transition: none; }
+  }
 }

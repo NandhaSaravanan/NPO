@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
 import { intro, mission, story, timeline, model, values, teamIntro, team } from "@content/about";
 import { PageHeader, SectionHeading } from "@/components/Section";
-import { HairlineList } from "@/components/HairlineList";
+import { FactList } from "@/components/FactList";
 import { Timeline } from "@/components/Timeline";
 import { CtaBand } from "@/components/CtaBand";
 import { Photo } from "@/components/Photo";
@@ -20,7 +20,7 @@ export default function AboutPage() {
     <>
       <PageHeader title={intro.title} body={intro.body} />
 
-      <section className="section texture" aria-labelledby="mission">
+      <section className="section chapter-mist" aria-labelledby="mission">
         <div className="container-page grid gap-8 md:grid-cols-[1fr_1.4fr]">
           <SectionHeading id="mission" title={mission.title} />
           <div>
@@ -43,20 +43,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section texture" aria-labelledby="timeline">
+      <section className="section chapter-mist" aria-labelledby="timeline">
         <div className="container-page">
           <SectionHeading id="timeline" title={timeline.title} body={timeline.body} />
           <Timeline entries={timeline.entries} />
         </div>
       </section>
 
-      <section className="section texture bg-linen" aria-labelledby="model">
+      <section className="section chapter-paper" aria-labelledby="model">
         <div className="container-page">
           <SectionHeading id="model" title={model.title} body={model.body} />
-          <ol className="mt-10 grid border-t-2 border-pine md:grid-cols-3">
+          <ol className="mt-10 grid gap-1.5 md:grid-cols-3">
             {model.points.map((p, i) => (
-              <li key={p.title} className="border-b border-line py-6 md:border-b-0 md:border-l md:px-6 md:first:border-l-0 md:first:pl-0">
-                <span aria-hidden="true" className="text-3xl font-extrabold text-cobalt">{i + 1}</span>
+              <li key={p.title} className="rounded-ui bg-granite p-6">
+                <span aria-hidden="true" className="text-3xl font-extrabold text-pine">{i + 1}</span>
                 <h3 className="mt-2 text-lg">{p.title}</h3>
                 <p className="mt-2 text-muted">{p.body}</p>
               </li>
@@ -65,17 +65,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section texture" aria-labelledby="values">
+      <section className="section chapter-mist" aria-labelledby="values">
         <div className="container-page">
           <SectionHeading id="values" title="What we value" />
-          <HairlineList items={values} className="mt-10" />
+          <FactList items={values} className="mt-10" />
         </div>
       </section>
 
-      <section className="section texture bg-linen" aria-labelledby="team">
+      <section className="section chapter-paper" aria-labelledby="team">
         <div className="container-page">
           <SectionHeading id="team" title={teamIntro.title} body={teamIntro.body} />
-          <HairlineList items={team.map((m) => ({ title: m.name, meta: m.role, body: m.bio }))} className="mt-10" />
+          <FactList items={team.map((m) => ({ title: m.name, meta: m.role, body: m.bio }))} className="mt-10" />
         </div>
       </section>
 

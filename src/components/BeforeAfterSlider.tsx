@@ -47,7 +47,7 @@ export function BeforeAfterSlider() {
   const id = useId();
   return (
     <div>
-      <div className="relative h-[230px] w-full select-none overflow-hidden rounded-ui border border-line shadow-lift sm:h-[260px]">
+      <div className="relative h-[230px] w-full select-none overflow-hidden rounded-ui border border-line sm:h-[260px]">
         <div className="absolute inset-0">
           <BeforeSite />
         </div>
@@ -55,7 +55,7 @@ export function BeforeAfterSlider() {
           <MiniSite content={foodPantryDemo} />
         </div>
         <div className="pointer-events-none absolute inset-y-0 w-0.5 bg-linen" style={{ left: `${value}%` }} aria-hidden="true">
-          <span className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-linen shadow-lift">
+          <span className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-linen">
             <svg viewBox="0 0 24 24" className="h-4 w-4 text-pine" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M8 7 4 12l4 5M16 7l4 5-4 5" />
             </svg>

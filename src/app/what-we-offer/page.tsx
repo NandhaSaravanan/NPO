@@ -16,12 +16,12 @@ export default function WhatWeOfferPage() {
   return (
     <>
       <PageHeader title={offerIntro.title} body={offerIntro.body} />
-      <section className="section texture">
+      <section className="section chapter-mist">
         <div className="container-page">
           <OfferTiers tiers={tiers} />
         </div>
       </section>
-      <section className="section texture bg-linen" aria-labelledby="offer-closing">
+      <section className="section chapter-paper" aria-labelledby="offer-closing">
         <div className="container-page max-w-2xl">
           <SectionHeading id="offer-closing" title={offerClosing.title} body={offerClosing.body} />
         </div>

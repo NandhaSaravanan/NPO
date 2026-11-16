@@ -14,7 +14,7 @@ const statusLabel: Record<CaseStudy["status"], string> = {
 };
 const statusStyle: Record<CaseStudy["status"], string> = {
   sample: "border-pine text-pine",
-  "in-progress": "border-cobalt text-cobalt-deep",
+  "in-progress": "border-pine text-pine",
   live: "border-pine bg-pine text-linen",
 };
 
@@ -42,24 +42,24 @@ function CardBody({ c }: { c: CaseStudy }) {
         <ul className="flex flex-wrap gap-2">
           <li className={`rounded-ui border px-2 py-0.5 text-sm font-semibold ${statusStyle[c.status]}`}>{statusLabel[c.status]}</li>
           {c.tags.map((t) => (
-            <li key={t} className="rounded-ui border border-line px-2 py-0.5 text-sm font-semibold text-muted">{t}</li>
+            <li key={t} className="rounded-ui bg-granite px-2.5 py-1 text-sm font-semibold">{t}</li>
           ))}
         </ul>
         <h3 className="mt-4 text-lg">{c.title}</h3>
         <p className="mt-1 font-semibold" style={{ color: "var(--card-accent)" }}>{c.orgType}</p>
         <p className="mt-3 text-muted">{c.summary}</p>
         {c.breakdown && (
-          <dl className="mt-4 space-y-2 border-t border-line pt-4 text-sm">
+          <dl className="mt-5 space-y-2 text-sm">
             <div>
-              <dt className="font-semibold text-cobalt-deep">Who it&apos;s for</dt>
+              <dt className="font-semibold text-pine">Who it&apos;s for</dt>
               <dd className="text-muted">{c.breakdown.audience}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-cobalt-deep">What it has to make easy</dt>
+              <dt className="font-semibold text-pine">What it has to make easy</dt>
               <dd className="text-muted">{c.breakdown.goal}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-cobalt-deep">Pages</dt>
+              <dt className="font-semibold text-pine">Pages</dt>
               <dd className="text-muted">{c.breakdown.pages}</dd>
             </div>
           </dl>
@@ -69,8 +69,8 @@ function CardBody({ c }: { c: CaseStudy }) {
             {c.results.map((r) => <li key={r}>{r}</li>)}
           </ul>
         )}
-        {c.url && <p className="mt-auto pt-5 font-semibold text-cobalt-deep">View live site →</p>}
-        {!c.url && c.demo && <p className="mt-auto pt-5 font-semibold text-cobalt-deep">View case study →</p>}
+        {c.url && <p className="mt-auto pt-5 font-semibold text-pine">View live site →</p>}
+        {!c.url && c.demo && <p className="mt-auto pt-5 font-semibold text-pine">View case study →</p>}
       </div>
     </>
   );
